@@ -21,7 +21,7 @@
 	</header><!-- .entry-header -->
 
 	
-	<?php if (get_option( 'rss_use_excerpt' )) : ?>
+	<?php if ( get_option( 'rss_use_excerpt' ) AND !is_single() )  : ?>
 	
 	
 		<div class="entry-listing">
@@ -30,6 +30,8 @@
 	
 			<div class="entry-summary">
 				<?php the_excerpt(); ?>
+				<?php echo nimblepress_get_read_more_button(); ?>
+				
 			</div><!-- .entry-summary -->
 			
 		</div>

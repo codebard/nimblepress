@@ -150,6 +150,23 @@ function nimblepress_scripts() {
 add_action( 'wp_enqueue_scripts', 'nimblepress_scripts' );
 
 /**
+ * Read more buttons
+ */
+function nimblepress_get_read_more_button() {
+	return '<a class="read-more" href="'. get_permalink( get_the_ID() ) .'">'. __( 'Read More', 'nimblepress' ) .'</a>';
+}
+
+/**
+ * Change [...] in excerpts to ...
+ */
+ 
+function nimblepress_excerpt_more( $more ) {
+	return '...';
+}
+add_filter( 'excerpt_more', 'nimblepress_excerpt_more' );
+
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
