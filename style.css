@@ -1219,8 +1219,22 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	margin: 0px;
 }
 
-@media (min-width: 601px) {
+.sub-menu {
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	margin-left: 2.5em;
+}
 
+.sub-menu .sub-menu {
+	margin-top: 1.5em;
+}
+
+.sub-menu li, .sub-menu li ul, .sub-menu li ul li {
+	background-color: #ffffff;
+}
+
+@media (min-width: 601px) {
 
 	.main-navigation {
 	  display: flex;
@@ -1252,6 +1266,25 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
     .site-header {
         width: 100%;
     }
+	
+	.main-navigation .nav-menu li {
+		display:block;
+		margin:5px;
+		margin-left:0px;
+	}
+	.main-navigation .sub-menu ul {
+		display: flex;
+		gap: 1em;
+		align-items: center;
+		justify-content: space-between;
+	}
+	
+	.sub-menu .sub-menu {
+		margin-top: 1.5em;
+		margin-left: 2.5em;
+	}
+
+	
 	
 }
 
