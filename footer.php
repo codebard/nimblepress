@@ -12,19 +12,18 @@
 ?>
 </div>
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'nimblepress' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'nimblepress' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'nimblepress' ), 'nimblepress', '<a href="https://codebard.com">Codebard</a>' );
-				?>
-		</div><!-- .site-info -->
+		<div class="footer-wrapper">
+			<div class="footer-widgets">
+				<?php dynamic_sidebar( 'footer_widgets' ); ?>
+			</div>
+			<div class="site-info">
+					<?php
+					/* translators: 1: Theme name, 2: Theme author. */
+					printf( esc_html__( 'Built with&nbsp;%1$s&nbsp;by&nbsp;%2$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank" rel="nofollow">NimblePress', 'Codebard</a>' );
+					?>
+					
+			</div><!-- .site-info -->
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

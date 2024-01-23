@@ -14,6 +14,28 @@ function nimblepress_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	
+	$wp_customize->add_setting( 'header_background_color' , array(
+		'default'   => '#fbfbfb',
+		'transport' => 'refresh',
+	) );
+	
+	$wp_customize->add_setting( 'footer_background_color' , array(
+		'default'   => '#fbfbfb',
+		'transport' => 'refresh',
+	) );
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_background_color', array(
+	'label'      => __( 'Header Background Color', 'nimblepress' ),
+	'section'    => 'colors',
+	'settings'   => 'header_background_color',
+	) ) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_background_color', array(
+	'label'      => __( 'Footer Background Color', 'nimblepress' ),
+	'section'    => 'colors',
+	'settings'   => 'footer_background_color',
+	) ) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(

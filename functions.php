@@ -167,6 +167,47 @@ add_filter( 'excerpt_more', 'nimblepress_excerpt_more' );
 
 
 /**
+ * Register footer widget area
+ */
+ 
+function register_widget_areas() {
+
+register_sidebar( array(
+	'name'          => 'Footer',
+	'id'            => 'footer_widgets',
+	'description'   => 'Put your footer widgets here',
+	'before_widget' => '<section class="footer-widget">',
+	'after_widget'  => '</section>',
+	'before_title'  => '',
+	'after_title'   => '',
+));
+
+}
+
+add_action( 'widgets_init', 'register_widget_areas' );
+
+
+/**
+ * Print customizer styles
+ */
+ 
+function nimblepress_customizer_styles()
+{
+    ?>
+         <style type="text/css">
+			 .site-header {
+					background-color: <?php echo get_theme_mod('header_background_color', '#fbfbfb'); ?>;
+			 }
+			 .site-footer {
+					background-color: <?php echo get_theme_mod('footer_background_color', '#fbfbfb'); ?>;
+			 }
+         </style>
+    <?php
+}
+add_action( 'wp_head', 'nimblepress_customizer_styles');
+
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

@@ -1,6 +1,6 @@
 /*!
 Theme Name: NimblePress
-Theme URI: http://underscores.me/
+Theme URI: https://codebard.com/nimblepress
 Author: Codebard
 Author URI: https://codebard.com
 Description: Description
@@ -12,14 +12,6 @@ License URI: LICENSE
 Text Domain: nimblepress
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned.
-
-nimblepress is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
 /*--------------------------------------------------------------
@@ -996,17 +988,14 @@ body {
 	width: 100%;
 	display:flex;
 	gap: 1em;
+	padding-top: 40px;
 }
-
-.site-header {
-	padding: 15px;
-}
-
 
 .site-main {
 	flex-grow: 1;
 	width:auto;
 	padding: 15px;
+	padding-top: 0px;
 	
 }
 
@@ -1020,11 +1009,6 @@ body {
 	flex-shrink:0;
 	padding: 15px;
 
-}
-
-.site-footer {
-	margin-top: 20px;
-	padding: 10px;
 }
 
 .widget {
@@ -1195,7 +1179,8 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	width : 100%;
 	padding: 0px;
 	margin: 0px;
-	padding-top: 10px;
+	padding: 15px;
+
 }
 
 .site-header-wrapper {
@@ -1224,10 +1209,6 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	display: flex;
 	flex-direction: column;
 	margin-left: 2.5em;
-}
-
-.sub-menu .sub-menu {
-	margin-top: 1.5em;
 }
 
 .sub-menu li, .sub-menu li ul, .sub-menu li ul li {
@@ -1284,15 +1265,98 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		margin-left: 2.5em;
 	}
 
-	
-	
 }
-
 
 .nav-menu .menu-item:hover {
 	text-decoration: underline;
 }
 
+.nav-menu .menu-item a:link,
+.nav-menu .menu-item a:hover,
+.nav-menu .menu-item a:visited,
+.nav-menu .menu-item a:active
+{
+	color: #404040;
+	font-weight: 600;
+}
+
+
 .wp-block-latest-posts li {
 	margin-bottom: 10px;
 }
+
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	width : 100%;
+	margin: 0px;
+	margin-top: 40px;
+	padding: 10px;
+	padding-top: 40px;
+}
+
+.footer-wrapper {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	max-width: 1200px;
+	width: 100%;
+	gap: 1em;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.footer-widgets {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	max-width: 1200px;
+	width: 100%;
+	gap: 1em;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.footer-widget {
+	width: 300px;
+	flex-flow: column;
+	padding: 10px;
+}
+
+.site-info {
+  display: flex;
+  flex-grow: 1;
+  min-width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.site-header {
+	background-color: #fbfbfb;
+	box-shadow: 0 -6px 10px 3px rgba(0,0,0,0.3);
+}
+
+
+.site-footer {
+	background-color: #fbfbfb;
+	box-shadow: 0 6px 10px 3px rgba(0,0,0,0.3);
+}
+
+.footer-widget ul, .footer-widget ol {
+	margin-left: 0px;
+	padding-left: 0px;
+	list-style: none;
+}
+
+
+@media (max-width: 712px) {
+	
+.footer-widget {
+	flex-grow: 1;
+}
+
