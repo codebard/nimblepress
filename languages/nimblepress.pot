@@ -196,3 +196,11 @@ msgstr ""
 #: template-parts/content.php:40
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
+
+#. Header Background Color
+msgid "Header Background Color"
+msgstr ""
+
+#. Footer Background Color
+msgid "Footer Background Color"
+msgstr ""
