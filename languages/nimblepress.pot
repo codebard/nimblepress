@@ -204,3 +204,67 @@ msgstr ""
 #. Footer Background Color
 msgid "Footer Background Color"
 msgstr ""
+
+#. Header Shadow
+msgid "Header Shadow"
+msgstr ""
+
+#. Footer Shadow
+msgid "Header Shadow"
+msgstr ""
+
+#. Widget Shadow
+msgid "Widget Shadow"
+msgstr ""
+
+#. Widget Background Color
+msgid "Widget Background Color"
+msgstr ""
+
+#. Layout
+msgid "Layout"
+msgstr ""
+
+#. Site Width
+msgid "Site Width"
+msgstr ""
+
+#. Header Height (default: auto)
+msgid "Header Height (default: auto)"
+msgstr ""
+
+#. Footer Height (default: auto)
+msgid "Footer Height (default: auto)"
+msgstr ""
+
+#. Site Contained/Full Width 
+msgid "Site Contained/Full Width"
+msgstr ""
+
+#. Full Width 
+msgid "Full Width"
+msgstr ""
+
+#. Contained 
+msgid "Contained"
+msgstr ""
+
+#. Site Background Color 
+msgid "Site Background Color"
+msgstr ""
+
+#. Body Background Color 
+msgid "Body Background Color"
+msgstr ""
+
+#. Site Border Size
+msgid "Site Border Size"
+msgstr ""
+
+#. Site Border Color
+msgid "Site Border Color"
+msgstr ""
+
+#. Site Shadow Color
+msgid "Site Shadow Color"
+msgstr ""

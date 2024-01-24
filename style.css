@@ -1007,15 +1007,14 @@ body {
 	width: 320px; /* A fixed width as the default */
 	flex-grow:0;
 	flex-shrink:0;
-	padding: 15px;
-
+    
 }
 
 .widget {
     margin: 0 0 30px;
 	padding : 
     box-sizing: border-box;
-	 box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 16px;
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 16px;
 }
 
 .widget ul li {
@@ -1032,6 +1031,7 @@ body {
 .widget-area .widget, .footer-widgets .widget {
     font-size: 16px;
 	padding : 20px;
+	padding-top : 30px;
 }
 
 .site-main {
@@ -1311,7 +1311,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 .footer-widgets {
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: flex-start;
 	max-width: 1200px;
 	width: 100%;
@@ -1338,13 +1338,12 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 
 .site-header {
 	background-color: #fbfbfb;
-	box-shadow: 0 -6px 10px 3px rgba(0,0,0,0.3);
+	box-shadow: 0 1px 8px 1px rgba(0,0,0,0.08);
 }
-
 
 .site-footer {
 	background-color: #fbfbfb;
-	box-shadow: 0 6px 10px 3px rgba(0,0,0,0.3);
+	box-shadow: 0 -1px 8px 1px rgba(0,0,0,0.08);
 }
 
 .footer-widget ul, .footer-widget ol {
@@ -1353,10 +1352,10 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	list-style: none;
 }
 
-
 @media (max-width: 712px) {
 	
-.footer-widget {
-	flex-grow: 1;
-}
+	.footer-widget {
+		flex-grow: 1;
+	}
 
+}
