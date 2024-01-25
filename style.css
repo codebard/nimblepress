@@ -1359,3 +1359,17 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	}
 
 }
+
+.comment-metadata time {
+	font-size: 0.75em;
+}
+
+
+.comment-author {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5em;
+}
+
+.says { font-size: 0; }

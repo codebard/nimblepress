@@ -16,9 +16,13 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-<style>
-    <?php include get_template_directory() . '/style.css'; ?>
-</style>
+	
+	<?php if (get_theme_mod('np_inline_the_css', 'yes') == 'yes'): ?>
+	
+		<style>
+			<?php include get_template_directory() . '/style.css'; ?>
+		</style>
+	<?php endif ?>
 	<?php wp_head(); ?>
 </head>
 
