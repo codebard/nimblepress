@@ -405,6 +405,26 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
+#. (only for pages)
+msgid " (only for pages)"
+msgstr ""
+
+#. Header
+msgid "Header"
+msgstr ""
+
 #. Hide
 msgid "Hide"
+msgstr ""
+
+#. Comments
+msgid "Comments"
+msgstr ""
+
+#. Post Navigation
+msgid "Post Navigation"
+msgstr ""
+
+#. Post Metadata
+msgid "Post Metadata"
 msgstr ""

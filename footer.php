@@ -11,9 +11,9 @@
  
 global $post;
 
+$nimblepress_hide_footer = False;
 if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	
-	$nimblepress_hide_footer = False;
 	$nimblepress_footer_status = nimblepress_get_post_meta_value( $post, 'footer' );
 	if ( $nimblepress_footer_status AND $nimblepress_footer_status == 'hide' ) {
 		$nimblepress_hide_footer = True;
@@ -26,7 +26,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 </div>
 
 	<?php
-		if ( !$nimblepress_hide_footer ):
+		if ( !$nimblepress_hide_footer):
 	?>
 
 	<footer id="colophon" class="site-footer">

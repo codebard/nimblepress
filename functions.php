@@ -291,12 +291,24 @@ function nimblepress_gen_metabox( $post ) {
 
 	echo '<div class="nimblepress_post_meta_entry">';
 		echo '<div class="nimblepress_post_meta_entry_title">';
-			echo __( 'Title', 'nimblepress' );
+			echo __( 'Header', 'nimblepress' );
 		echo '</div>';
 		echo '<div class="nimblepress_post_meta_entry_value">';
-			echo '<select name="nimblepress_post_meta[title]">';
-				echo '<option value="show" ' . ( ( $post_meta['title'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
-				echo '<option value="hide" ' . ( ( $post_meta['title'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '<select name="nimblepress_post_meta[header]">';
+				echo '<option value="show" ' . ( ( $post_meta['header'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['header'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Nav Menu', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[nav_menu]">';
+				echo '<option value="show" ' . ( ( $post_meta['nav_menu'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['nav_menu'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
 			echo '</select>';
 		echo '</div>';
 	echo '</div>';
@@ -309,6 +321,54 @@ function nimblepress_gen_metabox( $post ) {
 			echo '<select name="nimblepress_post_meta[sidebar]">';
 				echo '<option value="show" ' . ( ( $post_meta['sidebar'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
 				echo '<option value="hide" ' . ( ( $post_meta['sidebar'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Title', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[title]">';
+				echo '<option value="show" ' . ( ( $post_meta['title'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['title'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Post Navigation', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[post_nav]">';
+				echo '<option value="show" ' . ( ( $post_meta['post_nav'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['post_nav'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Post Metadata', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[post_metadata]">';
+				echo '<option value="show" ' . ( ( $post_meta['post_metadata'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['post_metadata'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Comments', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[comments]">';
+				echo '<option value="show" ' . ( ( $post_meta['comments'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['comments'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
 			echo '</select>';
 		echo '</div>';
 	echo '</div>';
@@ -366,6 +426,10 @@ function nimblepress_get_default_post_meta() {
 		'sidebar' => 'show',
 		'title' => 'show',
 		'footer' => 'show',
+		'header' => 'show',
+		'nav_menu' => 'show',
+		'comments' => 'show',
+		'post_nav' => 'show',
 	
 	);
 	

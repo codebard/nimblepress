@@ -7,7 +7,38 @@
  * @package nimblepress
  */
  
-global $nimblepress_hide_title;
+
+
+$nimblepress_hide_title = False;
+
+if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
+	
+	$nimblepress_title_status = nimblepress_get_post_meta_value( $post, 'title' );
+	if ( $nimblepress_title_status AND $nimblepress_title_status == 'hide' ) {
+		$nimblepress_hide_title = True;
+	}
+}
+
+$nimblepress_hide_post_navigation = False;
+
+if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
+	
+	$nimblepress_post_nav_status = nimblepress_get_post_meta_value( $post, 'post_nav' );
+	if ( $nimblepress_post_nav_status AND $nimblepress_post_nav_status == 'hide' ) {
+		$nimblepress_hide_post_navigation = True;
+	}
+}
+
+
+$nimblepress_hide_post_metadata = False;
+
+if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
+	
+	$nimblepress_post_metadata_status = nimblepress_get_post_meta_value( $post, 'post_metadata' );
+	if ( $nimblepress_post_metadata_status AND $nimblepress_post_metadata_status == 'hide' ) {
+		$nimblepress_hide_post_metadata = True;
+	}
+}
 
 ?>
 
@@ -45,7 +76,7 @@ global $nimblepress_hide_title;
 				)
 			);
 
-			if ( !$nimblepress_hide_title ) {
+			if ( !$nimblepress_hide_post_navigation ) {
 				wp_link_pages(
 					array(
 						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'nimblepress' ),
@@ -57,7 +88,7 @@ global $nimblepress_hide_title;
 		</div><!-- .entry-content -->
 
 		
-		<?php if ( !$nimblepress_hide_title )  : ?>
+		<?php if ( !$nimblepress_hide_post_metadata )  : ?>
 
 			<footer class="entry-footer">
 				<?php if ( 'post' === get_post_type() ) : ?>
