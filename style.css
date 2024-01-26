@@ -1295,6 +1295,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	margin-top: 40px;
 	padding: 10px;
 	padding-top: 40px;
+	padding-bottom: 0px;
 }
 
 .footer-wrapper {

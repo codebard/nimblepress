@@ -145,8 +145,27 @@ function nimblepress_widgets_init() {
 add_action( 'widgets_init', 'nimblepress_widgets_init' );
 
 /**
+ * Enqueue the few admin styles
+ */
+ 
+ 
+function nimblepress_admin_css() {
+
+	echo '<style>';
+	
+		include get_template_directory() . '/admin-styles.css';
+	
+	echo '</style>';
+
+}
+ 
+ add_action( 'admin_head', 'nimblepress_admin_css' );
+ 
+ 
+/**
  * Enqueue scripts and styles.
  */
+ 
 function nimblepress_scripts() {
 	
 	if ( get_theme_mod('np_inline_the_css', 'yes') != 'yes' ) {
@@ -217,15 +236,206 @@ function nimblepress_get_web_safe_fonts() {
 
 
 /**
- * Remove 'says' from comments
+ * Add NP meta boxes
  */
  
 
-function nimblepress_remove_says() {
-    return '';
+function nimblepress_add_metabox() {
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+
+	global $post;
+
+	$post_types = get_post_types( array( 'public' => true ) );
+
+	foreach ( $post_types as $type ) {
+		if ( 'attachment' !== $type ) {
+			add_meta_box(
+				'nimblepress_metabox',
+				esc_html( __( 'Layout', 'nimblepress' ) ),
+				'nimblepress_gen_metabox',
+				$type,
+				'side'
+			);
+		}
+	}
 }
 
-add_filter( 'comment_author_says_text', 'nimblepress_remove_says' );
+add_action( 'add_meta_boxes', 'nimblepress_add_metabox' );
+
+/**
+ * NP meta box
+ */
+ 
+
+function nimblepress_gen_metabox( $post ) {
+
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+	
+	
+	$default_post_meta = nimblepress_get_default_post_meta();
+	
+	$post_meta = get_post_meta( $post->ID, 'nimblepress_post_meta', true );
+	
+	if  ( $post_meta AND $post_meta != '' ) {
+		$post_meta = json_decode ( $post_meta, true );
+	}
+	
+	if ( !( is_array( $post_meta ) AND count( $post_meta ) > 0 ) ) {
+		
+		$post_meta = $default_post_meta;
+	}
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Title', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[title]">';
+				echo '<option value="show" ' . ( ( $post_meta['title'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['title'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Sidebar', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[sidebar]">';
+				echo '<option value="show" ' . ( ( $post_meta['sidebar'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['sidebar'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Footer', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[footer]">';
+				echo '<option value="show" ' . ( ( $post_meta['footer'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['footer'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+	
+	
+	wp_nonce_field('nimblepress_save_post_meta', 'nimblepress_save_post_meta_nonce');
+	
+}
+
+/**
+ * Registers the meta
+ *
+ */
+ 
+function nimblepress_register_post_meta() {
+	
+	$post_types = get_post_types( array( 'public' => true ) );
+	
+	foreach ( $post_types as $key => $value ) {
+		
+		register_meta( 'post', 'nimblepress_post_meta', array(
+			'show_in_rest' => true,
+			'type' => 'string',
+			'single' => true,
+			'sanitize_callback' => '',
+			'auth_callback' => function() {
+				return current_user_can( 'edit_posts' );
+			}
+		) );
+	}
+}
+
+add_action('init', 'nimblepress_register_post_meta');
+
+
+/**
+* NP post meta defaults
+*/
+
+function nimblepress_get_default_post_meta() {
+	
+	return array (
+		'sidebar' => 'show',
+		'title' => 'show',
+		'footer' => 'show',
+	
+	);
+	
+}
+
+
+/**
+ * NP save post meta 
+ */
+ 
+
+function nimblepress_save_post_meta( $post_id, $post ) {
+
+
+	/* Verify the nonce before proceeding. \*/
+	if ( !isset( $_POST['nimblepress_save_post_meta_nonce'] ) OR !wp_verify_nonce( $_POST['nimblepress_save_post_meta_nonce'], 'nimblepress_save_post_meta' ) ) {
+		return $post_id;
+	}
+
+	// check autosave
+	if ( wp_is_post_autosave( $post_id ) )
+	return 'autosave';
+
+	//check post revision
+	if ( wp_is_post_revision( $post_id ) )
+	return 'revision';
+
+	// check permissions
+
+	if ( ! current_user_can( 'edit_page', $post_id ) ) {
+		return 'cannot edit page';
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return 'cannot edit post';
+	}
+	
+	$post_meta = $_POST['nimblepress_post_meta'];
+
+	foreach ( $post_meta as $key => $value ) {
+		$post_meta[$key] = sanitize_text_field( $post_meta[$key] );
+	}
+
+	update_post_meta( $post_id, 'nimblepress_post_meta', json_encode( $post_meta ) );
+
+}
+
+add_action( 'save_post', 'nimblepress_save_post_meta', 10, 2 );
+add_action( 'new_to_publish', 'nimblepress_save_post_meta', 10, 2 );
+
+
+function nimblepress_get_post_meta_value( $post, $meta ) {
+		
+	if ( !( $post AND isset( $post->ID ) ) ) {
+		return false;
+	}
+		
+	$nimblepress_post_meta = get_post_meta( $post->ID, 'nimblepress_post_meta', true );
+	
+	if ( $nimblepress_post_meta AND $nimblepress_post_meta != '' ) {
+		$nimblepress_post_meta = json_decode( $nimblepress_post_meta, true );
+		if (is_array ( $nimblepress_post_meta ) AND count( $nimblepress_post_meta ) > 0 AND isset( $nimblepress_post_meta[$meta] )  ) {
+			
+			return $nimblepress_post_meta[$meta];
+		}
+	}
+	
+	return false;
+	
+}
+
 
 /**
  * Register footer widget area
@@ -254,6 +464,18 @@ add_action( 'widgets_init', 'nimblepress_register_widget_areas' );
  
 function nimblepress_customizer_styles()
 {
+
+
+	global $post;
+
+	if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
+		
+		$nimblepress_hide_title = False;
+		$nimblepress_title_status = nimblepress_get_post_meta_value( $post, 'title' );
+		if ( $nimblepress_title_status AND $nimblepress_title_status == 'hide' ) {
+			$nimblepress_hide_title = True;
+		}
+	}
 
     ?>
          <style type="text/css">
@@ -313,6 +535,22 @@ function nimblepress_customizer_styles()
 				background-color: <?php echo esc_html( get_theme_mod('np_widget_background_color', '#ffffff') ); ?>;
 				box-shadow: 0px 1px 8px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'nb_widget_shadow', '#000000' ) ) ) ?>, 0.08);
 			}
+			
+			<?php
+				if( $nimblepress_hide_title ):
+			?>
+				#main-content {
+					padding-top: 0px;
+				}
+				.entry-content {
+					margin-top: 0px;
+				}
+			
+			<?php
+				endif;
+			?>
+				
+			
          </style>
     <?php
 }

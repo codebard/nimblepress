@@ -392,3 +392,19 @@ msgstr ""
 #. Built with
 msgid "Built with"
 msgstr ""
+
+#. Layout
+msgid "Layout"
+msgstr ""
+
+#. Title
+msgid "Title"
+msgstr ""
+
+#. Show
+msgid "Show"
+msgstr ""
+
+#. Hide
+msgid "Hide"
+msgstr ""
