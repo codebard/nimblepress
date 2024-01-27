@@ -639,19 +639,19 @@ function nimblepress_add_css_classes_to_nav_menu( $classes, $item, $args, $depth
 
 function nimblepress_chevron_to_nav_menu( $item_output, $item, $depth, $args ) {
 
-	add_action( 'nav_menu_css_class', 'nimblepress_add_css_classes_to_nav_menu', 10, 4 );
-
+	$icon = '';
+	// add_action( 'nav_menu_css_class', 'nimblepress_add_css_classes_to_nav_menu', 10, 4 );
 
     if ( !empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
-
-        return $item_output . '<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z"/></svg></a>';
+		$icon = '<svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z"/></svg>';
     }
 
-    return $item_output;
+    return '<div class="nimblepress-menu-link">' . $item_output . '</div><div class="nimblepress-arrow-icon">' . $icon . '</div>';
+
 }
 
 
-// add_filter( 'walker_nav_menu_start_el', 'nimblepress_chevron_to_nav_menu', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'nimblepress_chevron_to_nav_menu', 10, 4 );
 
 
 /**
