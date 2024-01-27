@@ -42,7 +42,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 							printf( esc_html__( 'Built with&nbsp;%1$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank" rel="nofollow">NimblePress</a>' );
 			
 				?>
-					
+				
 			</div><!-- .site-info -->
 		</div>
 	</footer><!-- #colophon -->

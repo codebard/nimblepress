@@ -25,11 +25,6 @@ function nimblepress_customize_register( $wp_customize ) {
 		'priority'   => 6,
 	) );
 
-	$wp_customize->add_section( 'np_seo' , array(
-		'title'      => __( 'SEO', 'nimblepress' ),
-		'priority'   => 6,
-	) );
-
 	$wp_customize->add_section( 'np_misc' , array(
 		'title'      => __( 'Misc', 'nimblepress' ),
 		'priority'   => 916,
@@ -316,29 +311,10 @@ function nimblepress_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 
 		new WP_Customize_Control(
 			$wp_customize,
-			'np_hide_nimblepress_link_in_footer',
-			array(
-					'label'          => __( 'Hide NimblePress link in footer', 'nimblepress' ),
-					'section'        => 'np_misc',
-					'settings'       => 'np_hide_nimblepress_link_in_footer',
-					'description' => __( 'Hides the link to NimblePress in footer. If you keep the link to help the theme, we\'d appreciate it!', 'nimblepress' ),
-					'type'           => 'radio',
-					'priority'              => 2,
-					'choices'               => array(
-					'yes'                  => __('Yes', 'nimblepress'),
-					'no'                  => __('No', 'nimblepress'),
-				)
-			)
-		)
-	);
-
-	$wp_customize->add_control( 
-		new WP_Customize_Control(
-			$wp_customize,
 			'np_inline_the_css',
 			array(
 					'label'          => __( 'Inline the css', 'nimblepress' ),
-					'section'        => 'np_seo',
+					'section'        => 'np_misc',
 					'settings'       => 'np_inline_the_css',
 					'description' => __( 'Loads the already small theme CSS inline and makes the site faster by avoiding render-blocking and one extra call', 'nimblepress' ),
 					'type'           => 'radio',

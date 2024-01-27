@@ -622,6 +622,39 @@ add_action( 'wp_head', 'nimblepress_customizer_styles');
 
 
 /**
+ * Nav menu class related
+*/
+
+
+function nimblepress_add_css_classes_to_nav_menu( $classes, $item, $args, $depth ) {
+
+	$classes = array_filter( get_post_meta( $item->ID, '_menu_item_classes', true ) );
+
+	$classes[] = "has-submenu";
+	
+	return $classes;
+
+}
+
+
+function nimblepress_chevron_to_nav_menu( $item_output, $item, $depth, $args ) {
+
+	add_action( 'nav_menu_css_class', 'nimblepress_add_css_classes_to_nav_menu', 10, 4 );
+
+
+    if ( !empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+
+        return $item_output . '<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z"/></svg></a>';
+    }
+
+    return $item_output;
+}
+
+
+// add_filter( 'walker_nav_menu_start_el', 'nimblepress_chevron_to_nav_menu', 10, 4 );
+
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
