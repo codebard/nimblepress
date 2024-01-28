@@ -72,55 +72,89 @@ function nimblepress_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_html',
 	) );
 		
-	$wp_customize->add_setting( 'site_background_color' , array(
-		'default'   => '',
+	$wp_customize->add_setting( 'np_site_background_color' , array(
+		'default'   => '#ffffff',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
 
-	$wp_customize->add_setting( 'body_background_color' , array(
-		'default'   => '',
+	$wp_customize->add_setting( 'np_body_background_color' , array(
+		'default'   => '#ffffff',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
 
-	$wp_customize->add_setting( 'site_border_size' , array(
+	$wp_customize->add_setting( 'np_site_border_size' , array(
 		'default'   => '0',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
 
-	$wp_customize->add_setting( 'site_border_color' , array(
+	$wp_customize->add_setting( 'np_site_border_color' , array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
 
-	$wp_customize->add_setting( 'site_shadow_color' , array(
+	$wp_customize->add_setting( 'np_site_shadow_color' , array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
 
-	$wp_customize->add_setting( 'header_background_color' , array(
+	$wp_customize->add_setting( 'np_header_background_color' , array(
 		'default'   => '#fbfbfb',
-		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
-	) );
-
-	$wp_customize->add_setting( 'header_shadow' , array(
-		'default'   => '#000000',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
 	
-	$wp_customize->add_setting( 'footer_background_color' , array(
+
+	$wp_customize->add_setting( 'np_header_shadow' , array(
+		'default'   => '#000000',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
+	$wp_customize->add_setting( 'np_menu_link_color' , array(
+		'default'   => '#404040',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
+
+	$wp_customize->add_setting( 'np_heading_color' , array(
+		'default'   => '#404040',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
+	$wp_customize->add_setting( 'np_button_background_color' , array(
+		'default'   => '#2f4d80',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
+	$wp_customize->add_setting( 'np_button_hover_background_color' , array(
+		'default'   => '#4075cb',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
+
+	$wp_customize->add_setting( 'np_button_text_color' , array(
+		'default'   => '#ffffff',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
+	
+	$wp_customize->add_setting( 'np_footer_background_color' , array(
 		'default'   => '#fbfbfb',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
 
-	$wp_customize->add_setting( 'footer_shadow' , array(
+	$wp_customize->add_setting( 'np_footer_shadow' , array(
 		'default'   => '#000000',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
@@ -132,7 +166,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_html',
 	) );
 
-	$wp_customize->add_setting( 'nb_widget_shadow' , array(
+	$wp_customize->add_setting( 'np_widget_shadow' , array(
 		'default'   => '#000000',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
@@ -156,80 +190,127 @@ function nimblepress_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_html',
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_background_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_background_color', array(
 		'label'      => __( 'Site Background Color', 'nimblepress' ),
 		'description' => __( 'The site-wide background color', 'nimblepress' ),
 		'section'    => 'colors',
-		'priority'              => 2,
-		'settings'   => 'site_background_color',
+		'priority'              => 11,
+		'settings'   => 'np_site_background_color',
 	) ) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_background_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_body_background_color', array(
 		'label'      => __( 'Body Background Color', 'nimblepress' ),
 		'description' => __( 'Background color for the main content area', 'nimblepress' ),
 		'section'    => 'colors',
-		'priority'              => 3,
-		'settings'   => 'body_background_color',
+		'priority'              => 12,
+		'settings'   => 'np_body_background_color',
 	) ) );
 	
 
 	$wp_customize->add_control(
 		new WP_Customize_Control(
 			$wp_customize,
-			'site_border_size',
+			'np_site_border_size',
 			array(
 				'label'          => __( 'Site Border Size', 'nimblepress' ),
 				'section'        => 'colors',
 				'description' => __( 'Border size for entire site - not used if the site is not set to "contained" width.', 'nimblepress' ),
-				'settings'       => 'site_border_size',
+				'settings'       => 'np_site_border_size',
 				'type'           => 'text',
-			'priority'              => 4,
+			'priority'              => 13,
 			)
 		)
 	);
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_border_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_border_color', array(
 		'label'      => __( 'Site Border Color', 'nimblepress' ),
 		'section'    => 'colors',
 		'description' => __( 'Border color for the site border above - not used if the site is not set to "contained" width.', 'nimblepress' ),
-		'settings'   => 'site_border_color',
-		'priority'              => 5,
+		'settings'   => 'np_site_border_color',
+		'priority'              => 14,
 	) ) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_shadow_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_shadow_color', array(
 		'label'      => __( 'Site Shadow Color', 'nimblepress' ),
 		'section'    => 'colors',
 		'description' => __( 'Site shadow & color - not used if the site is not set to "contained" width.', 'nimblepress' ),
-		'settings'   => 'site_shadow_color',
-		'priority'              => 6,
+		'settings'   => 'np_site_shadow_color',
+		'priority'              => 15,
 	) ) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_background_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_header_background_color', array(
 		'label'      => __( 'Header Background Color', 'nimblepress' ),
 		'section'    => 'colors',
 		'description' => __( 'The background for the header', 'nimblepress' ),
-		'settings'   => 'header_background_color',
+		'settings'   => 'np_header_background_color',
+		'priority'              => 16,
 	) ) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_shadow', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_header_shadow', array(
 		'label'      => __( 'Header Shadow', 'nimblepress' ),
 		'section'    => 'colors',
 		'description' => __( 'Shadow for the header. Set to your site or body color to make disappear.', 'nimblepress' ),
-		'settings'   => 'header_shadow',
+		'settings'   => 'np_header_shadow',
+		'priority'              => 17,
+	) ) );
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_button_background_color', array(
+		'label'      => __( 'Button Background Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'The background color for buttons.', 'nimblepress' ),
+		'settings'   => 'np_button_background_color',
+		'priority'              => 18,
 	) ) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_background_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_button_hover_background_color', array(
+		'label'      => __( 'Button Hover Background Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'The background color for buttons when hovered.', 'nimblepress' ),
+		'settings'   => 'np_button_hover_background_color',
+		'priority'              => 19,
+	) ) );
+	
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_menu_link_color', array(
+		'label'      => __( 'Menu Link Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Colors of link in the header menu.', 'nimblepress' ),
+		'settings'   => 'np_menu_link_color',
+		'priority'              => 20,
+	) ) );
+	
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_heading_color', array(
+		'label'      => __( 'Heading Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Color for the headings across the site.', 'nimblepress' ),
+		'settings'   => 'np_heading_color',
+		'priority'              => 21,
+	) ) );
+	
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_button_text_color', array(
+		'label'      => __( 'Button Text Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'The color for the text on the buttons.', 'nimblepress' ),
+		'settings'   => 'np_button_text_color',
+		'priority'              => 22,
+	) ) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_footer_background_color', array(
 		'label'      => __( 'Footer Background Color', 'nimblepress' ),
 		'section'    => 'colors',
 		'description' => __( 'Background color of the footer', 'nimblepress' ),
-		'settings'   => 'footer_background_color',
+		'settings'   => 'np_footer_background_color',
+		'priority'              => 23,
 	) ) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_shadow', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_footer_shadow', array(
 		'label'      => __( 'Footer Shadow', 'nimblepress' ),
 		'section'    => 'colors',
 		'description' => __( 'Shadow for the footer. Set to your site or body color to make disappear.', 'nimblepress' ),
-		'settings'   => 'footer_shadow',
+		'settings'   => 'np_footer_shadow',
+		'priority'              => 24,
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_widget_background_color', array(
@@ -237,13 +318,15 @@ function nimblepress_customize_register( $wp_customize ) {
 		'section'    => 'colors',
 		'description' => __( 'Background color for the individual widgets.', 'nimblepress' ),
 		'settings'   => 'np_widget_background_color',
+		'priority'              => 25,
 	) ) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'nb_widget_shadow', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_widget_shadow', array(
 		'label'      => __( 'Widget Shadow', 'nimblepress' ),
 		'section'    => 'colors',
 		'description' => __( 'Shadow for the widgets. Set to your site or body color to make disappear.', 'nimblepress' ),
-		'settings'   => 'nb_widget_shadow',
+		'settings'   => 'np_widget_shadow',
+		'priority'              => 26,
 	) ) );
 
 

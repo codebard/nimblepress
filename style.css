@@ -1442,3 +1442,16 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	}
 
 }
+
+
+button, .read-more, html input[type="button"], input[type="reset"], input[type="submit"], a.button, a.wp-block-button__link:not(.has-background) {
+    color: #ffffff;
+    background-color: #2f4d80;
+}
+
+
+button:hover, .read-more:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, a.button:hover, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, a.button:focus, a.wp-block-button__link:not(.has-background):active, a.wp-block-button__link:not(.has-background):focus, a.wp-block-button__link:not(.has-background):hover {
+    color: #ffffff;
+    background-color: #4075cb;
+	cursor: pointer;
+}

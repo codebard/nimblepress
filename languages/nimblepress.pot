@@ -428,3 +428,43 @@ msgstr ""
 #. Post Metadata
 msgid "Post Metadata"
 msgstr ""
+
+#. Button Background Color
+msgid "Button Background Color"
+msgstr ""
+
+#. The background color for buttons.
+msgid "The background color for buttons."
+msgstr ""
+
+#. Button Hover Background Color
+msgid "Button Hover Background Color"
+msgstr ""
+
+#. The background color for buttons when hovered.
+msgid "The background color for buttons when hovered."
+msgstr ""
+
+#. Button Text Color
+msgid "Button Text Color"
+msgstr ""
+
+#. Button Text Color
+msgid "The color for the text on the buttons."
+msgstr ""
+
+#. Menu Link Color
+msgid "Menu Link Color"
+msgstr ""
+
+#. Colors of link in the header menu.
+msgid "Colors of link in the header menu."
+msgstr ""
+
+#. Heading Color
+msgid "Heading Color."
+msgstr ""
+
+#. Color for the headings across the site.
+msgid "Color for the headings across the site."
+msgstr ""

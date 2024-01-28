@@ -544,10 +544,12 @@ function nimblepress_customizer_styles()
     ?>
          <style type="text/css">
 			body {
+				background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				font-family: <?php echo esc_html( get_theme_mod('np_body_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 			}
 			h1, h2, h3, h4, h5, h6 {
 				font-family: <?php echo esc_html( get_theme_mod('np_heading_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+				color: <?php echo esc_html( get_theme_mod('np_heading_color', '#ffffff') ); ?>;
 			}
 			.nav-menu a:link, .nav-menu a:active, .nav-menu a:visited, .nav-menu a:hover {
 				font-family: <?php echo esc_html( get_theme_mod('np_nav_menu_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -559,20 +561,20 @@ function nimblepress_customizer_styles()
 				<?php if ( esc_html( get_theme_mod( 'np_site_full_width_or_contained', 'full_width' ) ) == 'contained' ): ?>
 				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
 				<?php endif ?>
-				<?php if ( esc_html( get_theme_mod('site_background_color', '') ) != '' ): ?>
-					background-color: <?php echo esc_html( get_theme_mod('site_background_color', '') ); ?>;
+				<?php if ( esc_html( get_theme_mod('np_site_background_color', '') ) != '' ): ?>
+					background-color: <?php echo esc_html( get_theme_mod('np_site_background_color', '') ); ?>;
 				<?php endif ?>
-				<?php if ( esc_html( get_theme_mod( 'site_border_size', '' ) ) != '0' ): ?>
-					border: <?php echo esc_html( get_theme_mod('site_border_size', '0') ); ?>px solid <?php echo esc_html( get_theme_mod('site_border_color', '#ffffff') ); ?>;
+				<?php if ( esc_html( get_theme_mod( 'np_site_border_size', '' ) ) != '0' ): ?>
+					border: <?php echo esc_html( get_theme_mod('np_site_border_size', '0') ); ?>px solid <?php echo esc_html( get_theme_mod('site_border_color', '#ffffff') ); ?>;
 				<?php endif ?>
-				<?php if ( esc_html( get_theme_mod('site_shadow_color', '#ffffff' ) ) != '' ): ?>
-					box-shadow: 0 2px 8px 2px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'site_shadow_color', '#ffffff' ) ) );  ?>,0.1);
+				<?php if ( esc_html( get_theme_mod('np_site_shadow_color', '#ffffff' ) ) != '' ): ?>
+					box-shadow: 0 2px 8px 2px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'np_site_shadow_color', '#ffffff' ) ) );  ?>,0.1);
 				<?php endif ?>
 			}
 			#main-content {
-				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
-				<?php if ( esc_html( get_theme_mod('site_background_color', '') ) != '' ): ?>
-					background-color: <?php echo esc_html( get_theme_mod('body_background_color', '') ); ?>;
+				max-width : <?php echo esc_html( get_theme_mod('np_np_site_width', '1200') ); ?>px;
+				<?php if ( esc_html( get_theme_mod('np_site_background_color', '') ) != '' ): ?>
+					background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				<?php endif ?>
 			}
 			.site-header-wrapper {
@@ -582,22 +584,40 @@ function nimblepress_customizer_styles()
 				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
 			}
 			.site-header {
-				background-color: <?php echo esc_html( get_theme_mod('header_background_color', '#fbfbfb') ); ?>;
-				box-shadow: 0 1px 8px 1px rgba(<?php echo nimblepress_hex_to_rgb( get_theme_mod( 'header_shadow', '#000000' ) ) ?>,0.08);
+				background-color: <?php echo esc_html( get_theme_mod('np_header_background_color', '#fbfbfb') ); ?>;
+				box-shadow: 0 1px 8px 1px rgba(<?php echo nimblepress_hex_to_rgb( get_theme_mod( 'np_header_shadow', '#000000' ) ) ?>,0.08);
 				<?php if ( esc_html( get_theme_mod('np_header_height', 'auto') ) != 'auto' ): ?>
 					min-height : <?php echo esc_html( get_theme_mod( 'np_header_height', 'auto' ) ); ?>px;
 				<?php endif ?>
 			}
 			.site-footer {
-				background-color: <?php echo esc_html( get_theme_mod('footer_background_color', '#fbfbfb') ); ?>;
-				box-shadow: 0 -1px 8px 1px rgba(<?php echo nimblepress_hex_to_rgb( esc_html( get_theme_mod( 'footer_shadow', '#000000' ) ) ) ?>,0.08);
+				background-color: <?php echo esc_html( get_theme_mod('np_footer_background_color', '#fbfbfb') ); ?>;
+				box-shadow: 0 -1px 8px 1px rgba(<?php echo nimblepress_hex_to_rgb( esc_html( get_theme_mod( 'np_footer_shadow', '#000000' ) ) ) ?>,0.08);
 				<?php if ( esc_html( get_theme_mod('np_footer_height', 'auto') ) != 'auto' ) : ?>
 					min-height : <?php echo esc_html( get_theme_mod('np_footer_height', 'auto') ); ?>px;
 				<?php endif ?>
 			}
 			.widget {
 				background-color: <?php echo esc_html( get_theme_mod('np_widget_background_color', '#ffffff') ); ?>;
-				box-shadow: 0px 1px 8px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'nb_widget_shadow', '#000000' ) ) ) ?>, 0.08);
+				box-shadow: 0px 1px 8px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'np_widget_shadow', '#000000' ) ) ) ?>, 0.08);
+			}
+						
+			button, .read-more, html input[type="button"], input[type="reset"], input[type="submit"], a.button, a.wp-block-button__link:not(.has-background) {
+				color: <?php echo esc_html( get_theme_mod('np_button_text_color', '#ffffff') ); ?>;
+				background-color: <?php echo esc_html( get_theme_mod('np_button_background_color', '#2f4d80') ); ?>;
+			}
+
+			button:hover, .read-more:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, a.button:hover, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, a.button:focus, a.wp-block-button__link:not(.has-background):active, a.wp-block-button__link:not(.has-background):focus, a.wp-block-button__link:not(.has-background):hover {
+				color: <?php echo esc_html( get_theme_mod('np_button_text_color', '#ffffff') ); ?>;
+				background-color: <?php echo esc_html( get_theme_mod('np_button_hover_background_color', '#4075cb') ); ?>;
+				cursor: pointer;
+			}
+			
+			.nav-menu a:link, .nav-menu a:visited, .nav-menu a:hover, .nav-menu a:active {
+				color: <?php echo esc_html( get_theme_mod('np_menu_link_color', '#ffffff') ); ?>;
+			}
+			.nav-menu a:hover {
+				text-decoration: underline;
 			}
 			
 			<?php

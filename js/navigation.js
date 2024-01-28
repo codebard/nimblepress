@@ -91,6 +91,14 @@
 		const isClickInside = siteNavigation.contains( event.target );
 		
 		if ( ! isClickInside ) {
+				
+			siteNavigation.classList.toggle( 'toggled' );
+
+			if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
+				button.setAttribute( 'aria-expanded', 'false' );
+			} else {
+				button.setAttribute( 'aria-expanded', 'true' );
+			}
 			
 			nimblepress_sub_menus.forEach(node => {
 
