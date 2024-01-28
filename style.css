@@ -1391,6 +1391,11 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		padding: 0px;
 	}
 	
+	.main-navigation li {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+	
 	.nav-menu, .sub-menu {
 		display: none;
 	}
@@ -1399,13 +1404,26 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		flex-direction: column;
 	}
 	
-	.nav-menu li {
+	.nav-menu .nimblepress-menu-item-wrapper {
 		display: -webkit-flex;
 		display: flex;
 		-webkit-align-items: baseline;
 		align-items: baseline;
 		-webkit-justify-content: flex-start;
 		justify-content: flex-start;
+	}
+	
+
+	.nimblepress-menu-link:hover, .nimblepress-arrow-icon:hover {
+		cursor: pointer;
+	}
+
+	.nimblepress-submenu-toggled {
+		display: block !important;
+		flex-direction: column !important;
+		margin-top: 0px !important;
+		margin-left: 2em !important;
+		width: 100%;
 	}
 
 	.nimblepress-arrow-icon {

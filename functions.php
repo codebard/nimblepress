@@ -646,7 +646,7 @@ function nimblepress_chevron_to_nav_menu( $item_output, $item, $depth, $args ) {
 		$icon = '<svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z"/></svg>';
     }
 
-    return '<div class="nimblepress-menu-link">' . $item_output . '</div><div class="nimblepress-arrow-icon">' . $icon . '</div>';
+    return '<div class="nimblepress-menu-item-wrapper"><div class="nimblepress-menu-link">' . $item_output . '</div><div class="nimblepress-arrow-icon">' . $icon . '</div></div>';
 
 }
 
