@@ -974,17 +974,6 @@ body {
 	font-size : 2.5em;
 }
 
-.site-title{
-	
-	font-size: 3em;
-	margin-top:10px;
-	margin-bottom:10px;
-	
-}
-.site-title a {
-	text-decoration: none;
-}
-
 @media (max-width: 1080px) {
 	
 	#main-content {
@@ -1104,13 +1093,14 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 
 
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width : 100%;
 	padding: 0px;
 	margin: 0px;
-	padding: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 
 }
 
@@ -1126,13 +1116,33 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 }
 
 .site-branding {
-  display: flex;
-  align-items: center;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	align-content: flex-start;
+	gap:1em;
 }
 
 .site-title {
-	padding: 0px;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	align-content: flex-start;
 	margin: 0px;
+	padding: 0px;
+}
+
+.site-title a {
+	text-decoration: none;
+}
+
+.site-description {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	align-content: flex-start;
+	margin: 0px;
+	padding: 0px;
 }
 
 
@@ -1211,6 +1221,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	.menu-toggle,
 	.main-navigation.toggled ul {
 		display: flex;
+		margin-bottom: 5px;
 	}
 
 
@@ -1461,3 +1472,5 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
     background-color: #4075cb;
 	cursor: pointer;
 }
+
+

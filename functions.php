@@ -617,6 +617,19 @@ function nimblepress_customizer_styles()
 			.nav-menu a:hover {
 				text-decoration: underline;
 			}
+
+			.site-title {
+				font-size: <?php echo esc_html( get_theme_mod('site_title_size', '42') ); ?>px;
+				
+			}
+			.site-title a:link, a:visited, a:active, a:hover {
+				color: <?php echo esc_html( get_theme_mod('np_site_title_color', '#1e73be') ); ?>;
+				
+			}
+			.site-description {
+				color: <?php echo esc_html( get_theme_mod('np_site_description_color', '#404040') ); ?>;
+				
+			}
 			
 			<?php
 				if( $nimblepress_hide_title ):

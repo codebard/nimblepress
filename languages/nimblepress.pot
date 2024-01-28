@@ -468,3 +468,28 @@ msgstr ""
 #. Color for the headings across the site.
 msgid "Color for the headings across the site."
 msgstr ""
+
+#. Site Title Size
+msgid "Site Title Size"
+msgstr ""
+
+#. The size for site title in case you are using a text title instead of image logo.
+msgid "The size for site title in case you are using a text title instead of image logo."
+msgstr ""
+
+
+#. Site Title Color
+msgid "Site Title Color"
+msgstr ""
+
+#. Color for the site title
+msgid "Color for the site title"
+msgstr ""
+
+#. Site Description Color
+msgid "Site Description Color"
+msgstr ""
+
+#. Site Description Color
+msgid "Color for the site description"
+msgstr ""

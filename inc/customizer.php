@@ -54,8 +54,8 @@ function nimblepress_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_html',
 	) );
 
-	$wp_customize->add_setting( 'np_hide_nimblepress_link_in_footer', array(
-		'default' => 'yes',
+	$wp_customize->add_setting( 'site_title_size', array(
+		'default' => '42',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
@@ -80,6 +80,12 @@ function nimblepress_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'np_body_background_color' , array(
 		'default'   => '#ffffff',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
+	$wp_customize->add_setting( 'np_site_title_color' , array(
+		'default'   => '#1e73be',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
@@ -121,8 +127,13 @@ function nimblepress_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_html',
 	) );
 
-
 	$wp_customize->add_setting( 'np_heading_color' , array(
+		'default'   => '#404040',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
+	$wp_customize->add_setting( 'np_site_description_color' , array(
 		'default'   => '#404040',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
@@ -221,6 +232,37 @@ function nimblepress_customize_register( $wp_customize ) {
 			)
 		)
 	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'site_title_size',
+			array(
+				'label'          => __( 'Site Title Size', 'nimblepress' ),
+				'section'        => 'title_tagline',
+				'description' => __( 'The size for site title in case you are using a text title instead of image logo.', 'nimblepress' ),
+				'settings'       => 'site_title_size',
+				'type'           => 'text',
+			'priority'              => 13,
+			)
+		)
+	);
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_title_color', array(
+		'label'      => __( 'Site Title Color', 'nimblepress' ),
+		'section'    => 'title_tagline',
+		'description' => __( 'Color for the site title', 'nimblepress' ),
+		'settings'   => 'np_site_title_color',
+		'priority'              => 14,
+	) ) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_description_color', array(
+		'label'      => __( 'Site Description Color', 'nimblepress' ),
+		'section'    => 'title_tagline',
+		'description' => __( 'Color for the site description', 'nimblepress' ),
+		'settings'   => 'np_site_description_color',
+		'priority'              => 15,
+	) ) );
+
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_border_color', array(
 		'label'      => __( 'Site Border Color', 'nimblepress' ),
