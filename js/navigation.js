@@ -46,12 +46,12 @@
 	
 	const nimblepress_arrow_icons = document.querySelectorAll('.nimblepress-arrow-icon');
 	const nimblepress_parent_sub_menus = document.querySelectorAll('.nav-menu > li > ul');
+	const nimblepress_sub_menus = document.querySelectorAll('.sub-menu');
 	
 	nimblepress_arrow_icons.forEach(el => el.addEventListener('click', event => {
 		
-		  event.preventDefault();
+		event.preventDefault();
 
-		  
 		let selected_li = event.target.closest('li');
 		let this_menu = event.target.closest('ul');
 
@@ -59,11 +59,9 @@
 		
 		nimblepress_parent_sub_menus.forEach(node => {
 
-	
 			if (node != this_menu) {
 				
 				const nimblepress_child_sub_menus = node.querySelectorAll('.sub-menu');
-				
 				
 				nimblepress_child_sub_menus.forEach(node => {
 					node.classList.remove('nimblepress-submenu-toggled');
@@ -88,15 +86,19 @@
 	}));
 
 
-
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
 	document.addEventListener( 'click', function( event ) {
 		const isClickInside = siteNavigation.contains( event.target );
 		
-		
-
 		if ( ! isClickInside ) {
-			siteNavigation.classList.remove( 'toggled' );
+			
+			nimblepress_sub_menus.forEach(node => {
+
+				node.classList.remove('nimblepress-submenu-toggled');
+			
+			});
+			
+			siteNavigation.classList.remove( 'nimblepress-submenu-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );
