@@ -549,10 +549,11 @@ function nimblepress_customizer_styles()
 			}
 			h1, h2, h3, h4, h5, h6 {
 				font-family: <?php echo esc_html( get_theme_mod('np_heading_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-				color: <?php echo esc_html( get_theme_mod('np_heading_color', '#ffffff') ); ?>;
+				color: <?php echo esc_html( get_theme_mod('np_heading_color', '#404040') ); ?>;
 			}
 			.nav-menu a:link, .nav-menu a:active, .nav-menu a:visited, .nav-menu a:hover {
 				font-family: <?php echo esc_html( get_theme_mod('np_nav_menu_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+				color: <?php echo esc_html( get_theme_mod('np_menu_link_color', '#1e73be') ); ?>;
 			}
 			a:link, a:active, a:visited, a:hover {
 				font-family: <?php echo esc_html( get_theme_mod('np_link_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -613,9 +614,6 @@ function nimblepress_customizer_styles()
 				cursor: pointer;
 			}
 			
-			.nav-menu a:link, .nav-menu a:visited, .nav-menu a:hover, .nav-menu a:active {
-				color: <?php echo esc_html( get_theme_mod('np_menu_link_color', '#ffffff') ); ?>;
-			}
 			.nav-menu a:hover {
 				text-decoration: underline;
 			}

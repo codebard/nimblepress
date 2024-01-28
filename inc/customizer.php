@@ -116,7 +116,7 @@ function nimblepress_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'np_menu_link_color' , array(
-		'default'   => '#404040',
+		'default'   => '#1e73be',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'esc_html',
 	) );
