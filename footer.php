@@ -36,11 +36,10 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 			</div>
 			<div class="site-info">
 				<?php
-					echo '&nbsp;©&nbsp;' . date('Y') . '&nbsp;' . get_bloginfo( 'name' );
-
-							echo '&nbsp;|&nbsp;';
-							printf( esc_html__( 'Built with&nbsp;%1$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank" rel="nofollow">NimblePress</a>' );
-			
+				
+					do_action( 'nimblepress_genereate_footer_info' );
+					
+				
 				?>
 				
 			</div><!-- .site-info -->

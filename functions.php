@@ -681,6 +681,22 @@ add_filter( 'walker_nav_menu_start_el', 'nimblepress_chevron_to_nav_menu', 10, 4
 
 
 /**
+ * Footer info
+ */
+
+add_action('nimblepress_genereate_footer_info', 'nimblepress_genereate_footer_info');
+
+function nimblepress_genereate_footer_info( $args = array() ) {
+	
+		$do_footer = '&nbsp;©&nbsp;' . date('Y') . '&nbsp;' . get_bloginfo( 'name' );
+		$do_footer .= '&nbsp;|&nbsp;';
+		$do_footer .= sprintf( esc_html__( 'Built with&nbsp;%1$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank" rel="nofollow">NimblePress</a>' );
+		
+		echo $do_footer;
+}
+
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
