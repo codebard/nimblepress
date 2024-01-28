@@ -646,13 +646,21 @@ add_action( 'wp_head', 'nimblepress_customizer_styles');
 
 function nimblepress_add_css_classes_to_nav_menu( $classes, $item, $args, $depth ) {
 
-	$classes = array_filter( get_post_meta( $item->ID, '_menu_item_classes', true ) );
-
-	$classes[] = "has-submenu";
-	
+	if ( $depth == 0 ) {
+		$classes[] = "nimblepress-menu-top-level";
+	}
 	return $classes;
 
 }
+function add_position_classes_wpse_100781($classes, $item, $args) {
+	static $fl;
+	if (0 == $item->menu_item_parent) {
+		$fl = (empty($fl)) ? 'first' : 'middle';
+		$classes[] = 'nimblepress-menu-top-level';
+	} 
+	return $classes;
+}
+add_filter('nav_menu_css_class','add_position_classes_wpse_100781',1,3);
 
 
 function nimblepress_chevron_to_nav_menu( $item_output, $item, $depth, $args ) {
@@ -660,7 +668,7 @@ function nimblepress_chevron_to_nav_menu( $item_output, $item, $depth, $args ) {
 	$icon = '';
 	// add_action( 'nav_menu_css_class', 'nimblepress_add_css_classes_to_nav_menu', 10, 4 );
 
-    if ( !empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+    if ( !empty( $item->classes ) AND in_array( 'menu-item-has-children', $item->classes ) ) {
 		$icon = '<svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z"/></svg>';
     }
 

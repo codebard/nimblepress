@@ -1269,6 +1269,12 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		cursor: pointer;
 	}
 	
+	
+	.nimblepress-arrow-icon {
+		padding-left: 0.5rem;
+	}
+
+	
 	.menu-toggle {
 		display: none;
 	}
