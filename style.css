@@ -1153,7 +1153,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		padding-left: 0;
 	}
 
-	.main-navigation ul ul {
+	.main-navigation .sub-menu {
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 		float: left;
 		position: absolute;
@@ -1166,28 +1166,40 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		left: -999em;
 		top: 0;
 	}
-
+/*
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
 		display: block;
 		margin-top: 0px;
 		margin-left: 0px;
-		left: auto;
+		left: -5px;
 		position: absolute;
 		top: 100%;
+		
 	}
 
 	.main-navigation ul li:hover > ul,
 	.main-navigation ul li.focus > ul {
-		left: auto;
+		left: -5px;
 		margin-top: 0px;
 		margin-left: 0px;
 		position: absolute;
 		top: 100%;
 	}
+*/
 
+	.nimblepress-submenu-toggled {
+		display: block !important;
+		margin-top: 0px !important;
+		margin-left: 0px !important;
+		left: -5px !important;
+		position: absolute !important;
+		top: 100% !important;
+	}
 	.main-navigation li {
 		position: relative;
+		padding-top: 0.2em;
+		padding-bottom: 0.2em;
 	}
 
 	.main-navigation a {
@@ -1232,39 +1244,26 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		margin:5px;
 		align-items: center;
 		justify-content: flex-start;
+		flex-basis: fit-content;
+		flex-grow: 1;
 	}
 	
 	
-	.nimblepress-arrow-icon {
+	.sub-menu li {
+		min-width: 10em;
+	
 	}
 	
-	.nimblepress-menu-link {
-		
+	.nimblepress-menu-link:hover, .nimblepress-arrow-icon:hover {
+		cursor: pointer;
 	}
 	
 	.menu-toggle {
 		display: none;
 	}
-
-	.main-navigation ul {
-		display: flex;
-	}
+	
 	
 }
-
-
-@media (max-width: 600px) {
-	
-	.site-header-wrapper {
-		flex-flow: row wrap;
-	}
-	
-    .site-header {
-        width: 100%;
-    }
-	
-}
-
 
 
 .wp-block-latest-posts li {
@@ -1365,10 +1364,16 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 
 @media (max-width: 600px) {
 	
+	
+    .site-header {
+        width: 100%;
+    }
+	
 	.site-header-wrapper {
 		
 		display: flex;
 		flex-direction: row;
+		flex-flow: row wrap;
 		justify-content: flex-start;
 	}
 	

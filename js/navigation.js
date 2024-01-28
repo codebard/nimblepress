@@ -30,7 +30,7 @@
 	if ( ! menu.classList.contains( 'nav-menu' ) ) {
 		menu.classList.add( 'nav-menu' );
 	}
-
+	
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
@@ -41,10 +41,59 @@
 			button.setAttribute( 'aria-expanded', 'true' );
 		}
 	} );
+	
+	
+	
+	const nimblepress_arrow_icons = document.querySelectorAll('.nimblepress-arrow-icon');
+	const nimblepress_parent_sub_menus = document.querySelectorAll('.nav-menu > li > ul');
+	
+	nimblepress_arrow_icons.forEach(el => el.addEventListener('click', event => {
+		
+		  event.preventDefault();
+
+		  
+		let selected_li = event.target.closest('li');
+		let this_menu = event.target.closest('ul');
+
+		let sub_menu = selected_li.querySelectorAll('.sub-menu')[0];
+		
+		nimblepress_parent_sub_menus.forEach(node => {
+
+	
+			if (node != this_menu) {
+				
+				const nimblepress_child_sub_menus = node.querySelectorAll('.sub-menu');
+				
+				
+				nimblepress_child_sub_menus.forEach(node => {
+					node.classList.remove('nimblepress-submenu-toggled');
+				 });
+				
+				
+				node.classList.remove('nimblepress-submenu-toggled');
+			}
+			
+		  });
+		
+		let already_toggled = sub_menu.classList.contains('nimblepress-submenu-toggled');
+		
+		if ( already_toggled ) {
+			sub_menu.classList.remove( 'nimblepress-submenu-toggled' );
+		}
+		else {
+			sub_menu.classList.add( 'nimblepress-submenu-toggled' );
+		}
+		
+
+	}));
+
+
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
 	document.addEventListener( 'click', function( event ) {
 		const isClickInside = siteNavigation.contains( event.target );
+		
+		
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
