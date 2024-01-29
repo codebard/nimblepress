@@ -628,6 +628,7 @@ function nimblepress_customizer_styles()
 			}
 			.site-description {
 				color: <?php echo esc_html( get_theme_mod('np_site_description_color', '#404040') ); ?>;
+				font-size: <?php echo esc_html( get_theme_mod('site_description_font_size', '16') ); ?>px;
 				
 			}
 			

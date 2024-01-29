@@ -60,6 +60,12 @@ function nimblepress_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_html',
 	) );
 
+	$wp_customize->add_setting( 'site_description_font_size', array(
+		'default' => '16',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
 	$wp_customize->add_setting( 'np_link_font', array(
 		'default' => 'Helvetica',
 		'transport' => 'refresh',
@@ -248,6 +254,21 @@ function nimblepress_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'site_description_font_size',
+			array(
+				'label'          => __( 'Site Description Font Size', 'nimblepress' ),
+				'section'        => 'title_tagline',
+				'description' => __( 'The size for site description font in case you are using a the site description.', 'nimblepress' ),
+				'settings'       => 'site_description_font_size',
+				'type'           => 'text',
+			'priority'              => 14,
+			)
+		)
+	);
+
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_title_color', array(
 		'label'      => __( 'Site Title Color', 'nimblepress' ),
 		'section'    => 'title_tagline',
@@ -255,6 +276,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'settings'   => 'np_site_title_color',
 		'priority'              => 14,
 	) ) );
+
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_description_color', array(
 		'label'      => __( 'Site Description Color', 'nimblepress' ),
 		'section'    => 'title_tagline',

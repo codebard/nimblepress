@@ -493,3 +493,12 @@ msgstr ""
 #. Site Description Color
 msgid "Color for the site description"
 msgstr ""
+
+#. Site Description Font Size
+msgid "Site Description Font Size"
+msgstr ""
+
+
+#. The size for site description font in case you are using a the site description.
+msgid "The size for site description font in case you are using a the site description."
+msgstr ""

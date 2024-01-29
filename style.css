@@ -10,7 +10,7 @@ Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: nimblepress
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-logo, custom-menu, featured-image-header, featured-images, flexible-header, footer-widgets, style-variations, translation-ready
 
 */
 
@@ -1298,7 +1298,6 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	margin-bottom: 10px;
 }
 
-
 .site-footer {
   display: flex;
   align-items: center;
@@ -1307,7 +1306,6 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	margin: 0px;
 	margin-top: 40px;
 	padding: 10px;
-	padding-top: 40px;
 	padding-bottom: 0px;
 }
 

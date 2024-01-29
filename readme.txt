@@ -1,11 +1,10 @@
 === NimblePress ===
 
 Contributors: Codebard
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
+Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-logo, custom-menu, threaded-comments, featured-image-header, featured-images, flexible-header, footer-widgets, style-variations, translation-ready
 Requires at least: 4.5
-Tested up to: 5.4
-Requires PHP: 5.6
+Tested up to: 6.4
+Requires PHP: 7.0
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
@@ -14,7 +13,11 @@ NimblePress is a fast, lightweight, mobile-first, desktop compatible, modern, ea
 
 == Description ==
 
-Description
+NimblePress is a very fast and lightweight theme that gets 99 points at Google Page Speed Insights! See itsscores at https://nimblepress-demo.codebard.com/2024/01/29/lightning-fast/ or test https://nimblepress-demo.codebard.com yourself!
+
+It combines speed, ease of use, compatibility and customizability into a modern, lightweight and clean package. It works out of the box without needing any customization and if you want, you can customize all aspects of it extensively. Works with page builders!
+
+Speed up your website with NimblePress and boost your performance & user experience at the same time!
 
 == Installation ==
 
