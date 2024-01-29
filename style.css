@@ -1157,7 +1157,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	}
 
 	.main-navigation ul {
-		display: none;
+		position: relative;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
@@ -1165,6 +1165,8 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 
 	.main-navigation .sub-menu {
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		position: absolute;
+		top: 0;
 		float: left;
 		position: absolute;
 		top: 100%;
@@ -1176,7 +1178,17 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		left: -999em;
 		top: 0;
 	}
-/*
+
+
+	.nimblepress-submenu-toggled {
+		display: block !important;
+		margin-top: 0px !important;
+		margin-left: 0px !important;
+		left: -5px !important;
+		position: absolute !important;
+		top: 100% !important;
+	}
+
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
 		display: block;
@@ -1196,16 +1208,8 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		position: absolute;
 		top: 100%;
 	}
-*/
 
-	.nimblepress-submenu-toggled {
-		display: block !important;
-		margin-top: 0px !important;
-		margin-left: 0px !important;
-		left: -5px !important;
-		position: absolute !important;
-		top: 100% !important;
-	}
+
 	.main-navigation li {
 		position: relative;
 		padding-top: 0.2em;
@@ -1455,6 +1459,8 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	.nimblepress-arrow-icon {
 		padding-left: 0.5rem;
 	}
+	
+	
 
 }
 

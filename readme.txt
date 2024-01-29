@@ -31,6 +31,25 @@ Speed up your website with NimblePress and boost your performance & user experie
 
 nimblepress includes support for WooCommerce and for Infinite Scroll in Jetpack.
 
+== License ==
+
+NimblePress WordPress Theme, Copyright 2024 Codebard
+NimblePress is distributed under the terms of the GNU GPL
+
+Image for theme screenshot, Credit Codebard
+License: CC0 1.0 Universal (CC0 1.0)
+
+Image for arrow up icon from Dashicons, Credit WordPress
+License: GPL
+License URL: https://github.com/WordPress/dashicons/blob/master/LICENSE
+Source: https://icon-sets.iconify.design/dashicons/arrow-up-alt2/
+
+Image for arrow down icon from Dashicons, Credit WordPress
+License: GPL
+License URL: https://github.com/WordPress/dashicons/blob/master/LICENSE
+Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
+
+
 == Changelog ==
 
 = 1.0 - May 12 2015 =
