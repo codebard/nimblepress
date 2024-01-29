@@ -34,10 +34,13 @@
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
+		menu.classList.toggle( 'nimblepress-mobile-menu-toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
 		} else {
+			
+			
 			button.setAttribute( 'aria-expanded', 'true' );
 		}
 	} );
@@ -115,7 +118,8 @@
 				node.classList.remove('nimblepress-submenu-toggled');
 			
 			});
-
+			
+			menu.classList.remove( 'nimblepress-mobile-menu-toggled' );
 			siteNavigation.classList.remove( 'nimblepress-submenu-toggled' );
 			siteNavigation.classList.remove( 'toggled' );
 	
