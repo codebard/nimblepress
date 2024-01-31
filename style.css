@@ -1435,18 +1435,60 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		padding: 0px;
 	}
 	
-	
-	.nav-menu, .sub-menu {
+	.nav-menu {
 		position: absolute;
 		top: 0;
-		top: 100%;
 		left: -999em;
+		height: 100%;
+		width: 100%;
+		min-height: 100vh;
 		z-index: 99999;
-		float: left;
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 		background-color: #ffffff;
 	}
 	
+	.nimblepress-mobile-menu-toggled {
+		position: static !important;;
+		top: auto !important;;
+		left: auto !important;;
+		z-index: auto !important;;
+		box-shadow: none !important;
+		margin-top: 10px !important;
+	}
+
+	
+	.nimblepress-site-navigation-toggled-on-mobile {
+		display: block !important;
+		position: fixed !important;
+		top: 0 !important;
+		left: 0 !important;
+		height: 100% !important;
+		width: 100% !important;
+		min-height: 100vh !important;
+		z-index: 99999 !important;
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		background-color: #ffffff;
+		margin: 0 !important;
+		padding: 10px !important;
+	}
+	
+
+	.nimblepress-submenu-toggled {
+		display: block !important;
+		position: static !important;
+		margin-top: 0px !important;
+		margin-left: 0px !important;
+		left: auto !important;
+		position: absolute !important;
+		top: auto !important;
+		box-shadow: none !important;
+	}
+	
+	.nav-menu ul li {
+		margin-left: 10px !important;;
+		display: block !important;
+		width: auto !important;
+	}
 	
 	.main-navigation.toggled ul:not(.sub-menu) {
 		display:flex;
@@ -1454,42 +1496,28 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	}
 	
 
-	.nimblepress-submenu-toggled {
-		display: block !important;
-		margin-top: 0px !important;
-		margin-left: 0px !important;
-		left: 0px !important;
-		position: absolute !important;
-		top: 100% !important;
-	}
-
-	.nimblepress-mobile-menu-toggled {
-		display: block !important;
-		margin-top: 0px !important;
-		margin-left: 0px !important;
-		left: 15px !important;
-		position: absolute !important;
-		top: auto !important;
-	}
-
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
-		display: block;
-		margin-top: 0px;
-		margin-left: 0px;
-		left: 0px;
-		position: absolute;
-		top: 100%;
+		display: block !important;
+		position: static !important;
+		top: 0  !important;
+		left: 0  !important;
 		
 	}
 
 	.main-navigation ul li:hover > ul,
 	.main-navigation ul li.focus > ul {
-		left: 0px;
-		margin-top: 0px;
-		margin-left: 0px;
-		position: absolute;
-		top: 100%;
+		display: block !important;
+		position: static !important;
+		top: 0  !important;
+		left: 0  !important;
+	}
+	
+	.nimblepress-mobile-submenus-toggled-in-mobile {
+		display: block !important;
+		position: static !important;
+		top: 0  !important;
+		left: 0  !important;
 	}
 
 
@@ -1509,6 +1537,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 
 	.nimblepress-arrow-icon {
 		padding-left: 0.5rem;
+		display: none;
 	}
 	
 }
