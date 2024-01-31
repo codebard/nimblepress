@@ -498,7 +498,22 @@ msgstr ""
 msgid "Site Description Font Size"
 msgstr ""
 
-
 #. The size for site description font in case you are using a the site description.
 msgid "The size for site description font in case you are using a the site description."
+msgstr ""
+
+#. Link Color
+msgid "Link Color"
+msgstr ""
+
+#. Color for links across the site
+msgid "Color for links across the site"
+msgstr ""
+
+#. Link Hover Color
+msgid "Link Hover Color"
+msgstr ""
+
+#. Hover color for links across the site
+msgid "Hover color for links across the site"
 msgstr ""

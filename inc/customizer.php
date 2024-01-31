@@ -133,6 +133,19 @@ function nimblepress_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_html',
 	) );
 
+	$wp_customize->add_setting( 'np_link_color' , array(
+		'default'   => '#1e73be',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
+
+	$wp_customize->add_setting( 'np_link_hover_color' , array(
+		'default'   => '#4aabc9',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'esc_html',
+	) );
+
 	$wp_customize->add_setting( 'np_heading_color' , array(
 		'default'   => '#404040',
 		'transport' => 'refresh',
@@ -318,12 +331,28 @@ function nimblepress_customize_register( $wp_customize ) {
 		'priority'              => 17,
 	) ) );
 	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_link_color', array(
+		'label'      => __( 'Link Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Color for links across the site', 'nimblepress' ),
+		'settings'   => 'np_link_color',
+		'priority'              => 18,
+	) ) );
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_link_hover_color', array(
+		'label'      => __( 'Link Hover Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Hover color for links across the site', 'nimblepress' ),
+		'settings'   => 'np_link_hover_color',
+		'priority'              => 19,
+	) ) );
+	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_button_background_color', array(
 		'label'      => __( 'Button Background Color', 'nimblepress' ),
 		'section'    => 'colors',
 		'description' => __( 'The background color for buttons.', 'nimblepress' ),
 		'settings'   => 'np_button_background_color',
-		'priority'              => 18,
+		'priority'              => 20,
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_button_hover_background_color', array(
@@ -331,7 +360,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'section'    => 'colors',
 		'description' => __( 'The background color for buttons when hovered.', 'nimblepress' ),
 		'settings'   => 'np_button_hover_background_color',
-		'priority'              => 19,
+		'priority'              => 21,
 	) ) );
 	
 	
@@ -340,7 +369,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'section'    => 'colors',
 		'description' => __( 'Colors of link in the header menu.', 'nimblepress' ),
 		'settings'   => 'np_menu_link_color',
-		'priority'              => 20,
+		'priority'              => 22,
 	) ) );
 	
 	
@@ -349,7 +378,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'section'    => 'colors',
 		'description' => __( 'Color for the headings across the site.', 'nimblepress' ),
 		'settings'   => 'np_heading_color',
-		'priority'              => 21,
+		'priority'              => 23,
 	) ) );
 	
 	
@@ -358,7 +387,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'section'    => 'colors',
 		'description' => __( 'The color for the text on the buttons.', 'nimblepress' ),
 		'settings'   => 'np_button_text_color',
-		'priority'              => 22,
+		'priority'              => 24,
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_footer_background_color', array(
@@ -366,7 +395,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'section'    => 'colors',
 		'description' => __( 'Background color of the footer', 'nimblepress' ),
 		'settings'   => 'np_footer_background_color',
-		'priority'              => 23,
+		'priority'              => 25,
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_footer_shadow', array(
@@ -374,7 +403,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'section'    => 'colors',
 		'description' => __( 'Shadow for the footer. Set to your site or body color to make disappear.', 'nimblepress' ),
 		'settings'   => 'np_footer_shadow',
-		'priority'              => 24,
+		'priority'              => 26,
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_widget_background_color', array(
@@ -382,7 +411,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'section'    => 'colors',
 		'description' => __( 'Background color for the individual widgets.', 'nimblepress' ),
 		'settings'   => 'np_widget_background_color',
-		'priority'              => 25,
+		'priority'              => 27,
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_widget_shadow', array(
@@ -390,7 +419,7 @@ function nimblepress_customize_register( $wp_customize ) {
 		'section'    => 'colors',
 		'description' => __( 'Shadow for the widgets. Set to your site or body color to make disappear.', 'nimblepress' ),
 		'settings'   => 'np_widget_shadow',
-		'priority'              => 26,
+		'priority'              => 28,
 	) ) );
 
 

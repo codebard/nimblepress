@@ -41,7 +41,6 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	
 	<?php if (get_theme_mod('np_inline_the_css', 'yes') == 'yes'): ?>
-	
 		<style>
 			<?php include get_template_directory() . '/style.css'; ?>
 		</style>
