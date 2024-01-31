@@ -33,191 +33,191 @@ function nimblepress_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'np_site_width', array(
 		'default' => '1200',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_body_font', array(
 		'default' => 'Helvetica',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_heading_font', array(
 		'default' => 'Helvetica',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_nav_menu_font', array(
 		'default' => 'Helvetica',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'site_title_size', array(
 		'default' => '42',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'site_description_font_size', array(
 		'default' => '16',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_link_font', array(
 		'default' => 'Helvetica',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_site_full_width_or_contained', array(
 		'default' => 'full_width',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 		
 	$wp_customize->add_setting( 'np_site_background_color' , array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_body_background_color' , array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_site_title_color' , array(
 		'default'   => '#1e73be',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_site_border_size' , array(
 		'default'   => '0',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_site_border_color' , array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_site_shadow_color' , array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_header_background_color' , array(
 		'default'   => '#fbfbfb',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 	
 
 	$wp_customize->add_setting( 'np_header_shadow' , array(
 		'default'   => '#000000',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_menu_link_color' , array(
 		'default'   => '#1e73be',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_link_color' , array(
 		'default'   => '#1e73be',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 
 	$wp_customize->add_setting( 'np_link_hover_color' , array(
 		'default'   => '#4aabc9',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_heading_color' , array(
 		'default'   => '#404040',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_site_description_color' , array(
 		'default'   => '#404040',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_button_background_color' , array(
 		'default'   => '#2f4d80',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_button_hover_background_color' , array(
 		'default'   => '#4075cb',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 
 	$wp_customize->add_setting( 'np_button_text_color' , array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	
 	$wp_customize->add_setting( 'np_footer_background_color' , array(
 		'default'   => '#fbfbfb',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_footer_shadow' , array(
 		'default'   => '#000000',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 	
 	$wp_customize->add_setting( 'np_widget_background_color' , array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_widget_shadow' , array(
 		'default'   => '#000000',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_header_height', array(
 		'default' => 'auto',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_footer_height', array(
 		'default' => 'auto',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_setting( 'np_inline_the_css', array(
 		'default' => 'yes',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'esc_html',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_background_color', array(

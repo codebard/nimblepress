@@ -670,7 +670,7 @@ function nimblepress_add_css_classes_to_nav_menu( $classes, $item, $args, $depth
 	return $classes;
 
 }
-function add_position_classes_wpse_100781($classes, $item, $args) {
+function nimblepress_add_class_to_top_menu_items($classes, $item, $args) {
 	static $fl;
 	if (0 == $item->menu_item_parent) {
 		$fl = (empty($fl)) ? 'first' : 'middle';
@@ -678,7 +678,7 @@ function add_position_classes_wpse_100781($classes, $item, $args) {
 	} 
 	return $classes;
 }
-add_filter('nav_menu_css_class','add_position_classes_wpse_100781',1,3);
+add_filter('nav_menu_css_class','nimblepress_add_class_to_top_menu_items',1,3);
 
 
 function nimblepress_chevron_to_nav_menu( $item_output, $item, $depth, $args ) {
