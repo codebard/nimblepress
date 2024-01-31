@@ -1192,7 +1192,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		display: block !important;
 		margin-top: 0px !important;
 		margin-left: 0px !important;
-		left: -5px !important;
+		left: 0 !important;
 		position: absolute !important;
 		top: 100% !important;
 	}
@@ -1202,7 +1202,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		display: block;
 		margin-top: 0px;
 		margin-left: 0px;
-		left: -5px;
+		left: 0 !important;
 		position: absolute;
 		top: 100%;
 		
@@ -1210,7 +1210,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 
 	.main-navigation ul li:hover > ul,
 	.main-navigation ul li.focus > ul {
-		left: -5px;
+		left: 0 !important;
 		margin-top: 0px;
 		margin-left: 0px;
 		position: absolute;
