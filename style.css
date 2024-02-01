@@ -4,7 +4,7 @@ Theme URI: https://codebard.com/nimblepress
 Author: Codebard
 Author URI: https://codebard.com
 Description: Description
-Version: 1.0.2
+Version: 1.0.3
 Tested up to: 6.4
 Requires PHP: 7.0
 License: GNU General Public License v2 or later
@@ -1162,10 +1162,12 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	/* Navigation
 	--------------------------------------------- */
 	.main-navigation {
-		display: block;
+		display: flex;
 		width: 100%;
 	}
-
+	.menu-main-menu-container {
+		display:flex;
+	}
 	.main-navigation ul {
 		position: relative;
 		list-style: none;
@@ -1175,14 +1177,14 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 
 	.main-navigation .sub-menu {
 		position: absolute;
+		display: none;
 		top: 0;
-		top: 100%;
 		left: -999em;
 		z-index: 99999;
 		float: left;
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	}
-
+	
 	.main-navigation ul ul ul {
 		left: -999em;
 		top: 0;
@@ -1199,12 +1201,12 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
-		display: block;
+		display: block !important;
 		margin-top: 0px;
 		margin-left: 0px;
 		left: 0 !important;
-		position: absolute;
-		top: 100%;
+		position: absolute !important;
+		top: 100% !important;
 		
 	}
 
@@ -1213,8 +1215,8 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		left: 0 !important;
 		margin-top: 0px;
 		margin-left: 0px;
-		position: absolute;
-		top: 100%;
+		position: absolute !important;
+		top: 100% !important;
 	}
 
 
@@ -1437,6 +1439,8 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	
 	.nav-menu {
 		position: absolute;
+		display: none;
+		flex-direction: column;
 		top: 0;
 		left: -999em;
 		height: 100%;
@@ -1485,7 +1489,9 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	}
 	
 	.nav-menu ul li {
-		margin-left: 10px !important;;
+		margin-left: 15px !important;
+		margin-top: 2px;
+		margin-bottom: 2px;
 		display: block !important;
 		width: auto !important;
 	}
@@ -1495,7 +1501,6 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 		flex-direction: column;
 	}
 	
-
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
 		display: block !important;

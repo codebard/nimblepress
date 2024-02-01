@@ -80,6 +80,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 				<?php if ( !$nimblepress_hide_nav_menu ): ?>
 					<nav id="site-navigation" class="main-navigation">
 						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'nimblepress' ); ?></button>
+						<div class="nimblepress-nav-menu" style="display: none;">
 						<?php
 						wp_nav_menu(
 							array(
@@ -88,6 +89,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 							)
 						);
 						?>
+						</div>
 					</nav><!-- #site-navigation -->
 				<?php endif; ?>
 			</div>

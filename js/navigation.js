@@ -46,11 +46,30 @@
 		}
 	} );
 	
-	
-	
+
 	const nimblepress_arrow_icons = document.querySelectorAll('.nimblepress-arrow-icon');
 	const nimblepress_parent_sub_menus = document.querySelectorAll('.nimblepress-menu-top-level');
 	const nimblepress_sub_menus = document.querySelectorAll('.sub-menu');
+	
+	const menu_container = document.querySelectorAll( '.nimblepress-nav-menu' );
+
+	document.addEventListener("DOMContentLoaded", function(event) { 
+
+		menu.style.display = "";
+		menu.setAttribute("style","");
+		menu.setAttribute("style","display: flex !important;");
+		menu_container[0].style.display = "";
+		menu_container[0].style.display = "flex !important";
+
+		nimblepress_sub_menus.forEach(node => {
+
+			node.setAttribute("style","");
+			node.setAttribute("style","display: block !important;");
+		 });
+		
+
+	});
+
 	
 	nimblepress_arrow_icons.forEach(el => el.addEventListener('click', event => {
 		
@@ -129,6 +148,7 @@
 
 		
 	} );
+	
 
 	// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName( 'a' );
