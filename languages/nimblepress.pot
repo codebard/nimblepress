@@ -525,3 +525,39 @@ msgstr ""
 #. Loads the already small theme navigation JavaScript inline and makes the site faster by avoiding one extra call and script load time
 msgid "Loads the already small theme navigation JavaScript inline and makes the site faster by avoiding one extra call and script load time"
 msgstr ""
+
+#. Strong magenta
+msgid "Strong magenta"
+msgstr ""
+
+#. Light grayish magenta
+msgid "Light grayish magenta"
+msgstr ""
+
+#. Very light gray
+msgid "Very light gray"
+msgstr ""
+
+#. Very dark gray
+msgid "Very dark gray"
+msgstr ""
+
+#. Vivid cyan blue to vivid purple
+msgid "Vivid cyan blue to vivid purple"
+msgstr ""
+
+#. Vivid green cyan to vivid cyan blue
+msgid "Vivid green cyan to vivid cyan blue"
+msgstr ""
+
+#. Light green cyan to vivid green cyan
+msgid "Light green cyan to vivid green cyan"
+msgstr ""
+
+#. Luminous vivid amber to luminous vivid orange
+msgid "Luminous vivid amber to luminous vivid orange"
+msgstr ""
+
+#. Luminous vivid orange to vivid red
+msgid "Luminous vivid orange to vivid red"
+msgstr ""

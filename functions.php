@@ -109,6 +109,78 @@ function nimblepress_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	/**
+	 * Add Gutenberg support
+	 *
+	 */
+	add_theme_support( 'block-template-parts' );
+	
+	
+
+	add_theme_support( 'editor-color-palette', array(
+		array(
+			'name'  => esc_attr__( 'Strong magenta', 'nimblepress' ),
+			'slug'  => 'strong-magenta',
+			'color' => '#a156b4',
+		),
+		array(
+			'name'  => esc_attr__( 'Light grayish magenta', 'nimblepress' ),
+			'slug'  => 'light-grayish-magenta',
+			'color' => '#d0a5db',
+		),
+		array(
+			'name'  => esc_attr__( 'Very light gray', 'nimblepress' ),
+			'slug'  => 'very-light-gray',
+			'color' => '#eee',
+		),
+		array(
+			'name'  => esc_attr__( 'Very dark gray', 'nimblepress' ),
+			'slug'  => 'very-dark-gray',
+			'color' => '#444',
+		),
+	) );
+	
+	
+	add_theme_support(
+		'editor-gradient-presets',
+		array(
+			array(
+				'name'     => esc_attr__( 'Vivid cyan blue to vivid purple', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)',
+				'slug'     => 'vivid-cyan-blue-to-vivid-purple'
+			),
+			array(
+				'name'     => esc_attr__( 'Vivid green cyan to vivid cyan blue', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgba(0,208,132,1) 0%,rgba(6,147,227,1) 100%)',
+				'slug'     =>  'vivid-green-cyan-to-vivid-cyan-blue',
+			),
+			array(
+				'name'     => esc_attr__( 'Light green cyan to vivid green cyan', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%)',
+				'slug'     => 'light-green-cyan-to-vivid-green-cyan',
+			),
+			array(
+				'name'     => esc_attr__( 'Luminous vivid amber to luminous vivid orange', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%)',
+				'slug'     => 'luminous-vivid-amber-to-luminous-vivid-orange',
+			),
+			array(
+				'name'     => esc_attr__( 'Luminous vivid orange to vivid red', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%)',
+				'slug'     => 'luminous-vivid-orange-to-vivid-red',
+			),
+		)
+	);
+	
+	add_theme_support( 'custom-line-height' );
+	add_theme_support( 'custom-units', array() );
+	add_theme_support( 'custom-spacing' );
+	add_theme_support( 'appearance-tools' );
+	add_theme_support( 'border' );
+	add_theme_support( 'link-color' );
+	
+	
 }
 add_action( 'after_setup_theme', 'nimblepress_setup' );
 
@@ -710,7 +782,7 @@ function nimblepress_genereate_footer_info( $args = array() ) {
 	
 		$do_footer = '&nbsp;©&nbsp;' . date('Y') . '&nbsp;' . get_bloginfo( 'name' );
 		$do_footer .= '&nbsp;|&nbsp;';
-		$do_footer .= sprintf( esc_html__( 'Built with&nbsp;%1$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank" rel="nofollow">NimblePress</a>' );
+		$do_footer .= sprintf( esc_html__( 'Built with&nbsp;%1$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank">NimblePress</a>' );
 		
 		echo $do_footer;
 }

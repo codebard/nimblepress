@@ -14,7 +14,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 global $post;
 
 if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
-	
+
 	$nimblepress_show_sidebar = nimblepress_get_post_meta_value( $post, 'sidebar' );
 	if ( $nimblepress_show_sidebar AND $nimblepress_show_sidebar == 'hide' ) {
 		return;
