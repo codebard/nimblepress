@@ -13,7 +13,7 @@ NimblePress is a fast, lightweight, mobile-first, desktop compatible, modern, ea
 
 == Description ==
 
-NimblePress is a very fast and lightweight theme that gets 99 points at Google Page Speed Insights! See itsscores at https://nimblepress-demo.codebard.com/2024/01/29/lightning-fast/ or test https://nimblepress-demo.codebard.com yourself!
+NimblePress is a very fast and lightweight theme that gets 100 points at Google Page Speed Insights! See itsscores at https://nimblepress-demo.codebard.com/2024/01/29/lightning-fast/ or test https://nimblepress-demo.codebard.com yourself!
 
 It combines speed, ease of use, compatibility and customizability into a modern, lightweight and clean package. It works out of the box without needing any customization and if you want, you can customize all aspects of it extensively. Works with page builders!
 

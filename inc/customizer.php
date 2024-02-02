@@ -220,6 +220,12 @@ function nimblepress_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
+	$wp_customize->add_setting( 'np_inline_navigation_js', array(
+		'default' => 'yes',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_background_color', array(
 		'label'      => __( 'Site Background Color', 'nimblepress' ),
 		'description' => __( 'The site-wide background color', 'nimblepress' ),
@@ -493,6 +499,25 @@ function nimblepress_customize_register( $wp_customize ) {
 					'section'        => 'np_misc',
 					'settings'       => 'np_inline_the_css',
 					'description' => __( 'Loads the already small theme CSS inline and makes the site faster by avoiding render-blocking and one extra call', 'nimblepress' ),
+					'type'           => 'radio',
+					'priority'              => 2,
+					'choices'               => array(
+					'yes'                  => __('Yes', 'nimblepress'),
+					'no'                  => __('No', 'nimblepress'),
+				)
+			)
+		)
+	);
+	
+	$wp_customize->add_control( 
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_inline_navigation_js',
+			array(
+					'label'          => __( 'Inline navigation JavaScript', 'nimblepress' ),
+					'section'        => 'np_misc',
+					'settings'       => 'np_inline_navigation_js',
+					'description' => __( 'Loads the already small theme navigation JavaScript inline and makes the site faster by avoiding one extra call and script load time', 'nimblepress' ),
 					'type'           => 'radio',
 					'priority'              => 2,
 					'choices'               => array(

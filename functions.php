@@ -172,8 +172,9 @@ function nimblepress_scripts() {
 		wp_enqueue_style( 'nimblepress-style', get_stylesheet_uri(), array(), NIMBLEPRESS_VERSION );
 	}
 
-	wp_enqueue_script( 'nimblepress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), NIMBLEPRESS_VERSION, true );
-
+	if ( get_theme_mod('np_inline_navigation_js', 'yes') != 'yes' ) {
+		wp_enqueue_script( 'nimblepress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), NIMBLEPRESS_VERSION, true );
+	}
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -641,6 +642,7 @@ function nimblepress_customizer_styles()
 			?>
 				#main-content {
 					padding-top: 0px;
+					padding-bottom: 0px;
 				}
 				.entry-content {
 					margin-top: 0px;

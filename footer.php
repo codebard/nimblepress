@@ -51,6 +51,12 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	?>
 </div><!-- #page -->
 
+<?php if (get_theme_mod('np_inline_navigation_js', 'yes') == 'yes'): ?>
+	<script>
+		<?php include  get_template_directory()  . '/js/navigation.js'; ?>
+	</script>
+<?php endif ?>
+
 <?php wp_footer(); ?>
 
 </body>

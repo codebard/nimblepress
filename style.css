@@ -924,6 +924,7 @@ body {
 	display:flex;
 	gap: 1em;
 	padding-top: 40px;
+	padding-bottom: 40px;
 }
 
 .site-main {
@@ -1590,4 +1591,8 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 .widget input[type=submit] {
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+ol {
+    list-style: none;
 }

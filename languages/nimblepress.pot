@@ -517,3 +517,11 @@ msgstr ""
 #. Hover color for links across the site
 msgid "Hover color for links across the site"
 msgstr ""
+
+#. Inline navigation JavaScript
+msgid "Inline navigation JavaScript"
+msgstr ""
+
+#. Loads the already small theme navigation JavaScript inline and makes the site faster by avoiding one extra call and script load time
+msgid "Loads the already small theme navigation JavaScript inline and makes the site faster by avoiding one extra call and script load time"
+msgstr ""
