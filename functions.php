@@ -7,9 +7,9 @@
  * @package nimblepress
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( 'NIMBLEPRESS_VERSION', '1.0.3' );
 }
 
 /**
@@ -30,6 +30,16 @@ function nimblepress_setup() {
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
+
+
+	// Block style support
+	add_theme_support( 'wp-block-styles' );
+
+	// Wide block support
+	add_theme_support( 'align-wide' );
+
+	// Responsive embed support
+	add_theme_support( 'responsive-embeds' );
 
 	/*
 		* Let WordPress manage the document title.
@@ -99,6 +109,78 @@ function nimblepress_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	/**
+	 * Add Gutenberg support
+	 *
+	 */
+	add_theme_support( 'block-template-parts' );
+	
+	
+
+	add_theme_support( 'editor-color-palette', array(
+		array(
+			'name'  => esc_attr__( 'Strong magenta', 'nimblepress' ),
+			'slug'  => 'strong-magenta',
+			'color' => '#a156b4',
+		),
+		array(
+			'name'  => esc_attr__( 'Light grayish magenta', 'nimblepress' ),
+			'slug'  => 'light-grayish-magenta',
+			'color' => '#d0a5db',
+		),
+		array(
+			'name'  => esc_attr__( 'Very light gray', 'nimblepress' ),
+			'slug'  => 'very-light-gray',
+			'color' => '#eee',
+		),
+		array(
+			'name'  => esc_attr__( 'Very dark gray', 'nimblepress' ),
+			'slug'  => 'very-dark-gray',
+			'color' => '#444',
+		),
+	) );
+	
+	
+	add_theme_support(
+		'editor-gradient-presets',
+		array(
+			array(
+				'name'     => esc_attr__( 'Vivid cyan blue to vivid purple', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)',
+				'slug'     => 'vivid-cyan-blue-to-vivid-purple'
+			),
+			array(
+				'name'     => esc_attr__( 'Vivid green cyan to vivid cyan blue', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgba(0,208,132,1) 0%,rgba(6,147,227,1) 100%)',
+				'slug'     =>  'vivid-green-cyan-to-vivid-cyan-blue',
+			),
+			array(
+				'name'     => esc_attr__( 'Light green cyan to vivid green cyan', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%)',
+				'slug'     => 'light-green-cyan-to-vivid-green-cyan',
+			),
+			array(
+				'name'     => esc_attr__( 'Luminous vivid amber to luminous vivid orange', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%)',
+				'slug'     => 'luminous-vivid-amber-to-luminous-vivid-orange',
+			),
+			array(
+				'name'     => esc_attr__( 'Luminous vivid orange to vivid red', 'nimblepress' ),
+				'gradient' => 'linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%)',
+				'slug'     => 'luminous-vivid-orange-to-vivid-red',
+			),
+		)
+	);
+	
+	add_theme_support( 'custom-line-height' );
+	add_theme_support( 'custom-units', array() );
+	add_theme_support( 'custom-spacing' );
+	add_theme_support( 'appearance-tools' );
+	add_theme_support( 'border' );
+	add_theme_support( 'link-color' );
+	
+	
 }
 add_action( 'after_setup_theme', 'nimblepress_setup' );
 
@@ -135,19 +217,576 @@ function nimblepress_widgets_init() {
 add_action( 'widgets_init', 'nimblepress_widgets_init' );
 
 /**
+ * Enqueue the few admin styles
+ */
+ 
+ 
+function nimblepress_admin_css() {
+
+	echo '<style>';
+	
+		include get_template_directory() . '/admin-styles.css';
+	
+	echo '</style>';
+
+}
+ 
+ add_action( 'admin_head', 'nimblepress_admin_css' );
+ 
+ 
+/**
  * Enqueue scripts and styles.
  */
+ 
 function nimblepress_scripts() {
-	wp_enqueue_style( 'nimblepress-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'nimblepress-style', 'rtl', 'replace' );
+	
+	if ( get_theme_mod('np_inline_the_css', 'yes') != 'yes' ) {
+		wp_enqueue_style( 'nimblepress-style', get_stylesheet_uri(), array(), NIMBLEPRESS_VERSION );
+	}
 
-	wp_enqueue_script( 'nimblepress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
+	if ( get_theme_mod('np_inline_navigation_js', 'yes') != 'yes' ) {
+		wp_enqueue_script( 'nimblepress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), NIMBLEPRESS_VERSION, true );
+	}
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nimblepress_scripts' );
+
+/**
+ * Read more buttons
+ */
+function nimblepress_get_read_more_button() {
+	return '<a class="read-more" href="'. get_permalink( get_the_ID() ) .'">'. __( 'Read More', 'nimblepress' ) .'</a>';
+}
+
+/**
+ * Change [...] in excerpts to ...
+ */
+ 
+function nimblepress_excerpt_more( $more ) {
+	return '...';
+}
+add_filter( 'excerpt_more', 'nimblepress_excerpt_more' );
+
+
+/**
+ * Convert hex color to RGB
+ */
+ 
+function nimblepress_hex_to_rgb( $hex ) {
+
+	$split_hex = str_split(str_replace( '#', '', $hex ), 2);
+	$r = hexdec($split_hex[0]);
+	$g = hexdec($split_hex[1]);
+	$b = hexdec($split_hex[2]);
+	return $r .  ',' .$g . ',' . $b;
+}
+
+
+/**
+ * List of web-safe fonts
+ */
+ 
+function nimblepress_get_web_safe_fonts() {
+
+	return array(
+		'Helvetica' => 'Helvetica',
+		'Arial' => 'Arial',
+		'Verdana' => 'Verdana',
+		'Tahoma' => 'Tahoma',
+		'Trebuchet MS' => 'Trebuchet MS',
+		'Times New Roman' => 'Times New Roman',
+		'Georgia' => 'Georgia',
+		'Garamond' => 'Garamond',
+		'Courier New' => 'Courier New',
+		'Brush Script MT' => 'Brush Script MT',
+	
+	);
+
+}
+
+
+/**
+ * Add NP meta boxes
+ */
+ 
+
+function nimblepress_add_metabox() {
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+
+	global $post;
+
+	$post_types = get_post_types( array( 'public' => true ) );
+
+	foreach ( $post_types as $type ) {
+		if ( 'attachment' !== $type ) {
+			add_meta_box(
+				'nimblepress_metabox',
+				esc_html( __( 'Layout', 'nimblepress' ) ),
+				'nimblepress_gen_metabox',
+				$type,
+				'side'
+			);
+		}
+	}
+}
+
+add_action( 'add_meta_boxes', 'nimblepress_add_metabox' );
+
+/**
+ * NP meta box
+ */
+ 
+
+function nimblepress_gen_metabox( $post ) {
+
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+	
+	
+	$default_post_meta = nimblepress_get_default_post_meta();
+	
+	$post_meta = get_post_meta( $post->ID, 'nimblepress_post_meta', true );
+	
+	if  ( $post_meta AND $post_meta != '' ) {
+		$post_meta = json_decode ( $post_meta, true );
+	}
+	
+	if ( !( is_array( $post_meta ) AND count( $post_meta ) > 0 ) ) {
+		
+		$post_meta = $default_post_meta;
+	}
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Header', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[header]">';
+				echo '<option value="show" ' . ( ( $post_meta['header'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['header'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Nav Menu', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[nav_menu]">';
+				echo '<option value="show" ' . ( ( $post_meta['nav_menu'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['nav_menu'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Sidebar', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[sidebar]">';
+				echo '<option value="show" ' . ( ( $post_meta['sidebar'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['sidebar'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Title', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[title]">';
+				echo '<option value="show" ' . ( ( $post_meta['title'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['title'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Post Navigation', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[post_nav]">';
+				echo '<option value="show" ' . ( ( $post_meta['post_nav'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['post_nav'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Post Metadata', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[post_metadata]">';
+				echo '<option value="show" ' . ( ( $post_meta['post_metadata'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['post_metadata'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Comments', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[comments]">';
+				echo '<option value="show" ' . ( ( $post_meta['comments'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['comments'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Footer', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[footer]">';
+				echo '<option value="show" ' . ( ( $post_meta['footer'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( $post_meta['footer'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+	
+	
+	wp_nonce_field('nimblepress_save_post_meta', 'nimblepress_save_post_meta_nonce');
+	
+}
+
+/**
+ * Registers the meta
+ *
+ */
+ 
+function nimblepress_register_post_meta() {
+	
+	$post_types = get_post_types( array( 'public' => true ) );
+	
+	foreach ( $post_types as $key => $value ) {
+		
+		register_meta( 'post', 'nimblepress_post_meta', array(
+			'show_in_rest' => true,
+			'type' => 'string',
+			'single' => true,
+			'sanitize_callback' => '',
+			'auth_callback' => function() {
+				return current_user_can( 'edit_posts' );
+			}
+		) );
+	}
+}
+
+add_action('init', 'nimblepress_register_post_meta');
+
+
+/**
+* NP post meta defaults
+*/
+
+function nimblepress_get_default_post_meta() {
+	
+	return array (
+		'sidebar' => 'show',
+		'title' => 'show',
+		'footer' => 'show',
+		'header' => 'show',
+		'nav_menu' => 'show',
+		'comments' => 'show',
+		'post_nav' => 'show',
+	
+	);
+	
+}
+
+
+/**
+ * NP save post meta 
+ */
+ 
+
+function nimblepress_save_post_meta( $post_id ) {
+
+
+	/* Verify the nonce before proceeding. \*/
+	if ( !isset( $_POST['nimblepress_save_post_meta_nonce'] ) OR !wp_verify_nonce( $_POST['nimblepress_save_post_meta_nonce'], 'nimblepress_save_post_meta' ) ) {
+		return $post_id;
+	}
+
+	// check autosave
+	if ( wp_is_post_autosave( $post_id ) )
+	return 'autosave';
+
+	//check post revision
+	if ( wp_is_post_revision( $post_id ) )
+	return 'revision';
+
+	// check permissions
+
+	if ( ! current_user_can( 'edit_page', $post_id ) ) {
+		return 'cannot edit page';
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return 'cannot edit post';
+	}
+	
+	$post_meta = $_POST['nimblepress_post_meta'];
+
+	foreach ( $post_meta as $key => $value ) {
+		$post_meta[$key] = sanitize_text_field( $post_meta[$key] );
+	}
+
+	update_post_meta( $post_id, 'nimblepress_post_meta', json_encode( $post_meta ) );
+
+}
+
+add_action( 'save_post', 'nimblepress_save_post_meta', 10, 1 );
+add_action( 'new_to_publish', 'nimblepress_save_post_meta', 10, 1 );
+
+
+function nimblepress_get_post_meta_value( $post, $meta ) {
+		
+	if ( !( $post AND isset( $post->ID ) ) ) {
+		return false;
+	}
+		
+	$nimblepress_post_meta = get_post_meta( $post->ID, 'nimblepress_post_meta', true );
+	
+	if ( $nimblepress_post_meta AND $nimblepress_post_meta != '' ) {
+		$nimblepress_post_meta = json_decode( $nimblepress_post_meta, true );
+		if (is_array ( $nimblepress_post_meta ) AND count( $nimblepress_post_meta ) > 0 AND isset( $nimblepress_post_meta[$meta] )  ) {
+			
+			return $nimblepress_post_meta[$meta];
+		}
+	}
+	
+	return false;
+	
+}
+
+
+/**
+ * Register footer widget area
+ */
+ 
+function nimblepress_register_widget_areas() {
+
+	register_sidebar( array(
+		'name'          => 'Footer',
+		'id'            => 'footer_widgets',
+		'description'   => 'Put your footer widgets here',
+		'before_widget' => '<section class="footer-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '',
+		'after_title'   => '',
+	));
+
+}
+
+add_action( 'widgets_init', 'nimblepress_register_widget_areas' );
+
+
+/**
+ * Print customizer styles
+ */
+ 
+function nimblepress_customizer_styles()
+{
+
+
+	global $post;
+
+	if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
+		
+		$nimblepress_hide_title = False;
+		$nimblepress_title_status = nimblepress_get_post_meta_value( $post, 'title' );
+		if ( $nimblepress_title_status AND $nimblepress_title_status == 'hide' ) {
+			$nimblepress_hide_title = True;
+		}
+	}
+
+    ?>
+         <style type="text/css">
+			body {
+				background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
+				font-family: <?php echo esc_html( get_theme_mod('np_body_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				font-family: <?php echo esc_html( get_theme_mod('np_heading_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+				color: <?php echo esc_html( get_theme_mod('np_heading_color', '#404040') ); ?>;
+			}
+			.nav-menu a:link, .nav-menu a:active, .nav-menu a:visited, .nav-menu a:hover {
+				font-family: <?php echo esc_html( get_theme_mod('np_nav_menu_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+				color: <?php echo esc_html( get_theme_mod('np_menu_link_color', '#1e73be') ); ?>;
+			}
+			a:link, a:active, a:visited, a:hover {
+				font-family: <?php echo esc_html( get_theme_mod('np_link_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+			}
+			a:not(.read-more):not(.button):link, a:not(.read-more):not(.button):active, a:not(.read-more):not(.button):visited {
+				color: <?php echo esc_html( get_theme_mod('np_link_color', '#1e73be') ); ?>;
+			}
+			a:not(.read-more):not(.button):hover {
+				color: <?php echo esc_html( get_theme_mod('np_link_hover_color', '#4aabc9') ); ?>;
+			}
+			#page {
+				<?php if ( esc_html( get_theme_mod( 'np_site_full_width_or_contained', 'full_width' ) ) == 'contained' ): ?>
+				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
+				<?php endif ?>
+				<?php if ( esc_html( get_theme_mod('np_site_background_color', '') ) != '' ): ?>
+					background-color: <?php echo esc_html( get_theme_mod('np_site_background_color', '') ); ?>;
+				<?php endif ?>
+				<?php if ( esc_html( get_theme_mod( 'np_site_border_size', '' ) ) != '0' ): ?>
+					border: <?php echo esc_html( get_theme_mod('np_site_border_size', '0') ); ?>px solid <?php echo esc_html( get_theme_mod('site_border_color', '#ffffff') ); ?>;
+				<?php endif ?>
+				<?php if ( esc_html( get_theme_mod('np_site_shadow_color', '#ffffff' ) ) != '' ): ?>
+					box-shadow: 0 2px 8px 2px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'np_site_shadow_color', '#ffffff' ) ) );  ?>,0.1);
+				<?php endif ?>
+			}
+			#main-content {
+				max-width : <?php echo esc_html( get_theme_mod('np_np_site_width', '1200') ); ?>px;
+				<?php if ( esc_html( get_theme_mod('np_site_background_color', '') ) != '' ): ?>
+					background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
+				<?php endif ?>
+			}
+			.site-header-wrapper {
+				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
+			}
+			.footer-wrapper {
+				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
+			}
+			.site-header {
+				background-color: <?php echo esc_html( get_theme_mod('np_header_background_color', '#fbfbfb') ); ?>;
+				box-shadow: 0 1px 8px 1px rgba(<?php echo nimblepress_hex_to_rgb( get_theme_mod( 'np_header_shadow', '#000000' ) ) ?>,0.08);
+				<?php if ( esc_html( get_theme_mod('np_header_height', 'auto') ) != 'auto' ): ?>
+					min-height : <?php echo esc_html( get_theme_mod( 'np_header_height', 'auto' ) ); ?>px;
+				<?php endif ?>
+			}
+			.site-footer {
+				background-color: <?php echo esc_html( get_theme_mod('np_footer_background_color', '#fbfbfb') ); ?>;
+				box-shadow: 0 -1px 8px 1px rgba(<?php echo nimblepress_hex_to_rgb( esc_html( get_theme_mod( 'np_footer_shadow', '#000000' ) ) ) ?>,0.08);
+				<?php if ( esc_html( get_theme_mod('np_footer_height', 'auto') ) != 'auto' ) : ?>
+					min-height : <?php echo esc_html( get_theme_mod('np_footer_height', 'auto') ); ?>px;
+				<?php endif ?>
+			}
+			.widget {
+				background-color: <?php echo esc_html( get_theme_mod('np_widget_background_color', '#ffffff') ); ?>;
+				box-shadow: 0px 1px 8px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'np_widget_shadow', '#000000' ) ) ) ?>, 0.08);
+			}
+						
+			button, .read-more, html input[type="button"], input[type="reset"], input[type="submit"], a.button, a.wp-block-button__link:not(.has-background) {
+				color: <?php echo esc_html( get_theme_mod('np_button_text_color', '#ffffff') ); ?>;
+				background-color: <?php echo esc_html( get_theme_mod('np_button_background_color', '#2f4d80') ); ?>;
+			}
+
+			button:hover, .read-more:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, a.button:hover, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, a.button:focus, a.wp-block-button__link:not(.has-background):active, a.wp-block-button__link:not(.has-background):focus, a.wp-block-button__link:not(.has-background):hover {
+				color: <?php echo esc_html( get_theme_mod('np_button_text_color', '#ffffff') ); ?>;
+				background-color: <?php echo esc_html( get_theme_mod('np_button_hover_background_color', '#4075cb') ); ?>;
+				cursor: pointer;
+			}
+			
+			.nav-menu a:hover {
+				text-decoration: underline;
+			}
+
+			.site-title {
+				font-size: <?php echo esc_html( get_theme_mod('site_title_size', '42') ); ?>px;
+				
+			}
+			.site-title a:link, .site-title a:visited, .site-title a:active, .site-title a:hover {
+				color: <?php echo esc_html( get_theme_mod('np_site_title_color', '#1e73be') ); ?>;
+			}
+			.site-description {
+				color: <?php echo esc_html( get_theme_mod('np_site_description_color', '#404040') ); ?>;
+				font-size: <?php echo esc_html( get_theme_mod('site_description_font_size', '16') ); ?>px;
+				
+			}
+			
+			<?php
+				if( $nimblepress_hide_title ):
+			?>
+				#main-content {
+					padding-top: 0px;
+					padding-bottom: 0px;
+				}
+				.entry-content {
+					margin-top: 0px;
+				}
+			
+			<?php
+				endif;
+			?>
+				
+			
+         </style>
+    <?php
+}
+add_action( 'wp_head', 'nimblepress_customizer_styles', 9);
+
+
+/**
+ * Nav menu class related
+*/
+
+
+function nimblepress_add_css_classes_to_nav_menu( $classes, $item, $args, $depth ) {
+
+	if ( $depth == 0 ) {
+		$classes[] = "nimblepress-menu-top-level";
+	}
+	return $classes;
+
+}
+function nimblepress_add_class_to_top_menu_items($classes, $item, $args) {
+	static $fl;
+	if (0 == $item->menu_item_parent) {
+		$fl = (empty($fl)) ? 'first' : 'middle';
+		$classes[] = 'nimblepress-menu-top-level';
+	} 
+	return $classes;
+}
+add_filter('nav_menu_css_class','nimblepress_add_class_to_top_menu_items',1,3);
+
+
+function nimblepress_chevron_to_nav_menu( $item_output, $item, $depth, $args ) {
+
+	$icon = '';
+	// add_action( 'nav_menu_css_class', 'nimblepress_add_css_classes_to_nav_menu', 10, 4 );
+
+    if ( !empty( $item->classes ) AND in_array( 'menu-item-has-children', $item->classes ) ) {
+		$icon = '<svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z"/></svg>';
+    }
+
+    return '<div class="nimblepress-menu-item-wrapper"><div class="nimblepress-menu-link">' . $item_output . '</div><div class="nimblepress-arrow-icon">' . $icon . '</div></div>';
+
+}
+
+
+add_filter( 'walker_nav_menu_start_el', 'nimblepress_chevron_to_nav_menu', 10, 4 );
+
+
+/**
+ * Footer info
+ */
+
+add_action('nimblepress_genereate_footer_info', 'nimblepress_genereate_footer_info');
+
+function nimblepress_genereate_footer_info( $args = array() ) {
+	
+		$do_footer = '&nbsp;©&nbsp;' . date('Y') . '&nbsp;' . get_bloginfo( 'name' );
+		$do_footer .= '&nbsp;|&nbsp;';
+		$do_footer .= sprintf( esc_html__( 'Built with&nbsp;%1$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank">NimblePress</a>' );
+		
+		echo $do_footer;
+}
+
 
 /**
  * Implement the Custom Header feature.

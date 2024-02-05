@@ -8,25 +8,54 @@
  *
  * @package nimblepress
  */
+ 
+global $post;
+
+$nimblepress_hide_footer = False;
+if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
+	
+	$nimblepress_footer_status = nimblepress_get_post_meta_value( $post, 'footer' );
+	if ( $nimblepress_footer_status AND $nimblepress_footer_status == 'hide' ) {
+		$nimblepress_hide_footer = True;
+	}
+}
+
+ 
 
 ?>
 </div>
+
+	<?php
+		if ( !$nimblepress_hide_footer):
+	?>
+
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'nimblepress' ) ); ?>">
+		<div class="footer-wrapper">
+			<div class="footer-widgets">
+				<?php dynamic_sidebar( 'footer_widgets' ); ?>
+			</div>
+			<div class="site-info">
 				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'nimblepress' ), 'WordPress' );
+				
+					do_action( 'nimblepress_genereate_footer_info' );
+					
+				
 				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'nimblepress' ), 'nimblepress', '<a href="https://codebard.com">Codebard</a>' );
-				?>
-		</div><!-- .site-info -->
+				
+			</div><!-- .site-info -->
+		</div>
 	</footer><!-- #colophon -->
+	
+	<?php
+		endif;
+	?>
 </div><!-- #page -->
+
+<?php if (get_theme_mod('np_inline_navigation_js', 'yes') == 'yes'): ?>
+	<script>
+		<?php include  get_template_directory()  . '/js/navigation.js'; ?>
+	</script>
+<?php endif ?>
 
 <?php wp_footer(); ?>
 

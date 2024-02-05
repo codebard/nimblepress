@@ -1,37 +1,37 @@
-# Copyright (C) 2020 Automattic
+# Copyright (C) 2024 Codebard
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/_s\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Project-Id-Version: nimblepress 1.0.0\n"
+"Report-Msgid-Bugs-To: https:codebard.com\n"
+"Last-Translator: FULL NAME <contact@codebard.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-04-17T21:03:15+00:00\n"
+"POT-Creation-Date: 2024-01-28T21:03:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: _s\n"
+"X-Domain: nimblepress\n"
 
 #. Theme Name of the theme
-msgid "_s"
+msgid "NimblePress"
 msgstr ""
 
 #. Theme URI of the theme
-msgid "https://underscores.me/"
+msgid "https://codebard.com/nimblepress"
 msgstr ""
 
 #. Description of the theme
-msgid "Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for."
+msgid "Fast, lightweight, optimized and easy to use."
 msgstr ""
 
 #. Author of the theme
-msgid "Automattic"
+msgid "Codebard"
 msgstr ""
 
 #. Author URI of the theme
-msgid "https://automattic.com/"
+msgid "https://codebard.com"
 msgstr ""
 
 #: 404.php:18
@@ -99,7 +99,7 @@ msgid "Skip to content"
 msgstr ""
 
 #: header.php:49
-msgid "Primary Menu"
+msgid "Menu"
 msgstr ""
 
 #. translators: %s: post date.
@@ -195,4 +195,369 @@ msgstr ""
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content.php:40
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#. Header Background Color
+msgid "Header Background Color"
+msgstr ""
+
+#. Footer Background Color
+msgid "Footer Background Color"
+msgstr ""
+
+#. Header Shadow
+msgid "Header Shadow"
+msgstr ""
+
+#. Footer Shadow
+msgid "Header Shadow"
+msgstr ""
+
+#. Widget Shadow
+msgid "Widget Shadow"
+msgstr ""
+
+#. Widget Background Color
+msgid "Widget Background Color"
+msgstr ""
+
+#. Layout
+msgid "Layout"
+msgstr ""
+
+#. Site Width
+msgid "Site Width"
+msgstr ""
+
+#. Header Height (default: auto)
+msgid "Header Height (default: auto)"
+msgstr ""
+
+#. Footer Height (default: auto)
+msgid "Footer Height (default: auto)"
+msgstr ""
+
+#. Site Contained/Full Width 
+msgid "Site Contained/Full Width"
+msgstr ""
+
+#. Full Width 
+msgid "Full Width"
+msgstr ""
+
+#. Contained 
+msgid "Contained"
+msgstr ""
+
+#. Site Background Color 
+msgid "Site Background Color"
+msgstr ""
+
+#. Body Background Color 
+msgid "Body Background Color"
+msgstr ""
+
+#. Site Border Size
+msgid "Site Border Size"
+msgstr ""
+
+#. Site Border Color
+msgid "Site Border Color"
+msgstr ""
+
+#. Site Shadow Color
+msgid "Site Shadow Color"
+msgstr ""
+
+#. Fonts
+msgid "Fonts"
+msgstr "
+
+#. Body Font
+msgid "Body Font"
+msgstr ""
+
+#. Heading Font
+msgid "Heading Font"
+msgstr ""
+
+#. Nav Menu Font
+msgid "Nav Menu Font"
+msgstr ""
+
+#. The site-wide background color
+msgid "The site-wide background color"
+msgstr ""
+
+#. Background color for the main content area
+msgid "Background color for the main content area"
+msgstr ""
+
+#. Border size for entire site - not used if the site is not set to "contained" width.
+msgid "Border size for entire site - not used if the site is not set to "contained" width."
+msgstr ""
+
+#. Border color for the site border above - not used if the site is not set to "contained" width.
+msgid "Border color for the site border above - not used if the site is not set to "contained" width."
+msgstr ""
+
+#. Site shadow & color - not used if the site is not set to "contained" width.
+msgid "Site shadow & color - not used if the site is not set to "contained" width."
+msgstr ""
+
+#. The background for the header
+msgid "The background for the header"
+msgstr ""
+
+#. Shadow for the header. Set to your site or body color to make disappear.
+msgid "Shadow for the header. Set to your site or body color to make disappear."
+msgstr ""
+
+#. Background color of the footer
+msgid "Background color of the footer"
+msgstr ""
+
+#. Shadow for the footer. Set to your site or body color to make disappear.
+msgid "Shadow for the footer. Set to your site or body color to make disappear."
+msgstr ""
+
+#. Background color for the individual widgets.
+msgid "Background color for the individual widgets."
+msgstr ""
+
+#. Shadow for the widgets. Set to your site or body color to make disappear.
+msgid "Shadow for the widgets. Set to your site or body color to make disappear."
+msgstr ""
+
+#. Width of the site
+msgid "Width of the site"
+msgstr ""
+
+#. Minimum height of the header
+msgid "Minimum height of the header"
+msgstr ""
+
+#. Minimum height of the footer
+msgid "Minimum height of the footer"
+msgstr ""
+
+#. Full width allows header and footer to extend, contained keeps them contained into site width.
+msgid "Full width allows header and footer to extend, contained keeps them contained into site width."
+msgstr ""
+
+#. Font for body and general text
+msgid "Font for body and general text"
+msgstr ""
+
+#. Font for headings across the site
+msgid "Font for headings across the site"
+msgstr ""
+
+#. Font for the navigation menus
+msgid "Font for the navigation menus"
+msgstr ""
+
+#. Font for the links across the site
+msgid "Font for the links across the site"
+msgstr ""
+
+#. SEO
+msgid "SEO"
+msgstr ""
+
+#. Inline the css
+msgid "Inline the css"
+msgstr ""
+
+#. Loads the already small theme CSS inline and makes the site faster by avoiding render-blocking and one extra call
+msgid "Loads the already small theme CSS inline and makes the site faster by avoiding render-blocking and one extra call"
+msgstr ""
+
+#. Yes
+msgid "Yes"
+msgstr ""
+
+#. No
+msgid "No"
+msgstr ""
+
+#. Hide NimblePress link in footer
+msgid "Hide NimblePress link in footer"
+msgstr ""
+
+#. Hides the link to NimblePress in footer. If you keep the link to help the theme, we\'d appreciate it!
+msgid "Hides the link to NimblePress in footer. If you keep the link to help the theme, we\'d appreciate it!"
+msgstr ""
+
+#. Built with
+msgid "Built with"
+msgstr ""
+
+#. Layout
+msgid "Layout"
+msgstr ""
+
+#. Title
+msgid "Title"
+msgstr ""
+
+#. Show
+msgid "Show"
+msgstr ""
+
+#. (only for pages)
+msgid " (only for pages)"
+msgstr ""
+
+#. Header
+msgid "Header"
+msgstr ""
+
+#. Hide
+msgid "Hide"
+msgstr ""
+
+#. Comments
+msgid "Comments"
+msgstr ""
+
+#. Post Navigation
+msgid "Post Navigation"
+msgstr ""
+
+#. Post Metadata
+msgid "Post Metadata"
+msgstr ""
+
+#. Button Background Color
+msgid "Button Background Color"
+msgstr ""
+
+#. The background color for buttons.
+msgid "The background color for buttons."
+msgstr ""
+
+#. Button Hover Background Color
+msgid "Button Hover Background Color"
+msgstr ""
+
+#. The background color for buttons when hovered.
+msgid "The background color for buttons when hovered."
+msgstr ""
+
+#. Button Text Color
+msgid "Button Text Color"
+msgstr ""
+
+#. Button Text Color
+msgid "The color for the text on the buttons."
+msgstr ""
+
+#. Menu Link Color
+msgid "Menu Link Color"
+msgstr ""
+
+#. Colors of link in the header menu.
+msgid "Colors of link in the header menu."
+msgstr ""
+
+#. Heading Color
+msgid "Heading Color."
+msgstr ""
+
+#. Color for the headings across the site.
+msgid "Color for the headings across the site."
+msgstr ""
+
+#. Site Title Size
+msgid "Site Title Size"
+msgstr ""
+
+#. The size for site title in case you are using a text title instead of image logo.
+msgid "The size for site title in case you are using a text title instead of image logo."
+msgstr ""
+
+
+#. Site Title Color
+msgid "Site Title Color"
+msgstr ""
+
+#. Color for the site title
+msgid "Color for the site title"
+msgstr ""
+
+#. Site Description Color
+msgid "Site Description Color"
+msgstr ""
+
+#. Site Description Color
+msgid "Color for the site description"
+msgstr ""
+
+#. Site Description Font Size
+msgid "Site Description Font Size"
+msgstr ""
+
+#. The size for site description font in case you are using a the site description.
+msgid "The size for site description font in case you are using a the site description."
+msgstr ""
+
+#. Link Color
+msgid "Link Color"
+msgstr ""
+
+#. Color for links across the site
+msgid "Color for links across the site"
+msgstr ""
+
+#. Link Hover Color
+msgid "Link Hover Color"
+msgstr ""
+
+#. Hover color for links across the site
+msgid "Hover color for links across the site"
+msgstr ""
+
+#. Inline navigation JavaScript
+msgid "Inline navigation JavaScript"
+msgstr ""
+
+#. Loads the already small theme navigation JavaScript inline and makes the site faster by avoiding one extra call and script load time
+msgid "Loads the already small theme navigation JavaScript inline and makes the site faster by avoiding one extra call and script load time"
+msgstr ""
+
+#. Strong magenta
+msgid "Strong magenta"
+msgstr ""
+
+#. Light grayish magenta
+msgid "Light grayish magenta"
+msgstr ""
+
+#. Very light gray
+msgid "Very light gray"
+msgstr ""
+
+#. Very dark gray
+msgid "Very dark gray"
+msgstr ""
+
+#. Vivid cyan blue to vivid purple
+msgid "Vivid cyan blue to vivid purple"
+msgstr ""
+
+#. Vivid green cyan to vivid cyan blue
+msgid "Vivid green cyan to vivid cyan blue"
+msgstr ""
+
+#. Light green cyan to vivid green cyan
+msgid "Light green cyan to vivid green cyan"
+msgstr ""
+
+#. Luminous vivid amber to luminous vivid orange
+msgid "Luminous vivid amber to luminous vivid orange"
+msgstr ""
+
+#. Luminous vivid orange to vivid red
+msgid "Luminous vivid orange to vivid red"
 msgstr ""
