@@ -4,7 +4,7 @@ Theme URI: https://codebard.com/nimblepress
 Author: Codebard
 Author URI: https://codebard.com
 Description: Description
-Version: 1.0.3
+Version: 1.0.4
 Tested up to: 6.4
 Requires PHP: 7.0
 License: GNU General Public License v2 or later
@@ -1597,3 +1597,4 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 ol {
     list-style: none;
 }
+
