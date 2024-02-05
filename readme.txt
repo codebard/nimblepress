@@ -1,11 +1,10 @@
 === NimblePress ===
-
 Contributors: Codebard
 Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-logo, custom-menu, threaded-comments, featured-image-header, featured-images, flexible-header, footer-widgets, style-variations, translation-ready
 Requires at least: 4.5
 Tested up to: 6.4
 Requires PHP: 7.0
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -51,6 +50,10 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 
 == Changelog ==
+
+= 1.0.6 - Feb 5 2024 =
+
+* New version to make the description appear and also get around the trac issue
 
 = 1.0.5 - Feb 5 2024 =
 
