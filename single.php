@@ -38,7 +38,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 
 		<?php
 			while ( have_posts() ) :
-
+				do_action('nimblepress_before_content_insert');
 				the_post();
 
 				get_template_part( 'template-parts/content', get_post_type() );

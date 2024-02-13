@@ -77,6 +77,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 						<p class="site-description"><?php echo $nimblepress_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 					<?php endif; ?>
 				</div><!-- .site-branding -->
+				<?php do_action('nimblepress_header_insert'); ?>
 				<?php if ( !$nimblepress_hide_nav_menu ): ?>
 					<nav id="site-navigation" class="main-navigation">
 						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'nimblepress' ); ?></button>

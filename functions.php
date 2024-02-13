@@ -787,6 +787,69 @@ function nimblepress_genereate_footer_info( $args = array() ) {
 		echo $do_footer;
 }
 
+function nimblepress_get_option( $option ) {
+	
+	$options = get_option('nimblepress', nimblepress_get_default_options() );
+	
+	if ( isset( $options[$option] ) ) {
+		return $options[$option];
+	}
+	
+	return false;
+}
+
+function nimblepress_set_option( $option, $value ) {
+	
+	$options = get_option('nimblepress', nimblepress_get_default_options() );
+	
+	$options[$option] = $value;
+	
+	update_option( 'nimblepress', $options );
+
+}
+
+function nimblepress_delete_option( $option ) {
+	
+	$options = get_option('nimblepress', nimblepress_get_default_options() );
+	
+	unset( $options[$option] );
+	
+	update_option( 'nimblepress', $options );
+
+}
+
+function nimblepress_get_default_options() {
+	return array(
+	
+	);
+}
+
+
+function nimblepress_theme_menu_page() {
+	
+	if ( isset( $_REQUEST['nimblepress_setup_wizard'] ) AND esc_attr($_REQUEST['nimblepress_setup_wizard'] ) == 'yes' OR !nimblepress_get_option('introduction_seen') ) {
+		
+		require get_template_directory() . '/inc/setup_1.php';
+		
+		nimblepress_set_option( 'introduction_seen', true );
+		
+		return;
+	}
+	
+	require get_template_directory() . '/inc/theme_options.php';
+
+}
+
+
+function nimblepress_theme_menu() {
+
+	 add_theme_page('NimblePress', 'NimblePress', 'edit_theme_options', 'my-theme-options', 'nimblepress_theme_menu_page', 0 );
+}
+
+add_action('admin_menu', 'nimblepress_theme_menu');
+
+
+
 
 /**
  * Implement the Custom Header feature.
