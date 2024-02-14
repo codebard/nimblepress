@@ -10,7 +10,71 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function nimblepress_customize_register( $wp_customize ) {
+
+class SampleAddonCustomizer {
+
+   public $this_theme = 'nimblepress';
+
+   public function hooks() {
+
+     $current_theme = wp_get_theme();
+
+     if( $current_theme->template == $this->this_theme ) {
+       add_action( 'customize_register', array( $this, 'add_nimblepress_upsell' ), 99 );
+     }
+
+   }
+
+   public function add_nimblepress_upsell( $wp_customize ) {
+
+         $wp_customize->add_section( 'nimblepress_upsell', array(
+           'capability' => 'edit_theme_options',
+           'priority'   => 1,
+           'title'      => __( 'Go premium for more features', 'nimblepress' )
+         ) );
+
+         $wp_customize->add_setting(  'nimblepress_upsell_setting', array(
+           'capability' => 'edit_theme_options',
+           'type'       => 'hidden',
+           'autoload'   => false
+         ) );
+
+         $wp_customize->add_control( 'nimblepress_upsell_setting', array(
+             'label'   => 'Links to settings',
+             'description' => $this->get_links(),
+             'section' => 'nimblepress_upsell',
+             'type'    => 'hidden',
+         ) );
+   }
+
+   public function get_links() {
+
+     $links = array(
+       array('url' => 'http://example.com/', 'text' => 'Example', 'desc' => 'Just an example'),
+       array('url' => 'https://yahoo.com/', 'text' => 'Yahoo!', 'desc' => 'More entertainment'),
+       array('url' => 'https://google.com/', 'text' => 'Google', 'desc' => 'Just Search'),
+       array('url' => 'https://bing.com/', 'text' => 'Bing', 'desc' => 'Nice pictures'),
+     );
+
+     $html = '';
+
+     foreach ($links as $link) {
+       $html .= '<p>'.$link['desc'].'<br>'.PHP_EOL;
+       $html .= sprintf('<a href="%s">%s</a>', $link['url'], $link['text']) . '<br>' . PHP_EOL;
+       $html .= '</p>'.PHP_EOL;
+     }
+
+
+     return $html;
+   }
+
+ }
+
+ $sampleAddonCustomizer = new SampleAddonCustomizer();
+ $sampleAddonCustomizer->hooks();
+
+function nimblepress_customize_register( $wp_customize ) 
+{
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';

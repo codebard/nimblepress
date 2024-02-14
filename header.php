@@ -39,10 +39,13 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	
+
 	<?php if (get_theme_mod('np_inline_the_css', 'yes') == 'yes'): ?>
 		<style>
-			<?php include get_template_directory() . '/style.css'; ?>
+			<?php include ( get_template_directory() . '/style.css' ); ?>
+		</style>
+		<style>
+			<?php include ( 'wp-includes/css/dist/block-library/style.min.css' ); ?>
 		</style>
 	<?php endif ?>
 	<?php wp_head(); ?>

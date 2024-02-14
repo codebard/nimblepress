@@ -16,3 +16,8 @@
    list-style-type: disc; 
    list-style-position: inside;
 }
+
+#accordion-section-nimblepress_upsell h3 {
+	color: #d64131 !important;
+	font-weight: 700;
+}

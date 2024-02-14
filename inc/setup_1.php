@@ -9,6 +9,7 @@ Consider upgrading to NimblePress premium to power up your theme! With premium, 
 <ul>
 	<li>Show ads in your header, sidebar, footer</li>
 	<li>Show ads before post content, inside the post content and at the end of post content</li>
+	<li>Use Grid post listing and hide sidebar in home page</li>
 	<li>Speed up your site even further</li>
 	<li>Customize the footer info and remove the credits link</li>
 	<li>Get all upcoming features</li>

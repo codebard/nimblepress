@@ -561,3 +561,8 @@ msgstr ""
 #. Luminous vivid orange to vivid red
 msgid "Luminous vivid orange to vivid red"
 msgstr ""
+
+
+#. Go premium for more features
+msgid "Go premium for more features"
+msgstr ""

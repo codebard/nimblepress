@@ -221,17 +221,11 @@ add_action( 'widgets_init', 'nimblepress_widgets_init' );
  */
  
  
-function nimblepress_admin_css() {
-
-	echo '<style>';
-	
-		include get_template_directory() . '/admin-styles.css';
-	
-	echo '</style>';
-
+function nimblepress_enqueue_admin_styles() {
+	wp_enqueue_style( 'nimblepress-admin-styles', get_stylesheet_directory_uri() . '/admin-styles.css' );
 }
- 
- add_action( 'admin_head', 'nimblepress_admin_css' );
+
+add_action( 'admin_enqueue_scripts', 'nimblepress_enqueue_admin_styles' );
  
  
 /**
@@ -243,7 +237,7 @@ function nimblepress_scripts() {
 	if ( get_theme_mod('np_inline_the_css', 'yes') != 'yes' ) {
 		wp_enqueue_style( 'nimblepress-style', get_stylesheet_uri(), array(), NIMBLEPRESS_VERSION );
 	}
-
+	
 	if ( get_theme_mod('np_inline_navigation_js', 'yes') != 'yes' ) {
 		wp_enqueue_script( 'nimblepress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), NIMBLEPRESS_VERSION, true );
 	}
@@ -252,6 +246,19 @@ function nimblepress_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nimblepress_scripts' );
+
+	
+
+function nimblepress_maybe_dequeue_gutenberg_css(){
+	
+	// Dequeue Gutenberg CSS and inline it if inline option was selected
+	if ( get_theme_mod('np_inline_the_css', 'yes') == 'yes' ) {
+		wp_dequeue_style( 'wp-block-library' );
+	}
+ 
+} 
+add_action( 'wp_enqueue_scripts', 'nimblepress_maybe_dequeue_gutenberg_css', 100 );
+
 
 /**
  * Read more buttons
@@ -729,6 +736,7 @@ function nimblepress_customizer_styles()
     <?php
 }
 add_action( 'wp_head', 'nimblepress_customizer_styles', 9);
+
 
 
 /**
