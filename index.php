@@ -52,5 +52,9 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+
+
+do_action('nimblepress_do_sidebar');
+
+
 get_footer();

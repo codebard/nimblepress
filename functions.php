@@ -825,6 +825,19 @@ function nimblepress_get_default_options() {
 }
 
 
+function nimblepress_get_sidebar() {
+	
+	$show_sidebar = apply_filters( 'nimblepress_show_sidebar', 'show' );
+	
+	if ( $show_sidebar == 'show' ) {
+		get_sidebar();
+	}
+	
+}
+
+add_action('nimblepress_do_sidebar', 'nimblepress_get_sidebar');
+
+
 function nimblepress_theme_menu_page() {
 	
 	if ( isset( $_REQUEST['nimblepress_setup_wizard'] ) AND esc_attr($_REQUEST['nimblepress_setup_wizard'] ) == 'yes' OR !nimblepress_get_option('introduction_seen') ) {
