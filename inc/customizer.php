@@ -40,38 +40,49 @@ class SampleAddonCustomizer {
          ) );
 
          $wp_customize->add_control( 'nimblepress_upsell_setting', array(
-             'label'   => 'Links to settings',
-             'description' => $this->get_links(),
+             'label'   => '',
+             'description' => $this->description(),
              'section' => 'nimblepress_upsell',
              'type'    => 'hidden',
          ) );
    }
 
-   public function get_links() {
+   public function description() {
 
-     $links = array(
-       array('url' => 'http://example.com/', 'text' => 'Example', 'desc' => 'Just an example'),
-       array('url' => 'https://yahoo.com/', 'text' => 'Yahoo!', 'desc' => 'More entertainment'),
-       array('url' => 'https://google.com/', 'text' => 'Google', 'desc' => 'Just Search'),
-       array('url' => 'https://bing.com/', 'text' => 'Bing', 'desc' => 'Nice pictures'),
-     );
+     $description = '
+	 
+	 <div class="nimblepress_introduction" style="font-style: normal !important;">
 
-     $html = '';
+	Consider upgrading to NimblePress premium to power up your theme! With premium, you can:
+<br clear="both" />
+<br clear="both" />
+	<ul>
+		<li>Show ads in your header, sidebar, footer</li>
+		<li>Show ads before post content, inside the post content and at the end of post content</li>
+		<li>Use Grid post listing and hide sidebar in home page</li>
+		<li>Speed up your site even further</li>
+		<li>Customize the footer info and remove the credits link</li>
+		<li>Get all upcoming features</li>
+	</ul>
+<br clear="both" />
+	Sounds good? <a href="https://codebard.com/nimblepress-premium?utm_source=' . urlencode( site_url()) . '&utm_medium=nimblepress_free&utm_campaign=&utm_content=nimblepress_customizer_notice&utm_term=" target="_blank">Upgrade here!</a>
 
-     foreach ($links as $link) {
-       $html .= '<p>'.$link['desc'].'<br>'.PHP_EOL;
-       $html .= sprintf('<a href="%s">%s</a>', $link['url'], $link['text']) . '<br>' . PHP_EOL;
-       $html .= '</p>'.PHP_EOL;
-     }
-
-
-     return $html;
+	</div>
+	 
+';
+	
+	return $description;
    }
 
  }
+ 
 
- $sampleAddonCustomizer = new SampleAddonCustomizer();
- $sampleAddonCustomizer->hooks();
+if ( !defined('NIMBLEPRESS_PREMIUM') ) {
+
+	$sampleAddonCustomizer = new SampleAddonCustomizer();
+	$sampleAddonCustomizer->hooks();
+
+} 
 
 function nimblepress_customize_register( $wp_customize ) 
 {

@@ -21,3 +21,20 @@
 	color: #d64131 !important;
 	font-weight: 700;
 }
+
+.nimblepress_admin_grid {
+	display: flex;
+	width : 100%;
+	justify-content: flex-start;
+	align-content:flex-start;
+	flex_direction: row;
+	gap: 1em;
+}
+
+.nimblepress_admin_grid_item {
+	font-size : 1.5em;
+	background-color: #ffffff;
+	padding: 15px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}

@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.0.6' );
+	define( 'NIMBLEPRESS_VERSION', '1.0.7' );
 }
 
 /**
@@ -217,6 +217,79 @@ function nimblepress_widgets_init() {
 add_action( 'widgets_init', 'nimblepress_widgets_init' );
 
 /**
+ * Inline the css so it loads without a call and is not render blocking
+ */
+
+
+function nimblepress_inline_css() {
+	 if (get_theme_mod('np_inline_the_css', 'yes') == 'yes') {
+		 ?>
+		<style>
+			<?php include ( get_template_directory() . '/style.css' ); ?>
+		</style>
+		<style>
+			<?php include ( 'wp-includes/css/dist/block-library/style.min.css' ); ?>
+		</style>
+		<?php
+	 }
+}
+
+add_action( 'nimblepress_head', 'nimblepress_inline_css' );
+
+
+
+function nimblepress_admin_notices() {
+	
+	$date_activated = get_option( 'nimblepress_date_activated' );
+
+	if ( $date_activated === false ) {
+		update_option( 'nimblepress_date_activated', time() );
+	}
+	else {
+		if ( get_option( 'nimblepress_upsell_shown' ) === false AND ( time() - $date_activated ) > ( 60 * 60 * 24 * 30 ) AND !defined( 'NIMBLEPRESS_PREMIUM' ) ) {
+
+		?>
+		
+			<div class="notice notice-success is-dismissible nimblepress-notice" id="nimblepress-addon-upsell" nimblepress_nonce_addon_notice_shown="<?php echo wp_create_nonce('nimblepress_nonce_addon_notice_shown'); ?>"><p><div style="display: flex; flex-wrap: wrap; flex-direction: row;"><a href="https://codebard.com/nimblepress-premium?utm_source=<?php urlencode( site_url())?>&utm_medium=nimblepress_free&utm_campaign=&utm_content=nimblepress_admin_upsell_notice&utm_term="><img class="nimblepress_upsell" src="<?php echo get_stylesheet_directory_uri()  ?>/img/nimblepress-logo.jpg" style="width:128px; height:128px;margin: 10px; margin-right: 20px;" alt="NimblePress Premium" /></a><div style="max-width: 700px; width: 100%;"><div style="max-width:550px; width: auto; float:left; display:inline-box"><a href="https://codebard.com/nimblepress-premium?utm_source=<?php urlencode( site_url())?>&utm_medium=nimblepress_free&utm_campaign=&utm_content=nimblepress_admin_upsell_notice&utm_term="><h2 style="margin-top: 0px; font-size: 150%; font-weight: bold;line-height: 1.2em;">Upgrade your NimblePress Theme to Premium and boost your site even more!</h2></a></div><div style="width:100%; font-size: 125% !important;clear:both; ">Get <a href="https://codebard.com/nimblepress-premium?utm_source=<?php urlencode( site_url())?>&utm_medium=nimblepress_free&utm_campaign=&utm_content=nimblepress_admin_upsell_notice&utm_term=">NimblePress Premium</a> and show ads in your header, sidebar, footer, before post content, inside post content & at the end of post content, use responsive Grid layout, speed up your site even more, remove credit link in the footer and enjoy more features and all the upcoming ones!<br /><br /><a href="https://codebard.com/nimblepress-premium?utm_source=<?php urlencode( site_url())?>&utm_medium=nimblepress_free&utm_campaign=&utm_content=nimblepress_admin_upsell_notice&utm_term=">Check it out here</a></div></div></div></p>
+			</div>
+			
+		<?php
+		
+			
+		}
+	}
+	
+}
+
+add_action('admin_notices', 'nimblepress_admin_notices');
+
+
+
+function nimblepress_dismiss_admin_notice() {
+	
+	if( !( is_admin() AND current_user_can( 'manage_options' ) ) ) {
+		return;
+	}
+
+	// Mapping what comes from REQUEST to a given value avoids potential security problems and allows custom actions depending on notice
+
+	if ( $_REQUEST['notice_id'] == 'nimblepress-addon-upsell' ) {
+		if ( !isset($_REQUEST['nimblepress_nonce_addon_notice_shown']) OR !wp_verify_nonce( sanitize_key( $_REQUEST['nimblepress_nonce_addon_notice_shown'] ), 'nimblepress_nonce_addon_notice_shown' ) ) {
+			return;
+		}
+		
+		update_option( 'nimblepress_upsell_shown', true);
+		
+	}
+	
+}
+
+
+
+add_action( 'wp_ajax_nimblepress_dismiss_admin_notice', 'nimblepress_dismiss_admin_notice' , 10, 1 );
+
+
+/**
  * Enqueue the few admin styles
  */
  
@@ -237,15 +310,27 @@ function nimblepress_scripts() {
 	if ( get_theme_mod('np_inline_the_css', 'yes') != 'yes' ) {
 		wp_enqueue_style( 'nimblepress-style', get_stylesheet_uri(), array(), NIMBLEPRESS_VERSION );
 	}
-	
+
 	if ( get_theme_mod('np_inline_navigation_js', 'yes') != 'yes' ) {
 		wp_enqueue_script( 'nimblepress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), NIMBLEPRESS_VERSION, true );
 	}
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
+	
 }
 add_action( 'wp_enqueue_scripts', 'nimblepress_scripts' );
+
+ 
+/**
+ * Enqueue scripts and styles.
+ */
+ 
+function nimblepress_admin_scripts() {
+	wp_enqueue_script( 'nimblepress-admin-js', get_template_directory_uri() . '/js/admin.js', array('jquery'), NIMBLEPRESS_VERSION );
+}
+add_action( 'admin_enqueue_scripts', 'nimblepress_admin_scripts' );
 
 	
 
@@ -847,15 +932,6 @@ add_action('nimblepress_do_sidebar', 'nimblepress_get_sidebar');
 
 
 function nimblepress_theme_menu_page() {
-	
-	if ( isset( $_REQUEST['nimblepress_setup_wizard'] ) AND esc_attr($_REQUEST['nimblepress_setup_wizard'] ) == 'yes' OR !nimblepress_get_option('introduction_seen') ) {
-		
-		require get_template_directory() . '/inc/setup_1.php';
-		
-		nimblepress_set_option( 'introduction_seen', true );
-		
-		return;
-	}
 	
 	require get_template_directory() . '/inc/theme_options.php';
 
