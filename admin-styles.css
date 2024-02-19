@@ -46,7 +46,6 @@
 	max-width: 350px;
 	text-wrap: wrap;
 	word-break: normal;
-	flex-shrink: 1;
 }
 
 .nimblepress_admin_grid_item_text {
