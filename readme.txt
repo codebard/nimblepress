@@ -3,8 +3,8 @@ Contributors: Codebard
 Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-logo, custom-menu, threaded-comments, featured-image-header, featured-images, flexible-header, footer-widgets, style-variations, translation-ready
 Requires at least: 4.5
 Tested up to: 6.4
-Requires PHP: 7.0
-Stable tag: 1.0.6
+Requires PHP: 7.4
+Stable tag: 1.0.7
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -12,11 +12,11 @@ NimblePress is a fast, lightweight, mobile-first, desktop compatible, modern, ea
 
 == Description ==
 
-NimblePress is a very fast and lightweight theme that gets 100 points at Google Page Speed Insights! See its scores at https://nimblepress-demo.codebard.com/2024/01/29/lightning-fast/ or test https://nimblepress-demo.codebard.com yourself!
+NimblePress is a very fast and lightweight theme that gets 100 points at Google Page Speed Insights. See its scores at https://nimblepress-demo.codebard.com/2024/01/29/lightning-fast/ or test https://nimblepress-demo.codebard.com.
 
-It combines speed, ease of use, compatibility and customizability into a modern, lightweight and clean package. It works out of the box without needing any customization and if you want, you can customize all aspects of it extensively. Works with page builders!
+It combines speed, ease of use, compatibility and customizability into a modern, lightweight and clean package. It works out of the box without needing any customization and if you want, you can customize all aspects of it extensively. Works with page builders.
 
-Speed up your website with NimblePress and boost your performance & user experience at the same time!
+Speed up your website with NimblePress and boost your performance & user experience at the same time.
 
 == Installation ==
 
@@ -25,6 +25,14 @@ Speed up your website with NimblePress and boost your performance & user experie
 3. Click Activate to use your new theme right away.
 
 == Frequently Asked Questions ==
+
+= Does it support Gutenberg & blocks? =
+
+Yes
+
+= Does it support page builders? =
+
+It works with all page builders
 
 = Does this theme support any plugins? =
 
@@ -51,20 +59,32 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 == Changelog ==
 
-= 1.0.6 - Feb 5 2024 =
+= 1.0.7 =
+
+* Added header actions
+* Moved head scripts to head action
+* Added upsell link in customizer per theme repo rules
+* Now also inlines block styles and makes them non-render blocking and fast-loading
+* Added action to render the sidebar with filter to show/hide per page/post
+* Added a menu page
+* Added tutorial and manual links to menu page
+* Index, archive, search moved to their own content templates
+* Added header, sidebar, footer instert hooks
+
+= 1.0.6 =
 
 * New version to make the description appear and also get around the trac issue
 
-= 1.0.5 - Feb 5 2024 =
+= 1.0.5 =
 
 * Corrected the screenshot to the repo-rules-compatible version
 
-= 1.0.4 - Feb 5 2024 =
+= 1.0.4 =
 
 * Header menu and mobile menu fixes
 * Some compatibility additions
 
-= 1.0.3 - Feb 5 2024 =
+= 1.0.3 =
 
 * Initial release
 
