@@ -78,7 +78,7 @@ class SampleAddonCustomizer {
  }
  
 
-if ( defined('NIMBLEPRESS_PREMIUM') ) {
+if ( !defined('NIMBLEPRESS_PREMIUM') ) {
 
 	$sampleAddonCustomizer = new SampleAddonCustomizer();
 	$sampleAddonCustomizer->hooks();
