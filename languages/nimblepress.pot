@@ -367,7 +367,7 @@ msgstr ""
 
 #. Inline the css
 msgid "Inline the css"
-msgstr ""
+msgstr "Inline the css"
 
 #. Loads the already small theme CSS inline and makes the site faster by avoiding render-blocking and one extra call
 msgid "Loads the already small theme CSS inline and makes the site faster by avoiding render-blocking and one extra call"
@@ -560,4 +560,9 @@ msgstr ""
 
 #. Luminous vivid orange to vivid red
 msgid "Luminous vivid orange to vivid red"
+msgstr ""
+
+
+#. Go premium for more features
+msgid "Go premium for more features"
 msgstr ""

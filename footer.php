@@ -31,6 +31,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 
 	<footer id="colophon" class="site-footer">
 		<div class="footer-wrapper">
+		<?php do_action('nimblepress_footer_insert'); ?>
 			<div class="footer-widgets">
 				<?php dynamic_sidebar( 'footer_widgets' ); ?>
 			</div>

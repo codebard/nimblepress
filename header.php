@@ -39,12 +39,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	
-	<?php if (get_theme_mod('np_inline_the_css', 'yes') == 'yes'): ?>
-		<style>
-			<?php include get_template_directory() . '/style.css'; ?>
-		</style>
-	<?php endif ?>
+	<?php do_action( 'nimblepress_head' ) ?>
 	<?php wp_head(); ?>
 </head>
 
@@ -77,6 +72,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 						<p class="site-description"><?php echo $nimblepress_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 					<?php endif; ?>
 				</div><!-- .site-branding -->
+				<?php do_action('nimblepress_header_insert'); ?>
 				<?php if ( !$nimblepress_hide_nav_menu ): ?>
 					<nav id="site-navigation" class="main-navigation">
 						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'nimblepress' ); ?></button>

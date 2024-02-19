@@ -10,7 +10,83 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function nimblepress_customize_register( $wp_customize ) {
+
+class SampleAddonCustomizer {
+
+   public $this_theme = 'nimblepress';
+
+   public function hooks() {
+
+     $current_theme = wp_get_theme();
+
+     if( $current_theme->template == $this->this_theme ) {
+       add_action( 'customize_register', array( $this, 'add_nimblepress_upsell' ), 99 );
+     }
+
+   }
+
+   public function add_nimblepress_upsell( $wp_customize ) {
+
+         $wp_customize->add_section( 'nimblepress_upsell', array(
+           'capability' => 'edit_theme_options',
+           'priority'   => 1,
+           'title'      => __( 'Go premium for more features', 'nimblepress' )
+         ) );
+
+         $wp_customize->add_setting(  'nimblepress_upsell_setting', array(
+           'capability' => 'edit_theme_options',
+           'type'       => 'hidden',
+			'sanitize_callback' => 'wp_filter_nohtml_kses',
+           'autoload'   => false
+         ) );
+
+         $wp_customize->add_control( 'nimblepress_upsell_setting', array(
+             'label'   => '',
+             'description' => $this->description(),
+             'section' => 'nimblepress_upsell',
+             'type'    => 'hidden',
+         ) );
+   }
+
+   public function description() {
+
+     $description = '
+	 
+	 <div class="nimblepress_introduction" style="font-style: normal !important;">
+
+	Consider upgrading to NimblePress premium to power up your theme! With premium, you can:
+<br clear="both" />
+<br clear="both" />
+	<ul>
+		<li>Show ads in your header, sidebar, footer</li>
+		<li>Show ads before post content, inside the post content and at the end of post content</li>
+		<li>Use Grid post listing and hide sidebar in home page</li>
+		<li>Speed up your site even further</li>
+		<li>Customize the footer info and remove the credits link</li>
+		<li>Get all upcoming features</li>
+	</ul>
+<br clear="both" />
+	Sounds good? <a href="https://codebard.com/nimblepress-premium?utm_source=' . urlencode( site_url()) . '&utm_medium=nimblepress_free&utm_campaign=&utm_content=nimblepress_customizer_notice&utm_term=" target="_blank">Upgrade here!</a>
+
+	</div>
+	 
+';
+	
+	return $description;
+   }
+
+ }
+ 
+
+if ( !defined('NIMBLEPRESS_PREMIUM') ) {
+
+	$sampleAddonCustomizer = new SampleAddonCustomizer();
+	$sampleAddonCustomizer->hooks();
+
+} 
+
+function nimblepress_customize_register( $wp_customize ) 
+{
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';

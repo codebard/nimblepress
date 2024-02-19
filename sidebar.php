@@ -26,4 +26,5 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 
 <aside id="secondary" class="widget-area">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php do_action('nimblepress_sidebar_insert'); ?>
 </aside><!-- #secondary -->

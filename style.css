@@ -4,9 +4,9 @@ Theme URI: https://codebard.com/nimblepress
 Author: Codebard
 Author URI: https://codebard.com
 Description: Description
-Version: 1.0.6
+Version: 1.0.7
 Tested up to: 6.4
-Requires PHP: 7.0
+Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: nimblepress
@@ -1060,6 +1060,11 @@ body {
 		width : 100%;
 		flex-grow:1;
 	}
+	
+	.nimblepress_header_insert {
+		width : 100%;
+		flex-grow:1;
+	}
 }
 
 button:not(.menu-toggle), .read-more, html input[type="button"], input[type="reset"], input[type="submit"], .button, .wp-block-button .wp-block-button__link {
@@ -1596,5 +1601,9 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 
 ol {
     list-style: none;
+}
+
+.nimblepress_footer_insert {
+    margin-top: 15px;
 }
 
