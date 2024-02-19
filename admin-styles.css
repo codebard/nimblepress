@@ -27,14 +27,28 @@
 	width : 100%;
 	justify-content: flex-start;
 	align-content:flex-start;
+	flex-wrap: wrap;
 	flex_direction: row;
 	gap: 1em;
 }
 
 .nimblepress_admin_grid_item {
+	display: flex;
+	width : 100%;
+	justify-content: flex-start;
+	align-items: center;
 	font-size : 1.5em;
 	background-color: #ffffff;
 	padding: 15px;
 	padding-top: 25px;
 	padding-bottom: 25px;
+	min-width: 300px;
+	max-width: 350px;
+	text-wrap: wrap;
+	word-break: normal;
+	flex-shrink: 1;
+}
+
+.nimblepress_admin_grid_item_text {
+	font-size: 14px;
 }

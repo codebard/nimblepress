@@ -930,6 +930,19 @@ function nimblepress_get_sidebar() {
 
 add_action('nimblepress_do_sidebar', 'nimblepress_get_sidebar');
 
+function nimblepress_options_page_grid_item($content) {
+	
+	echo '<div class="nimblepress_admin_grid_item"><div>' . $content . '</div></div>';
+}
+function nimblepress_do_options_page_grid() {
+	
+	echo nimblepress_options_page_grid_item('Read the quickstart guide <a href="https://codebard.com/nimblepress-manual/quickstart" target="_blank">here</a>');
+	echo nimblepress_options_page_grid_item('Bookmark the manual <a href="https://codebard.com/nimblepress-manual/category/manual" target="_blank">here</a>');
+	echo nimblepress_options_page_grid_item('Get support <a href="https://forum.codebard.com/c/questions-support/nimblepress/15" target="_blank">here</a>');
+
+}
+
+add_action('nimblepress_options_page_grid', 'nimblepress_do_options_page_grid');
 
 function nimblepress_theme_menu_page() {
 	
@@ -944,7 +957,6 @@ function nimblepress_theme_menu() {
 }
 
 add_action('admin_menu', 'nimblepress_theme_menu');
-
 
 
 

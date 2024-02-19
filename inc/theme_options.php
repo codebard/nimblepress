@@ -1,27 +1,11 @@
 
 <div class="wrap">
-<h1>NimblePress</h1>
+<h1><?php echo apply_filters('nimblepress_options_page_heading', 'NimblePress' ); ?></h1>
 <br clear="both" />
 <div class="nimblepress_admin_grid">
 
-
-	<div class="nimblepress_admin_grid_item">
+	<?php echo do_action('nimblepress_options_page_grid'); ?>
 	
-	Read the <a href="https://codebard.com/nimblepress-manual/quickstart" target="_blank">quickstart guide here</a>.
-	
-	</div>
-
-	<div class="nimblepress_admin_grid_item">
-	
-	Bookmark <a href="https://codebard.com/nimblepress-manual/category/manual" target="_blank">the manual here</a>.
-	
-	</div>
-
-	<div class="nimblepress_admin_grid_item">
-	
-	Get <a href="https://forum.codebard.com/c/questions-support/nimblepress/15" target="_blank">support here</a>.
-	
-	</div>
 
 
 </div>

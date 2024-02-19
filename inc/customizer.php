@@ -36,6 +36,7 @@ class SampleAddonCustomizer {
          $wp_customize->add_setting(  'nimblepress_upsell_setting', array(
            'capability' => 'edit_theme_options',
            'type'       => 'hidden',
+			'sanitize_callback' => 'wp_filter_nohtml_kses',
            'autoload'   => false
          ) );
 
@@ -77,7 +78,7 @@ class SampleAddonCustomizer {
  }
  
 
-if ( !defined('NIMBLEPRESS_PREMIUM') ) {
+if ( defined('NIMBLEPRESS_PREMIUM') ) {
 
 	$sampleAddonCustomizer = new SampleAddonCustomizer();
 	$sampleAddonCustomizer->hooks();
