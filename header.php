@@ -82,6 +82,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 							array(
 								'theme_location' => 'menu-1',
 								'menu_id'        => 'primary-menu',
+								'menu_class' => 'menu nav-menu',
 							)
 						);
 						?>

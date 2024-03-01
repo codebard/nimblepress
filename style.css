@@ -952,7 +952,6 @@ body {
 
 .widget {
     margin: 0 0 30px;
-	padding : 
     box-sizing: border-box;
 	box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 16px;
 }
@@ -1360,14 +1359,17 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 }
 
 .footer-widget {
-	width: 300px;
+	flex-basis: fit-content;
+	max-width: 350px;
 	flex-flow: column;
 	padding: 10px;
 }
 
 .site-info {
   display: flex;
+  flex-flow: row wrap;
   flex-grow: 1;
+  flex-shrink: 1;
   min-width: 100%;
   align-items: center;
   justify-content: center;
@@ -1425,13 +1427,13 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	.site-header-wrapper {
 		
 		display: flex;
-		flex-direction: row;
 		flex-flow: row wrap;
 		justify-content: flex-start;
 	}
 	
-	.site-branding {
-		width: 100%;
+	.site-branding img {
+		width: 100% !important;
+		height: auto !important;
 	}
 	
 	.main-navigation {

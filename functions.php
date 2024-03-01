@@ -873,9 +873,9 @@ add_action('nimblepress_genereate_footer_info', 'nimblepress_genereate_footer_in
 
 function nimblepress_genereate_footer_info( $args = array() ) {
 	
-		$do_footer = '&nbsp;©&nbsp;' . date('Y') . '&nbsp;' . get_bloginfo( 'name' );
-		$do_footer .= '&nbsp;|&nbsp;';
-		$do_footer .= sprintf( esc_html__( 'Built with&nbsp;%1$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank">NimblePress</a>' );
+		$do_footer = ' © ' . date('Y') . ' ' . get_bloginfo( 'name' );
+		$do_footer .= ' | ';
+		$do_footer .= sprintf( esc_html__( 'Built with %1$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank">NimblePress</a>' );
 		
 		echo $do_footer;
 }
