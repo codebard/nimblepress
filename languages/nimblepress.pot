@@ -566,3 +566,12 @@ msgstr ""
 #. Go premium for more features
 msgid "Go premium for more features"
 msgstr ""
+
+
+#. Link Text Decoration
+msgid "Link Text Decoration"
+msgstr ""
+
+#. Decoration for the links across the site
+msgid "Decoration for the links across the site"
+msgstr ""
