@@ -4,7 +4,7 @@ Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-backgr
 Requires at least: 4.5
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -59,7 +59,21 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 == Changelog ==
 
-= 1.0.7 =
+= 1.0.8 =
+
+* Fixed issue with nav menu getting squashed in some sites when in customizer
+* Made mobile nav menu responsive - now it stays to top right if logo is small and device has enough width to save header height
+* Fixed a css property that did not have a value and semicolon
+* Footer widget size now auto-scales depending on its content
+* Made site info shrink and wrap to accommodate long site names
+* Fixed some link buttons not getting styled by button styling
+* Added link color, link hover color and text decoration customization
+* Added in-entry, in-widget link color, hover color and text decoration customization
+* Added heading link color, hover color and text decoration customization
+* Added footer link color, hover color customization
+* Added footer text color customization
+
+= 1.0. =
 
 * Added header actions
 * Moved head scripts to head action
