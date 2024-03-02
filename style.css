@@ -1577,19 +1577,6 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	text-decoration: underline;
 }
 
-.widget_text button, .button:link, .button:visited, .button:active  {
-    color: #ffffff;
-    background-color: #2f4d80;
-	text-decoration: none;
-}
-
-
-.widget_text button:hover,  .button:hover {
-    color: #ffffff;
-    background-color: #4075cb;
-	cursor: pointer;
-	text-decoration: none;
-}
 
 .widget h2 {
 	font-size: 1.25em;

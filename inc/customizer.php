@@ -209,12 +209,35 @@ function nimblepress_customize_register( $wp_customize )
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
-	$wp_customize->add_setting( 'np_link_color' , array(
+	$wp_customize->add_setting( 'np_footer_link_color' , array(
 		'default'   => '#1e73be',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
+	$wp_customize->add_setting( 'np_footer_text_color' , array(
+		'default'   => '#404040',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_footer_link_hover_color' , array(
+		'default'   => '#1e73be',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_menu_link_hover_color' , array(
+		'default'   => '#1e73be',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_link_color' , array(
+		'default'   => '#1e73be',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
 
 	$wp_customize->add_setting( 'np_link_hover_color' , array(
 		'default'   => '#4aabc9',
@@ -222,8 +245,56 @@ function nimblepress_customize_register( $wp_customize )
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
+	$wp_customize->add_setting( 'np_link_text_decoration' , array(
+		'default'   => 'none',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+	
+	$wp_customize->add_setting( 'np_link_hover_text_decoration' , array(
+		'default'   => 'underline',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_content_link_text_decoration' , array(
+		'default'   => 'underline',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+	
+	$wp_customize->add_setting( 'np_content_link_hover_text_decoration' , array(
+		'default'   => 'underline',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_entry_title_link_text_decoration' , array(
+		'default'   => 'none',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+	
+	$wp_customize->add_setting( 'np_entry_title_link_hover_text_decoration' , array(
+		'default'   => 'underline',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
 	$wp_customize->add_setting( 'np_heading_color' , array(
 		'default'   => '#404040',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_heading_link_color' , array(
+		'default'   => '#1e73be',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_heading_link_hover_color' , array(
+		'default'   => '#1e73be',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
@@ -248,6 +319,12 @@ function nimblepress_customize_register( $wp_customize )
 
 
 	$wp_customize->add_setting( 'np_button_text_color' , array(
+		'default'   => '#ffffff',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_button_hover_text_color' , array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
@@ -429,6 +506,22 @@ function nimblepress_customize_register( $wp_customize )
 		'priority'              => 19,
 	) ) );
 	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_heading_link_color', array(
+		'label'      => __( 'Heading Link Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Color for heading links in post listings', 'nimblepress' ),
+		'settings'   => 'np_heading_link_color',
+		'priority'              => 19,
+	) ) );
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_heading_link_hover_color', array(
+		'label'      => __( 'Heading Link Hover Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Hover color for heading links in post listings', 'nimblepress' ),
+		'settings'   => 'np_heading_link_hover_color',
+		'priority'              => 19,
+	) ) );
+	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_button_background_color', array(
 		'label'      => __( 'Button Background Color', 'nimblepress' ),
 		'section'    => 'colors',
@@ -445,13 +538,41 @@ function nimblepress_customize_register( $wp_customize )
 		'priority'              => 21,
 	) ) );
 	
+
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_button_text_color', array(
+		'label'      => __( 'Button Text Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'The color for the text on the buttons.', 'nimblepress' ),
+		'settings'   => 'np_button_text_color',
+		'priority'              => 22,
+	) ) );
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_button_hover_text_color', array(
+		'label'      => __( 'Button Hover Text Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'The color for the text on the buttons when hovered.', 'nimblepress' ),
+		'settings'   => 'np_button_hover_text_color',
+		'priority'              => 23,
+	) ) );
+
+	
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_menu_link_color', array(
 		'label'      => __( 'Menu Link Color', 'nimblepress' ),
 		'section'    => 'colors',
-		'description' => __( 'Colors of link in the header menu.', 'nimblepress' ),
+		'description' => __( 'Colors of link text in the header menu.', 'nimblepress' ),
 		'settings'   => 'np_menu_link_color',
-		'priority'              => 22,
+		'priority'              => 23,
+	) ) );
+	
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_menu_link_hover_color', array(
+		'label'      => __( 'Menu Link Hover Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Colors of link text in the header menu when hovered.', 'nimblepress' ),
+		'settings'   => 'np_menu_link_hover_color',
+		'priority'              => 23,
 	) ) );
 	
 	
@@ -463,20 +584,36 @@ function nimblepress_customize_register( $wp_customize )
 		'priority'              => 23,
 	) ) );
 	
-	
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_button_text_color', array(
-		'label'      => __( 'Button Text Color', 'nimblepress' ),
-		'section'    => 'colors',
-		'description' => __( 'The color for the text on the buttons.', 'nimblepress' ),
-		'settings'   => 'np_button_text_color',
-		'priority'              => 24,
-	) ) );
-
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_footer_background_color', array(
 		'label'      => __( 'Footer Background Color', 'nimblepress' ),
 		'section'    => 'colors',
 		'description' => __( 'Background color of the footer', 'nimblepress' ),
 		'settings'   => 'np_footer_background_color',
+		'priority'              => 25,
+	) ) );
+
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_footer_text_color', array(
+		'label'      => __( 'Footer Text Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Color of the text in the footer', 'nimblepress' ),
+		'settings'   => 'np_footer_text_color',
+		'priority'              => 25,
+	) ) );
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_footer_link_color', array(
+		'label'      => __( 'Footer Link Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Color of the links in the footer', 'nimblepress' ),
+		'settings'   => 'np_footer_link_color',
+		'priority'              => 25,
+	) ) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_footer_link_hover_color', array(
+		'label'      => __( 'Footer Hover Link Color', 'nimblepress' ),
+		'section'    => 'colors',
+		'description' => __( 'Color of the links in the footer when hovered', 'nimblepress' ),
+		'settings'   => 'np_footer_link_hover_color',
 		'priority'              => 25,
 	) ) );
 
@@ -657,6 +794,90 @@ function nimblepress_customize_register( $wp_customize )
 				'section'    => 'np_fonts',
 				'type'    => 'select',
 				'choices' => nimblepress_get_web_safe_fonts()
+			)
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_link_text_decoration', //Set a unique ID for the control
+			array(
+				'label'      => __( 'Link Text Decoration', 'nimblepress' ),
+				'description' => __( 'Decoration for the links across the site', 'nimblepress' ),
+				'settings'   => 'np_link_text_decoration',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_text_decorations()
+			)
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_link_hover_text_decoration', //Set a unique ID for the control
+			array(
+				'label'      => __( 'Link Hover Text Decoration', 'nimblepress' ),
+				'description' => __( 'Decoration for the links across the site when hovered', 'nimblepress' ),
+				'settings'   => 'np_link_hover_text_decoration',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_text_decorations()
+			)
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_entry_title_link_text_decoration', //Set a unique ID for the control
+			array(
+				'label'      => __( 'Heading Link Text Decoration', 'nimblepress' ),
+				'description' => __( 'Decoration for the post headings links in post listings', 'nimblepress' ),
+				'settings'   => 'np_entry_title_link_text_decoration',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_text_decorations()
+			)
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_entry_title_link_hover_text_decoration', //Set a unique ID for the control
+			array(
+				'label'      => __( 'Heading Link Hover Text Decoration', 'nimblepress' ),
+				'description' => __( 'Decoration for the post headings links in post listings when hovered', 'nimblepress' ),
+				'settings'   => 'np_entry_title_link_hover_text_decoration',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_text_decorations()
+			)
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_content_link_text_decoration', //Set a unique ID for the control
+			array(
+				'label'      => __( 'In-content Links Text Decoration', 'nimblepress' ),
+				'description' => __( 'Decoration for the the links in post contents and text widget contents', 'nimblepress' ),
+				'settings'   => 'np_content_link_text_decoration',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_text_decorations()
+			)
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_content_link_hover_text_decoration', //Set a unique ID for the control
+			array(
+				'label'      => __( 'In-content Links Hover Text Decoration', 'nimblepress' ),
+				'description' => __( 'Decoration for the the links in post contents and text widget contents when hovered', 'nimblepress' ),
+				'settings'   => 'np_content_link_hover_text_decoration',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_text_decorations()
 			)
 	) );
 

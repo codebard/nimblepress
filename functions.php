@@ -398,6 +398,27 @@ function nimblepress_get_web_safe_fonts() {
 
 }
 
+/**
+ * List of text decorations
+ */
+ 
+function nimblepress_get_text_decorations() {
+
+	return array(
+		'none' => 'None',
+		'underline' => 'Underline',
+		'underline dotted' => 'Underline dotted',
+		'underline dashed' => 'Underline dashed',
+		'underline dotted' => 'Underline dotted',
+		'overline' => 'Overline',
+		'overline dotted' => 'Overline  dotted',
+		'overline dashed' => 'Overline  dashed',
+		'overline dotted' => 'Overline  dotted',
+	
+	);
+
+}
+
 
 /**
  * Add NP meta boxes
@@ -707,27 +728,69 @@ function nimblepress_customizer_styles()
 
     ?>
          <style type="text/css">
+
 			body {
 				background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				font-family: <?php echo esc_html( get_theme_mod('np_body_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 			}
+
 			h1, h2, h3, h4, h5, h6 {
 				font-family: <?php echo esc_html( get_theme_mod('np_heading_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_heading_color', '#404040') ); ?>;
 			}
-			.nav-menu a:link, .nav-menu a:active, .nav-menu a:visited, .nav-menu a:hover {
+
+			a:link, a:active, a:visited {
+				color: <?php echo esc_html( get_theme_mod('np_link_color', '#1e73be') ); ?>;
+				font-family: <?php echo esc_html( get_theme_mod('np_link_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+				text-decoration: <?php echo esc_html( get_theme_mod('np_link_text_decoration', 'none') ); ?>;
+			}
+
+			a:hover {
+				color: <?php echo esc_html( get_theme_mod('np_link_hover_color', '#1e73be') ); ?>;
+				font-family: <?php echo esc_html( get_theme_mod('np_link_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+				text-decoration: <?php echo esc_html( get_theme_mod('np_link_hover_text_decoration', 'underline') ); ?>;
+			}
+
+			.entry-title a:link, .entry-title a:active, .entry-title a:visited {
+				color: <?php echo esc_html( get_theme_mod('np_heading_link_color', '#1e73be') ); ?>;
+				font-family: <?php echo esc_html( get_theme_mod('np_heading_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+				text-decoration: <?php echo esc_html( get_theme_mod('np_entry_title_link_text_decoration', 'none') ); ?>;
+			}
+
+			.entry-title a:hover {
+				color: <?php echo esc_html( get_theme_mod('np_heading_link_hover_color', '#1e73be') ); ?>;
+				text-decoration: <?php echo esc_html( get_theme_mod('np_entry_title_link_hover_text_decoration', 'underline') ); ?>;
+			}
+
+			.footer-wrapper a:link, .footer-wrapper a:active, .footer-wrapper a:visited {
+				color: <?php echo esc_html( get_theme_mod('np_footer_link_color', '#1e73be') ); ?>;
+			}
+
+			.footer-wrapper {
+				color: <?php echo esc_html( get_theme_mod('np_footer_text_color', '#404040') ); ?>;
+			}
+
+			.footer-wrapper a:hover {
+				color: <?php echo esc_html( get_theme_mod('np_footer_link_hover_color', '#1e73be') ); ?>;
+			}
+
+			.entry-content a:link, .entry-content a:visited, .entry-content a:active, .comment-content a:link, .comment-content a:visited, .comment-content a:active, .widget_text a:link, .widget_text a:visited, .widget_text a:active {
+				text-decoration: <?php echo esc_html( get_theme_mod('np_content_link_text_decoration', 'underline') ); ?>;
+			}
+
+			.entry-content a:hover, .comment-content a:hover, .widget_text a:hover {
+				text-decoration: <?php echo esc_html( get_theme_mod('np_content_link_hover_text_decoration', 'underline') ); ?>;
+			}
+
+			.nimblepress-menu-link a:link, .nimblepress-menu-link a:active, .nimblepress-menu-link a:visited {
 				font-family: <?php echo esc_html( get_theme_mod('np_nav_menu_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_menu_link_color', '#1e73be') ); ?>;
 			}
-			a:link, a:active, a:visited, a:hover {
-				font-family: <?php echo esc_html( get_theme_mod('np_link_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+			.nimblepress-menu-link a:hover {
+				color: <?php echo esc_html( get_theme_mod('np_menu_link_hover_color', '#1e73be') ); ?>;
 			}
-			a:not(.read-more):not(.button):link, a:not(.read-more):not(.button):active, a:not(.read-more):not(.button):visited {
-				color: <?php echo esc_html( get_theme_mod('np_link_color', '#1e73be') ); ?>;
-			}
-			a:not(.read-more):not(.button):hover {
-				color: <?php echo esc_html( get_theme_mod('np_link_hover_color', '#4aabc9') ); ?>;
-			}
+
 			#page {
 				<?php if ( esc_html( get_theme_mod( 'np_site_full_width_or_contained', 'full_width' ) ) == 'contained' ): ?>
 				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
@@ -742,18 +805,22 @@ function nimblepress_customizer_styles()
 					box-shadow: 0 2px 8px 2px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'np_site_shadow_color', '#ffffff' ) ) );  ?>,0.1);
 				<?php endif ?>
 			}
+
 			#main-content {
 				max-width : <?php echo esc_html( get_theme_mod('np_np_site_width', '1200') ); ?>px;
 				<?php if ( esc_html( get_theme_mod('np_site_background_color', '') ) != '' ): ?>
 					background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				<?php endif ?>
 			}
+
 			.site-header-wrapper {
 				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
 			}
+
 			.footer-wrapper {
 				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
 			}
+
 			.site-header {
 				background-color: <?php echo esc_html( get_theme_mod('np_header_background_color', '#fbfbfb') ); ?>;
 				box-shadow: 0 1px 8px 1px rgba(<?php echo nimblepress_hex_to_rgb( get_theme_mod( 'np_header_shadow', '#000000' ) ) ?>,0.08);
@@ -761,6 +828,7 @@ function nimblepress_customizer_styles()
 					min-height : <?php echo esc_html( get_theme_mod( 'np_header_height', 'auto' ) ); ?>px;
 				<?php endif ?>
 			}
+
 			.site-footer {
 				background-color: <?php echo esc_html( get_theme_mod('np_footer_background_color', '#fbfbfb') ); ?>;
 				box-shadow: 0 -1px 8px 1px rgba(<?php echo nimblepress_hex_to_rgb( esc_html( get_theme_mod( 'np_footer_shadow', '#000000' ) ) ) ?>,0.08);
@@ -768,20 +836,23 @@ function nimblepress_customizer_styles()
 					min-height : <?php echo esc_html( get_theme_mod('np_footer_height', 'auto') ); ?>px;
 				<?php endif ?>
 			}
+
 			.widget {
 				background-color: <?php echo esc_html( get_theme_mod('np_widget_background_color', '#ffffff') ); ?>;
 				box-shadow: 0px 1px 8px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'np_widget_shadow', '#000000' ) ) ) ?>, 0.08);
 			}
 						
-			button, .read-more, html input[type="button"], input[type="reset"], input[type="submit"], a.button, a.wp-block-button__link:not(.has-background) {
+			button, .read-more, html input[type="button"], input[type="reset"], input[type="submit"], a.button:link, a.button:visited, a.button:active, a.wp-block-button__link:not(.has-background) {
 				color: <?php echo esc_html( get_theme_mod('np_button_text_color', '#ffffff') ); ?>;
 				background-color: <?php echo esc_html( get_theme_mod('np_button_background_color', '#2f4d80') ); ?>;
+				text-decoration: none;
 			}
 
 			button:hover, .read-more:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, a.button:hover, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, a.button:focus, a.wp-block-button__link:not(.has-background):active, a.wp-block-button__link:not(.has-background):focus, a.wp-block-button__link:not(.has-background):hover {
-				color: <?php echo esc_html( get_theme_mod('np_button_text_color', '#ffffff') ); ?>;
+				color: <?php echo esc_html( get_theme_mod('np_button_hover_text_color', '#ffffff') ); ?>;
 				background-color: <?php echo esc_html( get_theme_mod('np_button_hover_background_color', '#4075cb') ); ?>;
 				cursor: pointer;
+				text-decoration: none;
 			}
 			
 			.nav-menu a:hover {
@@ -792,9 +863,11 @@ function nimblepress_customizer_styles()
 				font-size: <?php echo esc_html( get_theme_mod('site_title_size', '42') ); ?>px;
 				
 			}
+
 			.site-title a:link, .site-title a:visited, .site-title a:active, .site-title a:hover {
 				color: <?php echo esc_html( get_theme_mod('np_site_title_color', '#1e73be') ); ?>;
 			}
+
 			.site-description {
 				color: <?php echo esc_html( get_theme_mod('np_site_description_color', '#404040') ); ?>;
 				font-size: <?php echo esc_html( get_theme_mod('site_description_font_size', '16') ); ?>px;
@@ -861,7 +934,6 @@ function nimblepress_chevron_to_nav_menu( $item_output, $item, $depth, $args ) {
 
 }
 
-
 add_filter( 'walker_nav_menu_start_el', 'nimblepress_chevron_to_nav_menu', 10, 4 );
 
 
@@ -875,7 +947,8 @@ function nimblepress_genereate_footer_info( $args = array() ) {
 	
 		$do_footer = ' © ' . date('Y') . ' ' . get_bloginfo( 'name' );
 		$do_footer .= ' | ';
-		$do_footer .= sprintf( esc_html__( 'Built with %1$s', 'nimblepress' ), '<a href="https://codebard.com/nimblepress" target="blank">NimblePress</a>' );
+		$do_footer .= esc_html__( 'Built with ', 'nimblepress' ); 
+		$do_footer .= '<a href="https://codebard.com/nimblepress" target="blank">&nbsp;NimblePress</a>';
 		
 		echo $do_footer;
 }
