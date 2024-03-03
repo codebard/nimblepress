@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.0.8' );
+	define( 'NIMBLEPRESS_VERSION', '1.0.9' );
 }
 
 /**
@@ -842,13 +842,13 @@ function nimblepress_customizer_styles()
 				box-shadow: 0px 1px 8px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'np_widget_shadow', '#000000' ) ) ) ?>, 0.08);
 			}
 						
-			button, .read-more, html input[type="button"], input[type="reset"], input[type="submit"], a.button:link, a.button:visited, a.button:active, a.wp-block-button__link:not(.has-background) {
+			button, a.read-more:link, a.read-more:visited, a.read-more:active, html input[type="button"], input[type="reset"], input[type="submit"], a.button:link, a.button:visited, a.button:active, a.wp-block-button__link:not(.has-background) {
 				color: <?php echo esc_html( get_theme_mod('np_button_text_color', '#ffffff') ); ?>;
 				background-color: <?php echo esc_html( get_theme_mod('np_button_background_color', '#2f4d80') ); ?>;
 				text-decoration: none;
 			}
 
-			button:hover, .read-more:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, a.button:hover, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, a.button:focus, a.wp-block-button__link:not(.has-background):active, a.wp-block-button__link:not(.has-background):focus, a.wp-block-button__link:not(.has-background):hover {
+			button:hover, a.read-more:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, a.button:hover, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, a.button:focus, a.wp-block-button__link:not(.has-background):active, a.wp-block-button__link:not(.has-background):focus, a.wp-block-button__link:not(.has-background):hover {
 				color: <?php echo esc_html( get_theme_mod('np_button_hover_text_color', '#ffffff') ); ?>;
 				background-color: <?php echo esc_html( get_theme_mod('np_button_hover_background_color', '#4075cb') ); ?>;
 				cursor: pointer;
