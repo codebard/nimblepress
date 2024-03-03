@@ -4,7 +4,7 @@ Theme URI: https://codebard.com/nimblepress
 Author: Codebard
 Author URI: https://codebard.com
 Description: Description
-Version: 1.0.9
+Version: 1.1.0
 Tested up to: 6.4
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -1029,9 +1029,10 @@ body {
 
 
 .entry-listing {
-  display: flex;
+  display: inline-flex;
 	gap: 1em;
 }
+
 
 .entry-summary, .entry-summary p {
 	margin: 0 0;

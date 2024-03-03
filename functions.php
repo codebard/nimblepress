@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.0.9' );
+	define( 'NIMBLEPRESS_VERSION', '1.1.0' );
 }
 
 /**
@@ -421,6 +421,23 @@ function nimblepress_get_text_decorations() {
 
 
 /**
+ * List of text transforms
+ */
+ 
+function nimblepress_get_text_transformations() {
+
+	return array(
+		'none' => 'None',
+		'uppercase' => 'Uppercase',
+		'lowercase' => 'Lowercase',
+		'full-width' => 'Full Width',
+	
+	);
+
+}
+
+
+/**
  * Add NP meta boxes
  */
  
@@ -733,10 +750,36 @@ function nimblepress_customizer_styles()
 				background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				font-family: <?php echo esc_html( get_theme_mod('np_body_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 			}
+			
+			.site-main {
+				font-size: <?php echo esc_html( get_theme_mod('np_body_font_size', '20') ); ?>px;
+			}
 
 			h1, h2, h3, h4, h5, h6 {
 				font-family: <?php echo esc_html( get_theme_mod('np_heading_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_heading_color', '#404040') ); ?>;
+			}
+			.site-main h1, .site-main h1.wp-block-heading {
+				font-size: <?php echo esc_html( get_theme_mod('np_heading1_font_size', '40') ); ?>px;
+			}
+			.site-main h2, .site-main h2.wp-block-heading {
+				font-size: <?php echo esc_html( get_theme_mod('np_heading2_font_size', '30') ); ?>px;
+			}
+
+			.site-main h3, .site-main h3.wp-block-heading {
+				font-size: <?php echo esc_html( get_theme_mod('np_heading3_font_size', '23') ); ?>px;
+			}
+
+			.site-main h4, .site-main h4.wp-block-heading {
+				font-size: <?php echo esc_html( get_theme_mod('np_heading4_font_size', '20') ); ?>px;
+			}
+
+			.site-main h5, .site-main h5.wp-block-heading {
+				font-size: <?php echo esc_html( get_theme_mod('np_heading5_font_size', '17') ); ?>px;
+			}
+
+			.site-main h6, .site-main h6.wp-block-heading {
+				font-size: <?php echo esc_html( get_theme_mod('np_heading6_font_size', '14') ); ?>px;
 			}
 
 			a:link, a:active, a:visited {
@@ -751,13 +794,14 @@ function nimblepress_customizer_styles()
 				text-decoration: <?php echo esc_html( get_theme_mod('np_link_hover_text_decoration', 'underline') ); ?>;
 			}
 
-			.entry-title a:link, .entry-title a:active, .entry-title a:visited {
+			.site-main .entry-title a:link, .site-main .entry-title a:active, .site-main .entry-title a:visited {
 				color: <?php echo esc_html( get_theme_mod('np_heading_link_color', '#1e73be') ); ?>;
 				font-family: <?php echo esc_html( get_theme_mod('np_heading_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				text-decoration: <?php echo esc_html( get_theme_mod('np_entry_title_link_text_decoration', 'none') ); ?>;
+				font-size: <?php echo esc_html( get_theme_mod('np_heading_link_font_size', '30') ); ?>px;
 			}
 
-			.entry-title a:hover {
+			.site-main .entry-title a:hover {
 				color: <?php echo esc_html( get_theme_mod('np_heading_link_hover_color', '#1e73be') ); ?>;
 				text-decoration: <?php echo esc_html( get_theme_mod('np_entry_title_link_hover_text_decoration', 'underline') ); ?>;
 			}
@@ -785,11 +829,22 @@ function nimblepress_customizer_styles()
 			.nimblepress-menu-link a:link, .nimblepress-menu-link a:active, .nimblepress-menu-link a:visited {
 				font-family: <?php echo esc_html( get_theme_mod('np_nav_menu_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_menu_link_color', '#1e73be') ); ?>;
+				font-size: <?php echo esc_html( get_theme_mod('np_nav_menu_font_size', '16') ); ?>px;
+				text-transform: <?php echo esc_html( get_theme_mod('np_nav_menu_font_transformation', 'none') ); ?>;
 			}
 
 			.nimblepress-menu-link a:hover {
 				color: <?php echo esc_html( get_theme_mod('np_menu_link_hover_color', '#1e73be') ); ?>;
+				text-transform: <?php echo esc_html( get_theme_mod('np_nav_menu_font_transformation', 'none') ); ?>;
 			}
+			
+			.widget-area .widget, .footer-widgets .widget {
+				font-size: <?php echo esc_html( get_theme_mod('np_widget_text_font_size', '14') ); ?>px;
+			}
+			
+            .widget h2 {
+				font-size: <?php echo esc_html( get_theme_mod('np_widget_heading_font_size', '14') ); ?>px;
+            }
 
 			#page {
 				<?php if ( esc_html( get_theme_mod( 'np_site_full_width_or_contained', 'full_width' ) ) == 'contained' ): ?>
@@ -841,14 +896,16 @@ function nimblepress_customizer_styles()
 				background-color: <?php echo esc_html( get_theme_mod('np_widget_background_color', '#ffffff') ); ?>;
 				box-shadow: 0px 1px 8px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'np_widget_shadow', '#000000' ) ) ) ?>, 0.08);
 			}
-						
+			
 			button, a.read-more:link, a.read-more:visited, a.read-more:active, html input[type="button"], input[type="reset"], input[type="submit"], a.button:link, a.button:visited, a.button:active, a.wp-block-button__link:not(.has-background) {
+				font-family: <?php echo esc_html( get_theme_mod('np_button_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_button_text_color', '#ffffff') ); ?>;
 				background-color: <?php echo esc_html( get_theme_mod('np_button_background_color', '#2f4d80') ); ?>;
 				text-decoration: none;
 			}
 
 			button:hover, a.read-more:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, a.button:hover, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, a.button:focus, a.wp-block-button__link:not(.has-background):active, a.wp-block-button__link:not(.has-background):focus, a.wp-block-button__link:not(.has-background):hover {
+				font-family: <?php echo esc_html( get_theme_mod('np_button_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_button_hover_text_color', '#ffffff') ); ?>;
 				background-color: <?php echo esc_html( get_theme_mod('np_button_hover_background_color', '#4075cb') ); ?>;
 				cursor: pointer;

@@ -4,7 +4,7 @@ Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-backgr
 Requires at least: 4.5
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -59,6 +59,12 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 == Changelog ==
 
+= 1.1.0 =
+
+* Added font size customizations for body text, heading (H1-H6), heading link, nav menu link, widget heading, widget text
+* Added Button font customization
+* Added text transformation (uppercase, lowercase etc) for nav menu links
+
 = 1.0.9 =
 
 * Read more button link color was bugged and they appeared in link color instead of the defined color. This is now fixed
@@ -77,7 +83,7 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 * Added footer link color, hover color customization
 * Added footer text color customization
 
-= 1.0. =
+= 1.0.7 =
 
 * Added header actions
 * Moved head scripts to head action

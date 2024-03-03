@@ -118,14 +118,92 @@ function nimblepress_customize_register( $wp_customize )
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
+	$wp_customize->add_setting( 'np_body_font_size', array(
+		'default' => '20',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
 	$wp_customize->add_setting( 'np_heading_font', array(
 		'default' => 'Helvetica',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
+	$wp_customize->add_setting( 'np_heading1_font_size', array(
+		'default' => '40',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_heading2_font_size', array(
+		'default' => '30',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_heading3_font_size', array(
+		'default' => '23',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_heading4_font_size', array(
+		'default' => '20',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_heading5_font_size', array(
+		'default' => '17',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_heading6_font_size', array(
+		'default' => '14',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
 	$wp_customize->add_setting( 'np_nav_menu_font', array(
 		'default' => 'Helvetica',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_button_font', array(
+		'default' => 'Helvetica',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_nav_menu_font_transformation', array(
+		'default' => 'none',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_nav_menu_font_size', array(
+		'default' => '16',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_widget_text_font_size', array(
+		'default' => '14',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_widget_heading_font_size', array(
+		'default' => '16',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_heading_link_font_size', array(
+		'default' => '30',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
@@ -440,6 +518,7 @@ function nimblepress_customize_register( $wp_customize )
 			)
 		)
 	);
+	
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_title_color', array(
 		'label'      => __( 'Site Title Color', 'nimblepress' ),
@@ -537,6 +616,7 @@ function nimblepress_customize_register( $wp_customize )
 		'settings'   => 'np_button_hover_background_color',
 		'priority'              => 21,
 	) ) );
+	
 	
 
 	
@@ -755,6 +835,21 @@ function nimblepress_customize_register( $wp_customize )
 			)
 	) );
 
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_body_font_size',
+			array(
+				'label'          => __( 'Body Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size of the body text font across the site, like in post content', 'nimblepress' ),
+				'settings'       => 'np_body_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
 	$wp_customize->add_control( new WP_Customize_Control(
 		$wp_customize, //Pass the $wp_customize object (required)
 			'np_heading_font', //Set a unique ID for the control
@@ -769,6 +864,96 @@ function nimblepress_customize_register( $wp_customize )
 			)
 	) );
 
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_heading1_font_size',
+			array(
+				'label'          => __( 'Heading 1 (H1) Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size of the main headings across the site, like in post heading', 'nimblepress' ),
+				'settings'       => 'np_heading1_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_heading2_font_size',
+			array(
+				'label'          => __( 'Heading 2 (H2) Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size of the H2 headings across the site, like in post heading', 'nimblepress' ),
+				'settings'       => 'np_heading2_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_heading3_font_size',
+			array(
+				'label'          => __( 'Heading 3 (H3) Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size of the H3 headings across the site, like in post heading', 'nimblepress' ),
+				'settings'       => 'np_heading3_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_heading4_font_size',
+			array(
+				'label'          => __( 'Heading 4 (H4) Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size of the H4 headings across the site, like in post heading', 'nimblepress' ),
+				'settings'       => 'np_heading4_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_heading5_font_size',
+			array(
+				'label'          => __( 'Heading 5 (H5) Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size of the H5 headings across the site, like in post heading', 'nimblepress' ),
+				'settings'       => 'np_heading5_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_heading6_font_size',
+			array(
+				'label'          => __( 'Heading 6 (H6) Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size of the H6 headings across the site, like in post heading', 'nimblepress' ),
+				'settings'       => 'np_heading6_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
 	$wp_customize->add_control( new WP_Customize_Control(
 		$wp_customize, //Pass the $wp_customize object (required)
 			'np_nav_menu_font', //Set a unique ID for the control
@@ -782,6 +967,37 @@ function nimblepress_customize_register( $wp_customize )
 				'choices' => nimblepress_get_web_safe_fonts()
 			)
 	) );
+	
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_nav_menu_font_transformation', //Set a unique ID for the control
+			array(
+				'label'      => __( 'Nav Menu Link Text Transformation', 'nimblepress' ),
+				'description' => __( 'Makes nav menu link text uppercase, lowercase, capitalized and so on', 'nimblepress' ),
+				'settings'   => 'np_nav_menu_font_transformation',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_text_transformations()
+			)
+	) );
+	
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_nav_menu_font_size',
+			array(
+				'label'          => __( 'Nav Menu Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size the font in the nav menu links in the top nav bar', 'nimblepress' ),
+				'settings'       => 'np_nav_menu_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
 
 	$wp_customize->add_control( new WP_Customize_Control(
 		$wp_customize, //Pass the $wp_customize object (required)
@@ -839,6 +1055,21 @@ function nimblepress_customize_register( $wp_customize )
 			)
 	) );
 
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_heading_link_font_size',
+			array(
+				'label'          => __( 'Heading Link (H1) Font size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size of the H1 headings that appear as links in post listings', 'nimblepress' ),
+				'settings'       => 'np_heading_link_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
 	$wp_customize->add_control( new WP_Customize_Control(
 		$wp_customize, //Pass the $wp_customize object (required)
 			'np_entry_title_link_hover_text_decoration', //Set a unique ID for the control
@@ -880,6 +1111,53 @@ function nimblepress_customize_register( $wp_customize )
 				'choices' => nimblepress_get_text_decorations()
 			)
 	) );
+	
+
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_widget_text_font_size',
+			array(
+				'label'          => __( 'Widget Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size the font in the widgets in general', 'nimblepress' ),
+				'settings'       => 'np_widget_text_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_widget_heading_font_size',
+			array(
+				'label'          => __( 'Widget Heading Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size the font of the widget headings', 'nimblepress' ),
+				'settings'       => 'np_widget_heading_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+	
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_button_font', //Set a unique ID for the control
+			array(
+				'label'      => __( 'Button Font', 'nimblepress' ),
+				'description' => __( 'Font for buttons', 'nimblepress' ),
+				'settings'   => 'np_button_font',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_web_safe_fonts()
+			)
+	) );
+	
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
