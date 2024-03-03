@@ -4,7 +4,7 @@ Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-backgr
 Requires at least: 4.5
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -58,6 +58,10 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 
 == Changelog ==
+
+= 1.0.9 =
+
+* Read more button link color was bugged and they appeared in link color instead of the defined color. This is now fixed
 
 = 1.0.8 =
 
