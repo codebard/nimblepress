@@ -421,6 +421,23 @@ function nimblepress_get_text_decorations() {
 
 
 /**
+ * List of text transforms
+ */
+ 
+function nimblepress_get_text_transformations() {
+
+	return array(
+		'none' => 'None',
+		'uppercase' => 'Uppercase',
+		'lowercase' => 'Lowercase',
+		'full-width' => 'Full Width',
+	
+	);
+
+}
+
+
+/**
  * Add NP meta boxes
  */
  
@@ -813,10 +830,12 @@ function nimblepress_customizer_styles()
 				font-family: <?php echo esc_html( get_theme_mod('np_nav_menu_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_menu_link_color', '#1e73be') ); ?>;
 				font-size: <?php echo esc_html( get_theme_mod('np_nav_menu_font_size', '16') ); ?>px;
+				text-transform: <?php echo esc_html( get_theme_mod('np_nav_menu_font_transformation', 'none') ); ?>;
 			}
 
 			.nimblepress-menu-link a:hover {
 				color: <?php echo esc_html( get_theme_mod('np_menu_link_hover_color', '#1e73be') ); ?>;
+				text-transform: <?php echo esc_html( get_theme_mod('np_nav_menu_font_transformation', 'none') ); ?>;
 			}
 			
 			.widget-area .widget, .footer-widgets .widget {
@@ -877,14 +896,16 @@ function nimblepress_customizer_styles()
 				background-color: <?php echo esc_html( get_theme_mod('np_widget_background_color', '#ffffff') ); ?>;
 				box-shadow: 0px 1px 8px rgba(<?php echo esc_html( nimblepress_hex_to_rgb( get_theme_mod( 'np_widget_shadow', '#000000' ) ) ) ?>, 0.08);
 			}
-						
+			
 			button, a.read-more:link, a.read-more:visited, a.read-more:active, html input[type="button"], input[type="reset"], input[type="submit"], a.button:link, a.button:visited, a.button:active, a.wp-block-button__link:not(.has-background) {
+				font-family: <?php echo esc_html( get_theme_mod('np_button_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_button_text_color', '#ffffff') ); ?>;
 				background-color: <?php echo esc_html( get_theme_mod('np_button_background_color', '#2f4d80') ); ?>;
 				text-decoration: none;
 			}
 
 			button:hover, a.read-more:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, a.button:hover, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, a.button:focus, a.wp-block-button__link:not(.has-background):active, a.wp-block-button__link:not(.has-background):focus, a.wp-block-button__link:not(.has-background):hover {
+				font-family: <?php echo esc_html( get_theme_mod('np_button_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_button_hover_text_color', '#ffffff') ); ?>;
 				background-color: <?php echo esc_html( get_theme_mod('np_button_hover_background_color', '#4075cb') ); ?>;
 				cursor: pointer;

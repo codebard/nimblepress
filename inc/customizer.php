@@ -172,6 +172,18 @@ function nimblepress_customize_register( $wp_customize )
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
+	$wp_customize->add_setting( 'np_button_font', array(
+		'default' => 'Helvetica',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
+	$wp_customize->add_setting( 'np_nav_menu_font_transformation', array(
+		'default' => 'none',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
 	$wp_customize->add_setting( 'np_nav_menu_font_size', array(
 		'default' => '16',
 		'transport' => 'refresh',
@@ -506,6 +518,7 @@ function nimblepress_customize_register( $wp_customize )
 			)
 		)
 	);
+	
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_title_color', array(
 		'label'      => __( 'Site Title Color', 'nimblepress' ),
@@ -603,6 +616,7 @@ function nimblepress_customize_register( $wp_customize )
 		'settings'   => 'np_button_hover_background_color',
 		'priority'              => 21,
 	) ) );
+	
 	
 
 	
@@ -953,6 +967,22 @@ function nimblepress_customize_register( $wp_customize )
 				'choices' => nimblepress_get_web_safe_fonts()
 			)
 	) );
+	
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_nav_menu_font_transformation', //Set a unique ID for the control
+			array(
+				'label'      => __( 'Nav Menu Link Text Transformation', 'nimblepress' ),
+				'description' => __( 'Makes nav menu link text uppercase, lowercase, capitalized and so on', 'nimblepress' ),
+				'settings'   => 'np_nav_menu_font_transformation',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_text_transformations()
+			)
+	) );
+	
 
 	$wp_customize->add_control(
 		new WP_Customize_Control(
@@ -1112,6 +1142,22 @@ function nimblepress_customize_register( $wp_customize )
 			)
 		)
 	);
+	
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize, //Pass the $wp_customize object (required)
+			'np_button_font', //Set a unique ID for the control
+			array(
+				'label'      => __( 'Button Font', 'nimblepress' ),
+				'description' => __( 'Font for buttons', 'nimblepress' ),
+				'settings'   => 'np_button_font',
+				'priority'   => 10,
+				'section'    => 'np_fonts',
+				'type'    => 'select',
+				'choices' => nimblepress_get_web_safe_fonts()
+			)
+	) );
+	
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
