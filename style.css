@@ -1029,9 +1029,10 @@ body {
 
 
 .entry-listing {
-  display: flex;
+  display: inline-flex;
 	gap: 1em;
 }
+
 
 .entry-summary, .entry-summary p {
 	margin: 0 0;
