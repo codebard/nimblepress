@@ -777,13 +777,14 @@ function nimblepress_customizer_styles()
 				text-decoration: <?php echo esc_html( get_theme_mod('np_link_hover_text_decoration', 'underline') ); ?>;
 			}
 
-			.entry-title a:link, .entry-title a:active, .entry-title a:visited {
+			.site-main .entry-title a:link, .site-main .entry-title a:active, .site-main .entry-title a:visited {
 				color: <?php echo esc_html( get_theme_mod('np_heading_link_color', '#1e73be') ); ?>;
 				font-family: <?php echo esc_html( get_theme_mod('np_heading_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				text-decoration: <?php echo esc_html( get_theme_mod('np_entry_title_link_text_decoration', 'none') ); ?>;
+				font-size: <?php echo esc_html( get_theme_mod('np_heading_link_font_size', '30') ); ?>px;
 			}
 
-			.entry-title a:hover {
+			.site-main .entry-title a:hover {
 				color: <?php echo esc_html( get_theme_mod('np_heading_link_hover_color', '#1e73be') ); ?>;
 				text-decoration: <?php echo esc_html( get_theme_mod('np_entry_title_link_hover_text_decoration', 'underline') ); ?>;
 			}
@@ -811,11 +812,20 @@ function nimblepress_customizer_styles()
 			.nimblepress-menu-link a:link, .nimblepress-menu-link a:active, .nimblepress-menu-link a:visited {
 				font-family: <?php echo esc_html( get_theme_mod('np_nav_menu_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 				color: <?php echo esc_html( get_theme_mod('np_menu_link_color', '#1e73be') ); ?>;
+				font-size: <?php echo esc_html( get_theme_mod('np_nav_menu_font_size', '16') ); ?>px;
 			}
 
 			.nimblepress-menu-link a:hover {
 				color: <?php echo esc_html( get_theme_mod('np_menu_link_hover_color', '#1e73be') ); ?>;
 			}
+			
+			.widget-area .widget, .footer-widgets .widget {
+				font-size: <?php echo esc_html( get_theme_mod('np_widget_text_font_size', '14') ); ?>px;
+			}
+			
+            .widget h2 {
+				font-size: <?php echo esc_html( get_theme_mod('np_widget_heading_font_size', '14') ); ?>px;
+            }
 
 			#page {
 				<?php if ( esc_html( get_theme_mod( 'np_site_full_width_or_contained', 'full_width' ) ) == 'contained' ): ?>

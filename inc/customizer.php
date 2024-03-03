@@ -954,6 +954,21 @@ function nimblepress_customize_register( $wp_customize )
 			)
 	) );
 
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_nav_menu_font_size',
+			array(
+				'label'          => __( 'Nav Menu Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size the font in the nav menu links in the top nav bar', 'nimblepress' ),
+				'settings'       => 'np_nav_menu_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
 	$wp_customize->add_control( new WP_Customize_Control(
 		$wp_customize, //Pass the $wp_customize object (required)
 			'np_link_font', //Set a unique ID for the control
@@ -1010,6 +1025,21 @@ function nimblepress_customize_register( $wp_customize )
 			)
 	) );
 
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_heading_link_font_size',
+			array(
+				'label'          => __( 'Heading Link (H1) Font size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size of the H1 headings that appear as links in post listings', 'nimblepress' ),
+				'settings'       => 'np_heading_link_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+
 	$wp_customize->add_control( new WP_Customize_Control(
 		$wp_customize, //Pass the $wp_customize object (required)
 			'np_entry_title_link_hover_text_decoration', //Set a unique ID for the control
@@ -1051,6 +1081,37 @@ function nimblepress_customize_register( $wp_customize )
 				'choices' => nimblepress_get_text_decorations()
 			)
 	) );
+	
+
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_widget_text_font_size',
+			array(
+				'label'          => __( 'Widget Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size the font in the widgets in general', 'nimblepress' ),
+				'settings'       => 'np_widget_text_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'np_widget_heading_font_size',
+			array(
+				'label'          => __( 'Widget Heading Font Size', 'nimblepress' ),
+				'section'        => 'np_fonts',
+				'description' => __( 'The size the font of the widget headings', 'nimblepress' ),
+				'settings'       => 'np_widget_heading_font_size',
+				'type'           => 'text',
+			'priority'              => 10,
+			)
+		)
+	);
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
