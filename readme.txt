@@ -4,7 +4,7 @@ Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-backgr
 Requires at least: 4.5
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -58,6 +58,12 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 
 == Changelog ==
+
+= 1.1.1 =
+
+* List bullets/numbers were standing outside the content. This is now fixed and list bulled will not poke out of their container
+* Fixed a small PHP warning
+* Added a small margin on top of post navigation so it wont stick at the bottom of the post lists or post content
 
 = 1.1.0 =
 
