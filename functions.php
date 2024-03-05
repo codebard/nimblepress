@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.1.0' );
+	define( 'NIMBLEPRESS_VERSION', '1.1.1' );
 }
 
 /**
@@ -557,8 +557,8 @@ function nimblepress_gen_metabox( $post ) {
 		echo '</div>';
 		echo '<div class="nimblepress_post_meta_entry_value">';
 			echo '<select name="nimblepress_post_meta[post_metadata]">';
-				echo '<option value="show" ' . ( ( $post_meta['post_metadata'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
-				echo '<option value="hide" ' . ( ( $post_meta['post_metadata'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
+				echo '<option value="show" ' . ( ( @$post_meta['post_metadata'] == 'show' ) ? ('selected') : ('') ) . '>' . __( 'Show', 'nimblepress' ) . '</option>';
+				echo '<option value="hide" ' . ( ( @$post_meta['post_metadata'] == 'hide' ) ? ('selected') : ('') ) . '>' . __( 'Hide', 'nimblepress' ) . '</option>';
 			echo '</select>';
 		echo '</div>';
 	echo '</div>';
