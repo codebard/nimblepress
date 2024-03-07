@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.1.1' );
+	define( 'NIMBLEPRESS_VERSION', '1.1.2' );
 }
 
 /**
@@ -224,10 +224,10 @@ add_action( 'widgets_init', 'nimblepress_widgets_init' );
 function nimblepress_inline_css() {
 	 if (get_theme_mod('np_inline_the_css', 'yes') == 'yes') {
 		 ?>
-		<style>
+		<style id='nimblepress-style-css'>
 			<?php include ( get_template_directory() . '/style.css' ); ?>
 		</style>
-		<style>
+		<style id='wp-block-library-css'>
 			<?php include ( 'wp-includes/css/dist/block-library/style.min.css' ); ?>
 		</style>
 		<?php
@@ -334,16 +334,20 @@ add_action( 'admin_enqueue_scripts', 'nimblepress_admin_scripts' );
 
 	
 
-function nimblepress_maybe_dequeue_gutenberg_css(){
+function nimblepress_maybe_dequeue_gutenberg_css( $tag, $handle, $href, $media ){
 	
-	// Dequeue Gutenberg CSS and inline it if inline option was selected
-	if ( get_theme_mod('np_inline_the_css', 'yes') == 'yes' ) {
-		wp_dequeue_style( 'wp-block-library' );
-	}
- 
-} 
-add_action( 'wp_enqueue_scripts', 'nimblepress_maybe_dequeue_gutenberg_css', 100 );
+	// Dont print Gutenberg CSS and inline it if inline option was selected
+	// It will still leave it queued in case any other css has it as a dependency to avoid them not loading
 
+	if ( $handle == 'wp-block-library' ) {
+		return '';
+	}
+	return $tag;
+}
+
+if ( get_theme_mod( 'np_inline_the_css', 'yes') == 'yes' ) {
+	add_action( 'style_loader_tag', 'nimblepress_maybe_dequeue_gutenberg_css', 4 ,PHP_INT_MAX );
+}
 
 /**
  * Read more buttons

@@ -4,7 +4,7 @@ Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-backgr
 Requires at least: 4.5
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -56,8 +56,11 @@ License: GPL
 License URL: https://github.com/WordPress/dashicons/blob/master/LICENSE
 Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
-
 == Changelog ==
+
+= 1.1.2 =
+
+* Better loading of block css when its inlined to avoid compatibility issues and prevent other css depending on it from being broken or not loading
 
 = 1.1.1 =
 
