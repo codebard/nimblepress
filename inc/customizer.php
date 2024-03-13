@@ -118,6 +118,12 @@ function nimblepress_customize_register( $wp_customize )
 		'sanitize_callback' => 'wp_filter_nohtml_kses',
 	) );
 
+	$wp_customize->add_setting( 'np_body_font_color', array(
+		'default' => '#404040',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses',
+	) );
+
 	$wp_customize->add_setting( 'np_body_font_size', array(
 		'default' => '20',
 		'transport' => 'refresh',
@@ -471,6 +477,14 @@ function nimblepress_customize_register( $wp_customize )
 		'section'    => 'colors',
 		'priority'              => 12,
 		'settings'   => 'np_body_background_color',
+	) ) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_body_font_color', array(
+		'label'      => __( 'Body Font Color', 'nimblepress' ),
+		'description' => __( 'Color for the main font that is used in content areas', 'nimblepress' ),
+		'section'    => 'colors',
+		'priority'              => 13,
+		'settings'   => 'np_body_font_color',
 	) ) );
 	
 

@@ -4,7 +4,7 @@ Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-backgr
 Requires at least: 4.5
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -57,6 +57,10 @@ License URL: https://github.com/WordPress/dashicons/blob/master/LICENSE
 Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 == Changelog ==
+
+= 1.1.3 =
+
+* Added missing body/content font color. Now the color of main font used in the site can be changed
 
 = 1.1.2 =
 

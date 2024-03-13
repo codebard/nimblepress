@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.1.2' );
+	define( 'NIMBLEPRESS_VERSION', '1.1.3' );
 }
 
 /**
@@ -753,6 +753,7 @@ function nimblepress_customizer_styles()
 			body {
 				background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				font-family: <?php echo esc_html( get_theme_mod('np_body_font', 'Helvetica') ); ?>, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+				color: <?php echo esc_html( get_theme_mod('np_body_font_color', '#404040') ); ?>;
 			}
 			
 			.site-main {
