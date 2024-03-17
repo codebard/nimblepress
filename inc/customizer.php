@@ -465,14 +465,14 @@ function nimblepress_customize_register( $wp_customize )
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_site_background_color', array(
 		'label'      => __( 'Site Background Color', 'nimblepress' ),
-		'description' => __( 'The site-wide background color', 'nimblepress' ),
+		'description' => __( 'The site-wide background color. Affects all areas that are in between the header and footer.', 'nimblepress' ),
 		'section'    => 'colors',
 		'priority'              => 11,
 		'settings'   => 'np_site_background_color',
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'np_body_background_color', array(
-		'label'      => __( 'Body Background Color', 'nimblepress' ),
+		'label'      => __( 'Content body Background Color', 'nimblepress' ),
 		'description' => __( 'Background color for the main content area', 'nimblepress' ),
 		'section'    => 'colors',
 		'priority'              => 12,
