@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.1.3' );
+	define( 'NIMBLEPRESS_VERSION', '1.1.4' );
 }
 
 /**
@@ -868,7 +868,7 @@ function nimblepress_customizer_styles()
 
 			#main-content {
 				max-width : <?php echo esc_html( get_theme_mod('np_np_site_width', '1200') ); ?>px;
-				<?php if ( esc_html( get_theme_mod('np_site_background_color', '') ) != '' ): ?>
+				<?php if ( esc_html( get_theme_mod('np_body_background_color', '') ) != '' ): ?>
 					background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				<?php endif ?>
 			}
@@ -937,7 +937,7 @@ function nimblepress_customizer_styles()
 			}
 			
 			<?php
-				if( $nimblepress_hide_title ):
+				if( isset( $nimblepress_hide_title ) AND $nimblepress_hide_title ):
 			?>
 				#main-content {
 					padding-top: 0px;
