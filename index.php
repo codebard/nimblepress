@@ -13,9 +13,16 @@
  */
 
 get_header();
+
+if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
+
+	$nimblepress_page_contained_status = nimblepress_get_post_meta_value( $post, 'page_width' );
+}
+
+
 ?>
 
-	<main id="primary" class="site-main nimblepress-index">
+	<main id="primary" class="site-main nimblepress-index" <?php if ( $nimblepress_page_contained_status == 'full' ) { echo 'style="width: 100% !important;'; } ?>>
 		<?php
 		if ( have_posts() ) :
 

@@ -9,10 +9,10 @@
 
 get_header();
 
-
 global $post;
 
 $nimblepress_hide_comments = False;
+$nimblepress_hide_post_navigation = False;
 
 if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	
@@ -20,16 +20,12 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	if ( $nimblepress_comments_status AND $nimblepress_comments_status == 'hide' ) {
 		$nimblepress_hide_comments = True;
 	}
-}
 
-$nimblepress_hide_post_navigation = False;
-
-if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
-	
 	$nimblepress_post_nav_status = nimblepress_get_post_meta_value( $post, 'post_nav' );
 	if ( $nimblepress_post_nav_status AND $nimblepress_post_nav_status == 'hide' ) {
 		$nimblepress_hide_post_navigation = True;
 	}
+
 }
 
 ?>

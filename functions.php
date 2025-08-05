@@ -509,6 +509,18 @@ function nimblepress_gen_metabox( $post ) {
 
 	echo '<div class="nimblepress_post_meta_entry">';
 		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Page width', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[page_width]">';
+				echo '<option value="contained" ' . ( ( $post_meta['page_width'] == 'contained' ) ? ('selected') : ('') ) . '>' . __( 'Contained', 'nimblepress' ) . '</option>';
+				echo '<option value="full" ' . ( ( $post_meta['page_width'] == 'full' ) ? ('selected') : ('') ) . '>' . __( 'Full', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
 			echo __( 'Nav Menu', 'nimblepress' );
 		echo '</div>';
 		echo '<div class="nimblepress_post_meta_entry_value">';
@@ -633,6 +645,7 @@ function nimblepress_get_default_post_meta() {
 		'title' => 'show',
 		'footer' => 'show',
 		'header' => 'show',
+		'page_width' => 'contained',
 		'nav_menu' => 'show',
 		'comments' => 'show',
 		'post_nav' => 'show',
@@ -867,7 +880,7 @@ function nimblepress_customizer_styles()
 			}
 
 			#main-content {
-				max-width : <?php echo esc_html( get_theme_mod('np_np_site_width', '1200') ); ?>px;
+				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
 				<?php if ( esc_html( get_theme_mod('np_body_background_color', '') ) != '' ): ?>
 					background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				<?php endif ?>
