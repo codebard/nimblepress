@@ -880,7 +880,6 @@ function nimblepress_customizer_styles()
 			}
 
 			#main-content {
-				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
 				<?php if ( esc_html( get_theme_mod('np_body_background_color', '') ) != '' ): ?>
 					background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				<?php endif ?>

@@ -1352,7 +1352,6 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	flex-flow: row wrap;
 	justify-content: space-evenly;
 	align-items: flex-start;
-	max-width: 1200px;
 	width: 100%;
 	gap: 1em;
 	padding-left: 15px;
