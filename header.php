@@ -28,8 +28,6 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 		$nimblepress_hide_nav_menu = True;
 	}
 
-	$nimblepress_page_contained_status = nimblepress_get_post_meta_value( $post, 'page_width' );
-
 }
 
 
