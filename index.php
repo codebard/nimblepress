@@ -22,7 +22,7 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 
 ?>
 
-	<main id="primary" class="site-main nimblepress-index" <?php if ( $nimblepress_page_contained_status == 'full' ) { echo 'style="width: 100% !important;'; } ?>>
+	<main id="primary" class="site-main nimblepress-index">
 		<?php
 		if ( have_posts() ) :
 

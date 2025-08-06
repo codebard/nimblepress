@@ -4,8 +4,8 @@ Theme URI: https://codebard.com/nimblepress
 Author: Codebard
 Author URI: https://codebard.com
 Description: Description
-Version: 1.1.4
-Tested up to: 6.4
+Version: 1.1.5
+Tested up to: 6.8.2
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -933,7 +933,6 @@ body {
 	width: 100%;
 	flex-grow: 1;
 	width:auto;
-	padding: 15px;
 	padding-top: 0px;
 	padding-bottom: 0px;
 	
@@ -1347,6 +1346,7 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	padding-left: 15px;
 	padding-right: 15px;
 }
+
 .footer-widgets {
 	display: flex;
 	flex-flow: row wrap;
@@ -1356,6 +1356,12 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	gap: 1em;
 	padding-left: 15px;
 	padding-right: 15px;
+	align-items: stretch;
+}
+
+.nimblepress-full-width-content {
+	width: 100%;
+	max-width: 100%;
 }
 
 .footer-widget {
@@ -1552,6 +1558,10 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	.nimblepress-arrow-icon {
 		padding-left: 0.5rem;
 		display: none;
+	}
+
+	.footer-widgets {
+		flex-flow: column wrap;
 	}
 	
 }

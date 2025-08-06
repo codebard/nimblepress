@@ -885,6 +885,10 @@ function nimblepress_customizer_styles()
 				<?php endif ?>
 			}
 
+			.nimblepress-normal-width-content {
+				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
+			}
+
 			.site-header-wrapper {
 				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
 			}
@@ -1104,6 +1108,19 @@ function nimblepress_theme_menu() {
 }
 
 add_action('admin_menu', 'nimblepress_theme_menu');
+
+function nimblepress_make_page_width() {
+
+	global $post;
+
+	if ( isset($post) AND nimblepress_get_post_meta_value( $post, 'page_width' ) == 'full' ) {
+		echo 'nimblepress-full-width-content'; 
+	} 
+	else { 
+		echo 'nimblepress-normal-width-content'; 
+	}
+
+}
 
 
 

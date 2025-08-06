@@ -1,22 +1,21 @@
 === NimblePress ===
 Contributors: Codebard
+Donate link: https://codebard.com/donate
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-logo, custom-menu, threaded-comments, featured-image-header, featured-images, flexible-header, footer-widgets, style-variations, translation-ready
 Requires at least: 4.5
-Tested up to: 6.4
+Tested up to: 6.8.2
 Requires PHP: 7.4
-Stable tag: 1.1.4
-License: GNU General Public License v2 or later
-License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+Stable tag: 1.1.5
 
-NimblePress is a fast, lightweight, mobile-first, desktop compatible, modern, easy to use theme that works out of the box.
+NimblePress is a fast, lightweight, mobile-first, desktop compatible, modern, easy to use theme that gets 100 page speed score out of the box.
 
 == Description ==
 
-NimblePress is a very fast and lightweight theme that gets 100 points at Google Page Speed Insights. See its scores at https://nimblepress-demo.codebard.com/2024/01/29/lightning-fast/ or test https://nimblepress-demo.codebard.com.
+NimblePress combines speed, ease of use, compatibility and customizability into a modern, lightweight and clean package. It works out of the box and gets 100 page speed score without needing any customization, and if you want, you can customize all aspects of it extensively. Works with all page builders, blocks, Gutenberg and Classic Editors.
 
-It combines speed, ease of use, compatibility and customizability into a modern, lightweight and clean package. It works out of the box without needing any customization and if you want, you can customize all aspects of it extensively. Works with page builders.
-
-Speed up your website with NimblePress and boost your performance & user experience at the same time.
+Speed up your website with NimblePress and boost your performance & user experience at the same time. See how much you can speed up your site at this example benchmark: https://nimblepress-demo.codebard.com/2024/01/29/lightning-fast/ .
 
 == Installation ==
 
@@ -30,13 +29,17 @@ Speed up your website with NimblePress and boost your performance & user experie
 
 Yes
 
+= Does it really get 100 page speed score out of the box? =
+
+Yes, check out the example benchmark at the demo site https://nimblepress-demo.codebard.com/2024/01/29/lightning-fast/ .
+
 = Does it support page builders? =
 
 It works with all page builders
 
 = Does this theme support any plugins? =
 
-nimblepress includes support for WooCommerce and for Infinite Scroll in Jetpack.
+Nimblepress includes support for WooCommerce and for Infinite Scroll in Jetpack.
 
 == License ==
 
@@ -57,6 +60,15 @@ License URL: https://github.com/WordPress/dashicons/blob/master/LICENSE
 Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 == Changelog ==
+
+= 1.1.5 =
+
+* Added page width option to set pages to Full width or contained
+* Now supports full width blocks
+* Now handles site width correctly
+* Footer widgets now adjust themselves to same height
+* Footer widgets now accommodate smaller screens
+* Minor corrections
 
 = 1.1.4 =
 

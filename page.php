@@ -17,7 +17,6 @@ get_header();
 global $post;
 
 $nimblepress_hide_comments = False;
-$nimblepress_page_contained_status = 'contained';
 
 if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	
@@ -25,14 +24,11 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	if ( $nimblepress_comments_status AND $nimblepress_comments_status == 'hide' ) {
 		$nimblepress_hide_comments = True;
 	}
-
-	$nimblepress_page_contained_status = nimblepress_get_post_meta_value( $post, 'page_width' );
-
 }
 
 ?>
 
-	<main id="primary" class="site-main" <?php if ( $nimblepress_page_contained_status == 'full' ) { echo 'style="max-width: 100%; width: 100%;"'; } else { echo 'style="max-width: ' . esc_html( get_theme_mod('np_site_width', '1200') ) . 'px; width: 100%;"'; } ?>>
+	<main id="primary" class="site-main">
 		<?php
 		while ( have_posts() ):
 

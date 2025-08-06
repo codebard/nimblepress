@@ -94,5 +94,5 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 		</header><!-- #masthead -->
 		
 	<?php endif; ?>
-	
-<div id="main-content">
+
+<div id="main-content" class="<?php nimblepress_make_page_width() ?>">
