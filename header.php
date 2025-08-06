@@ -13,6 +13,8 @@
 global $post;
 
 $nimblepress_hide_header = False;
+$nimblepress_hide_nav_menu = False;
+
 
 if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	
@@ -20,15 +22,12 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 	if ( $nimblepress_header_status AND $nimblepress_header_status == 'hide' ) {
 		$nimblepress_hide_header = True;
 	}
-}
-$nimblepress_hide_nav_menu = False;
 
-if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
-	
 	$nimblepress_nav_menu_status = nimblepress_get_post_meta_value( $post, 'nav_menu' );
 	if ( $nimblepress_nav_menu_status AND $nimblepress_nav_menu_status == 'hide' ) {
 		$nimblepress_hide_nav_menu = True;
 	}
+
 }
 
 
@@ -93,5 +92,5 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 		</header><!-- #masthead -->
 		
 	<?php endif; ?>
-	
-<div id="main-content">
+
+<div id="main-content" class="<?php nimblepress_make_page_width() ?>">

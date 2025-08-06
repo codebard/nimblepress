@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.1.4' );
+	define( 'NIMBLEPRESS_VERSION', '1.1.5' );
 }
 
 /**
@@ -509,6 +509,18 @@ function nimblepress_gen_metabox( $post ) {
 
 	echo '<div class="nimblepress_post_meta_entry">';
 		echo '<div class="nimblepress_post_meta_entry_title">';
+			echo __( 'Page width', 'nimblepress' );
+		echo '</div>';
+		echo '<div class="nimblepress_post_meta_entry_value">';
+			echo '<select name="nimblepress_post_meta[page_width]">';
+				echo '<option value="contained" ' . ( ( $post_meta['page_width'] == 'contained' ) ? ('selected') : ('') ) . '>' . __( 'Contained', 'nimblepress' ) . '</option>';
+				echo '<option value="full" ' . ( ( $post_meta['page_width'] == 'full' ) ? ('selected') : ('') ) . '>' . __( 'Full', 'nimblepress' ) . '</option>';
+			echo '</select>';
+		echo '</div>';
+	echo '</div>';
+
+	echo '<div class="nimblepress_post_meta_entry">';
+		echo '<div class="nimblepress_post_meta_entry_title">';
 			echo __( 'Nav Menu', 'nimblepress' );
 		echo '</div>';
 		echo '<div class="nimblepress_post_meta_entry_value">';
@@ -633,6 +645,7 @@ function nimblepress_get_default_post_meta() {
 		'title' => 'show',
 		'footer' => 'show',
 		'header' => 'show',
+		'page_width' => 'contained',
 		'nav_menu' => 'show',
 		'comments' => 'show',
 		'post_nav' => 'show',
@@ -867,10 +880,13 @@ function nimblepress_customizer_styles()
 			}
 
 			#main-content {
-				max-width : <?php echo esc_html( get_theme_mod('np_np_site_width', '1200') ); ?>px;
 				<?php if ( esc_html( get_theme_mod('np_body_background_color', '') ) != '' ): ?>
 					background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				<?php endif ?>
+			}
+
+			.nimblepress-normal-width-content {
+				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
 			}
 
 			.site-header-wrapper {
@@ -1092,6 +1108,19 @@ function nimblepress_theme_menu() {
 }
 
 add_action('admin_menu', 'nimblepress_theme_menu');
+
+function nimblepress_make_page_width() {
+
+	global $post;
+
+	if ( isset($post) AND nimblepress_get_post_meta_value( $post, 'page_width' ) == 'full' ) {
+		echo 'nimblepress-full-width-content'; 
+	} 
+	else { 
+		echo 'nimblepress-normal-width-content'; 
+	}
+
+}
 
 
 

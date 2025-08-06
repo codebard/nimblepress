@@ -29,7 +29,6 @@ if ( isset( $post ) AND $post AND isset( $post->ID ) ) {
 ?>
 
 	<main id="primary" class="site-main">
-
 		<?php
 		while ( have_posts() ):
 
