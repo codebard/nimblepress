@@ -926,6 +926,8 @@ body {
 	gap: 1em;
 	padding-top: 40px;
 	padding-bottom: 40px;
+	padding-right: 10px;
+	padding-left: 10px;
 	justify-content: center;
 }
 
@@ -1121,12 +1123,12 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 .site-header-wrapper {
 	display: flex;
 	width: 100%;
+	padding-right: 10px;
+	padding-left: 10px;
 	max-width : 1200px;
 	justify-content: space-between;
 	align-items: center;
 	gap: 1em;
-	padding-left: 15px;
-	padding-right: 15px;
 }
 
 .site-branding {
@@ -1343,8 +1345,8 @@ button:hover, .read-more:hover, html input[type="button"]:hover, input[type="res
 	max-width: 1200px;
 	width: 100%;
 	gap: 1em;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .footer-widgets {
