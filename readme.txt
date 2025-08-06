@@ -7,7 +7,7 @@ Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-backgr
 Requires at least: 4.5
 Tested up to: 6.8.2
 Requires PHP: 7.4
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 
 NimblePress is a fast, lightweight, mobile-first, desktop compatible, modern, easy to use theme that gets 100 page speed score out of the box.
 
@@ -60,6 +60,10 @@ License URL: https://github.com/WordPress/dashicons/blob/master/LICENSE
 Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 == Changelog ==
+
+= 1.1.6 =
+
+* Quick fix to prevent <main> element from arbitrarily overflowing the site width
 
 = 1.1.5 =
 
