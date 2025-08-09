@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.1.6' );
+	define( 'NIMBLEPRESS_VERSION', '1.1.7' );
 }
 
 /**
@@ -887,6 +887,7 @@ function nimblepress_customizer_styles()
 
 			.nimblepress-normal-width-content {
 				max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
+				width: 100%;
 			}
 
 			.site-header-wrapper {
