@@ -1114,7 +1114,7 @@ function nimblepress_make_page_width() {
 
 	global $post;
 
-	if ( isset($post) AND nimblepress_get_post_meta_value( $post, 'page_width' ) == 'full' ) {
+	if ( is_single() AND isset($post) AND nimblepress_get_post_meta_value( $post, 'page_width' ) == 'full' ) {
 		echo 'nimblepress-full-width-content'; 
 	} 
 	else { 
