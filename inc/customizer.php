@@ -54,7 +54,7 @@ class SampleAddonCustomizer {
 	 
 	 <div class="nimblepress_introduction" style="font-style: normal !important;">
 
-	Consider upgrading to NimblePress premium to power up your theme! With premium, you can:
+	Upgrade to <a href="https://codebard.com/nimblepress-premium?utm_source=' . urlencode( site_url()) . '&utm_medium=nimblepress_free&utm_campaign=&utm_content=nimblepress_customizer_notice_link&utm_term=" target="_blank">NimblePress Premium</a> to power up your theme! With premium, you can:
 <br clear="both" />
 <br clear="both" />
 	<ul>

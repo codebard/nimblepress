@@ -15,7 +15,7 @@
 
 <div class="nimblepress_introduction">
 
-Consider upgrading to NimblePress premium to power up your theme! With premium, you can:
+Upgrade to <a href="https://codebard.com/nimblepress-premium?utm_source=' . urlencode( site_url()) . '&utm_medium=nimblepress_free&utm_campaign=&utm_content=nimblepress_customizer_notice_link&utm_term=" target="_blank">NimblePress Premium</a> to power up your theme! With premium, you can:
 
 <ul>
 	<li>Show ads in your header, sidebar, footer</li>
