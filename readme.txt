@@ -64,6 +64,7 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 * Fixed main content area not using 100% of the available space
 * Fixed the the bug that caused post listing and post content + meta + comments to show garbled - now correctly shows in order
+* Added conditional to distinguish page/post full width settings and blog listing main page full width setting
 
 = 1.1.6 =
 

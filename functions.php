@@ -1090,7 +1090,8 @@ function nimblepress_do_options_page_grid() {
 	
 	echo nimblepress_options_page_grid_item('Read the quickstart guide <a href="https://codebard.com/nimblepress-manual/quickstart" target="_blank">here</a>');
 	echo nimblepress_options_page_grid_item('Bookmark the manual <a href="https://codebard.com/nimblepress-manual/category/manual" target="_blank">here</a>');
-	echo nimblepress_options_page_grid_item('Get support <a href="https://forum.codebard.com/c/questions-support/nimblepress/15" target="_blank">here</a>');
+	echo nimblepress_options_page_grid_item('Get support <a href="https://codebard.com/support" target="_blank">here</a>');
+	echo nimblepress_options_page_grid_item('Join the <a href="https://mailchi.mp/3a8cc4652b88/zkoh891xfz" target="_blank">mailing list here</a> to hear about updates & changes');
 
 }
 

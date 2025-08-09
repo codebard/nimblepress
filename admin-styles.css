@@ -44,8 +44,8 @@
 	padding-bottom: 25px;
 	min-width: 300px;
 	max-width: 350px;
-	text-wrap: wrap;
 	word-break: normal;
+	line-height: normal;
 }
 
 .nimblepress_admin_grid_item_text {
