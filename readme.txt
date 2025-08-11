@@ -60,6 +60,10 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 == Changelog ==
 
+= 1.1.8 =
+
+* Updated description in style.css for WP repo
+
 = 1.1.7 =
 
 * Fixed main content area not using 100% of the available space
