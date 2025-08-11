@@ -6,7 +6,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, e-commerce, entertainment, two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-logo, custom-menu, threaded-comments, featured-image-header, featured-images, flexible-header, footer-widgets, style-variations, translation-ready
 Requires at least: 4.5
 Tested up to: 6.8.2
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 
 NimblePress is a fast, lightweight, mobile-first, desktop compatible, modern, easy to use theme that gets 100 page speed score out of the box.
 
@@ -59,6 +59,10 @@ License URL: https://github.com/WordPress/dashicons/blob/master/LICENSE
 Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 == Changelog ==
+
+= 1.1.9 =
+
+* Addressed a freak line break
 
 = 1.1.8 =
 
