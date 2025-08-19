@@ -60,6 +60,10 @@ Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 == Changelog ==
 
+= 1.2.0 =
+
+* Minor fix for default site title size
+
 = 1.1.9 =
 
 * Addressed a freak line break
