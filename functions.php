@@ -939,7 +939,7 @@ function nimblepress_customizer_styles()
 			}
 
 			.site-title {
-				font-size: <?php echo esc_html( get_theme_mod('site_title_size', '42') ); ?>px;
+				font-size: <?php echo esc_html( get_theme_mod('site_title_size', '28') ); ?>px;
 				
 			}
 
