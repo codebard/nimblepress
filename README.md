@@ -2,7 +2,7 @@
 
 **Contributors:** Codebard  
 **Requires at least:** 4.5
-**Tested up to:** WordPress 6.4 
+**Tested up to:** WordPress 6.9 
 **Requires PHP:** 7.4
 
 **License:** GNU General Public License v2 or later  
