@@ -2,7 +2,7 @@
 
 **Contributors:** Codebard  
 **Requires at least:** 4.5
-**Tested up to:** WordPress 6.9 
+**Tested up to:** WordPress 7.0 
 **Requires PHP:** 7.4
 
 **License:** GNU General Public License v2 or later  
@@ -58,6 +58,55 @@ Image for arrow down icon from Dashicons, Credit WordPress
 Source: https://icon-sets.iconify.design/dashicons/arrow-down-alt2/
 
 ## Changelog
+
+### 1.2.2
+
+Added page width option in post/page metabox. Now pages/posts can be set to full width or contained. This allows using full width hero sections with the theme.
+
+### 1.2.1
+
+Fixed text logo and site tagline not wrapping in mobile widths
+
+### 1.2.0
+
+Minor fix for default site title size
+
+### 1.1.9
+
+Addressed a freak line break
+
+### 1.1.8
+
+Updated description in style.css for WP repo
+
+### 1.1.7
+
+Fixed main content area not using 100% of the available space
+Fixed the the bug that caused post listing and post content + meta + comments to show garbled - now correctly shows in order
+Added conditional to distinguish page/post full width settings and blog listing main page full width setting
+
+### 1.1.6
+
+Quick fix to prevent <main> element from arbitrarily overflowing the site width
+
+### 1.1.5
+
+Added page width option to set pages to Full width or contained
+Now supports full width blocks
+Now handles site width correctly
+Footer widgets now adjust themselves to same height
+Footer widgets now accommodate smaller screens
+Minor corrections
+
+### 1.1.4
+
+Corrected site background color and content body background color customizations - now both work correctly
+Added detailed explanation to site background color
+Addressed a potential PHP warning
+
+### 1.1.3
+
+Added missing body/content font color. Now the color of main font used in the site can be changed
 
 ### 1.1.2
 
