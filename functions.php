@@ -9,7 +9,7 @@
 
 if ( ! defined( 'NIMBLEPRESS_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NIMBLEPRESS_VERSION', '1.2.0' );
+	define( 'NIMBLEPRESS_VERSION', '1.2.2' );
 }
 
 /**
@@ -770,6 +770,7 @@ function nimblepress_customizer_styles()
 			}
 			
 			.site-main {
+				<?php echo np_get_page_width(); ?>
 				font-size: <?php echo esc_html( get_theme_mod('np_body_font_size', '20') ); ?>px;
 			}
 
@@ -880,6 +881,7 @@ function nimblepress_customizer_styles()
 			}
 
 			#main-content {
+				<?php echo np_get_page_width(); ?>
 				<?php if ( esc_html( get_theme_mod('np_body_background_color', '') ) != '' ): ?>
 					background-color: <?php echo esc_html( get_theme_mod('np_body_background_color', '') ); ?>;
 				<?php endif ?>
@@ -1153,3 +1155,41 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+function np_get_page_width() {
+
+	global $post;
+
+	if ( isset( $post ) AND isset( $post->ID ) ) {
+
+	
+		$post_meta = get_post_meta( $post->ID, 'nimblepress_post_meta', true );
+
+		if  ( $post_meta AND $post_meta != '' ) {
+			$post_meta = json_decode( $post_meta, true );
+		}
+			
+		if ( !( is_array( $post_meta ) AND count( $post_meta ) > 0 ) ) {
+			$post_meta = $default_post_meta;
+		}
+
+		if ( $post_meta['page_width'] == 'full' ) {
+			?>
+				max-width : 100%;
+				width : 100% !important;
+				justify-content: center;
+				align-content: flex-start;
+				margin-left: 0px;
+				padding-left: 0px;				
+
+			<?php
+			
+			return;
+		}
+
+	}
+?>
+	max-width : <?php echo esc_html( get_theme_mod('np_site_width', '1200') ); ?>px;
+
+<?php
+}
